@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<article>
+
+{% for event in events %}
+<div class="event">
+    <h3>{{event.name}}</h3>
+    <img src={{event.image}}>
+    <p>{{event.description|u.truncate(30, '...', false)}}</p>
+    <p>{{event.price}}€</p>
+    <p>{{event.date|date}}</p>
+    <p>Créé {{event.createdAt|ago}}</p>
+    <a href="{{path( 'app_event_showDetail', {id:event.id})}}">Détail</a>
+</div>
+    
+{% endfor %}
+</article>
+{% endblock %}

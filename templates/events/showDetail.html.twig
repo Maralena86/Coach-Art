@@ -1,0 +1,12 @@
+{% extends "/base.html.twig" %}
+{% block body %}
+<div class="event">
+    <h3>{{event.name}}</h3>
+    <img src={{event.image}}>
+    <p>{{event.description}}</p>
+    <p>{{event.price}}€</p>
+    
+    <a href="{{path('app_event_update', {id:event.id})}}">Modifier</a>
+    <a href="{{path('app_event_delete', {id:event.id})}}">Supprimer</a>
+</div>
+{% endblock %}

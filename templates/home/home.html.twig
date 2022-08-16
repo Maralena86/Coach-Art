@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<div id="imageHome">
+    <h2 class="titleDescription">L’art pour tous. Un endroit pour s’epanouir, pour prendre un moment pour soi...</h2>
+</div>
+<article>
+
+<div class="event">
+{% for event in events %}
+
+<h3>name = {{event.name}}</h3>
+<img src = "{{event.image}}"/>
+<p>description = {{event.description}}</p>
+<p>prix= {{event.price}}</p>
+<a href="{{path( 'app_event_showDetail', {id:event.id})}}">Détail</a>
+
+
+    
+{% endfor %}
+</div>
+</article>
+{% endblock %}
