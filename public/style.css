@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+nav a{
+    text-decoration: none;
+    color: white;
+}
+a{
+    text-decoration: none;
+}
 nav{
     display: flex;
     justify-content: space-around;
@@ -10,15 +17,30 @@ nav{
     align-items: center;
     height: 80px;
 }
-a{
-    text-decoration: none;
-    color: white;
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.flex-around{
+    display: flex;
+    justify-content: space-around;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    text-align: center;
+    margin: 30px;
+    color: #50164A;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 #imageHome{
+
     background-image: url('https://images.pexels.com/photos/5566941/pexels-photo-5566941.jpeg?auto=compress&cs=tinysrgb&w=1600');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 800px;
+    height: 100vh;
     background-color: rgb(153, 75, 51);
     color: white;
     display: flex;
@@ -26,67 +48,190 @@ a{
     justify-content: flex-end;
 }
 .titleDescription{
+    font-size: 2.5rem;
     color: white;
     text-align: end;
-    margin: 70px 30px;
-    font-family: sans-serif;
+    margin: 280px 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 40%;
 }
-.event{
-    box-shadow: 2px 2px 3px black;
+/*-----info----------*/
+
+
+.info-container p{
+    font-size: 55px; 
+    font-weight: lighter;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;   
+}
+.info-container img{
+    margin: 100px 0px;
+    height: 600px;
+}
+
+/*--------------product-card---*/
+.product-card{
     border-radius: 10px;
     width: 350px;
-    padding: 10px;
+    padding: 10px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgba(235, 232, 232, 0.5);
+    margin-bottom: 30px;
+    
 }
-.event >img{
-    width: 310px;
-    height: 170px;
+.product-card p{
+    margin-bottom: 0px;
+    font-size: 14px;
 }
-#event{
+.product-card h4{
+  font-size: 20px;
+  font-weight: bold;
+}
+.product-card a{
+    text-decoration: none;
+    color: black;
+}
+.product-card a:hover{
+    opacity: 0.7;
+    color: black;
   
+}
+.btn-color1{
+    background-color: #50164A;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    align-self: flex-end;
+    
+}
+.btn-color1 a{
+    color: white;
+    
+}
+
+.product-card img{
+    width: 99%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+    margin-bottom: 10px;
+    
+}
+.product-info{
     display: flex;
-    width: 700px;
+    justify-content: space-between;
+}
+.product-info2{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+}
+/*---------------Détail---------------*/
+.product-detail{
+    background-color: #F8F7F7;
+    width: 80%;
+    padding: 70px;
+    margin: 50px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+}
+#map{
+    width: 200px;
+    height: 100px;
+    background-color: rgb(199, 199, 199);
+}
+
+
+/*-------Formulaire evenement-----*/
+#event{
+    width: 100%;
+    display: flex;
     flex-direction: column;
     
 }
-.event-container{
-   
+#event > div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:  30px;
 }
 
-#event div{
-    margin:  10px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 label{
     font-weight: bold;  
     font-family: sans-serif;
 }
-textarea, label, input{
-    width: 50%;
-}
-input{  
-   
+
+input{    
     height: 30px;
 }
-article{
-    display: flex;
-    justify-content: space-around;
+.product-container{
+    width: 85%;
+    flex-wrap: wrap;
     padding: 30px;
 }
-form{   
-    border: 1px solid gray;
+form{     
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
-.form-container{
-    display: flex;
-    justify-content: center;
-}
+
+
 button{
     padding: 5px 10px;
     background-color: rgb(13, 3, 20);
     color: white;
 }
+/*--------vich image-------*/
 
+.vich-image{
+    display: flex;
+    flex-direction: column;
+}
+.vich-image img{
+    width: 100px;
+    height: 100px;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
+  footer{
+    background-color: #F6F2F2;
+  }
+.footer-info{
+    display: flex; 
+    justify-content: space-around;
+}
+#legal{
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-info >div{
+    padding: 40px 0px 60px 0px ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+.footer-info a{
+    font-size: 20px;
+    color: rgb(185, 181, 181);
+    text-decoration: none;
+}
+.footer-info>p{
+    color: rgb(165, 163, 163);
+    font-size: 12px;
+}
+.footer-title{
+    margin-bottom: 20px;
+}
+  

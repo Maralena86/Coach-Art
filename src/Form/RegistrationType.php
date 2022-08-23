@@ -7,17 +7,36 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('name', TextType::class, [
+                'label' =>false,
+                'attr'=>array(
+                    'placeholder' => 'Prenom'
+                ),               
+                'required' => true
+            ])
+            ->add('lastname', TextType::class, [
+                'label' =>false,
+                'attr'=>array(
+                    'placeholder' => 'Nom'
+                ),               
+                'required' => true
+            ])
             ->add('email', EmailType::class, [
-                'label' =>'Email: ',
+                'label' =>false,
+                'attr' => array(
+                    'placeholder' => 'Email'
+                ),               
                 'required' => true
             ])
             
@@ -25,10 +44,16 @@ class RegistrationType extends AbstractType
                 'type' => PasswordType::class,
                 'required' => true,
                 'first_options' => [
-                    'label' => 'Mot de passe:',
+                    'label' =>false,
+                    'attr' => array(
+                        'placeholder' => 'Votre mot de passe'
+                    ),
                 ],
                 'second_options' => [
-                    'label' => 'Repétez votre mot de passe:'
+                    'label' =>false,
+                    'attr' => array(
+                        'placeholder' => 'Repetez votre mot de passe'
+                    )
                 ]
             ])
             ->add('send', SubmitType::class, [

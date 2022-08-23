@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="flex">
+<div class="product-container flex-around">
+
+
+{% for article in app.user.basket.articles %}
+<div class="product-card ">
+    
+    <img src={{article.event.image ? vich_uploader_asset(article.event) : asset('images/placeholder.jpg')}}>
+    <div class="product-info">
+        <div class="product-info1">
+            <h4>{{article.event.name|u.truncate(20, '...', false)}}</h4>
+            <p>{{article.event.date|date}}</p>
+            <p>{{article.event.description|u.truncate(30, '...', false)}}</p>
+            <p> Paris 15</p>
+        </div>
+        <div class="product-info2">
+            <p>{{article.getPriceQuantity}}€</p>     
+            <p>Créé {{article.event.createdAt|ago}}</p>
+        </div>
+        <a href="{{path('app_basket_decrease', {id:article.id})}}">-</a>
+        <p>{{article.quantity}}</p><a href="{{path('app_basket_increase', {id:article.id})}}">+</a>
+    </div>
+    <div>
+        
+    </div>
+    <a href="{{path( 'app_event_showDetail', {id:article.event.id})}}">Détail</a>
+</div>
+    
+{% endfor %}
+<p><strong>Total: </strong>{{app.user.basket.getTotalPrice}}</p>
+</div>
+</div>
+<form action="/checkout" method="POST">
+      <button type="submit">Valider</button>
+    </form>
+
+
+{% endblock %}

@@ -4,20 +4,39 @@
 <div id="imageHome">
     <h2 class="titleDescription">L’art pour tous. Un endroit pour s’epanouir, pour prendre un moment pour soi...</h2>
 </div>
-<article>
-
-<div class="event">
-{% for event in events %}
-
-<h3>name = {{event.name}}</h3>
-<img src = "{{event.image}}"/>
-<p>description = {{event.description}}</p>
-<p>prix= {{event.price}}</p>
-<a href="{{path( 'app_event_showDetail', {id:event.id})}}">Détail</a>
-
-
-    
-{% endfor %}
+<div class="info-container row ">
+    <div class="col-6 d-flex justify-content-center">
+        <p class="col-9 align-self-center">Des activités pour se retrouver, pour partager et découvrir....</p>
+    </div>
+    <div class="col-6 d-flex justify-content-center">
+        <img id="image-home-description" class="col-10" src = "https://images.pexels.com/photos/10923350/pexels-photo-10923350.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+    </div>
 </div>
-</article>
+
+<div>
+    <h2>Les evénements</h2>
+    <div class="flex">
+        <div class="product-container flex-around">
+            {% for event in events %}
+            <div class="product-card ">
+                
+                <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}>
+                <div class="product-info">
+                    <div class="product-info1">
+                        <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
+                        <p>{{event.date|date}}</p>
+                        <p>{{event.description|u.truncate(30, '...', false)}}</p>
+                        <p> Paris 15</p>
+                    </div>
+                    <div class="product-info2">
+                        <p>{{event.price}}€</p>     
+                        <p>Créé {{event.createdAt|ago}}</p>
+                    </div>
+                </div>
+                <a href="{{path( 'app_event_showDetail', {id:event.id})}}">Détail</a>
+            </div>   
+        {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

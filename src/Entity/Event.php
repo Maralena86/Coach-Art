@@ -2,14 +2,29 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\EnumVisibilityType;
 use App\Repository\EventRepository;
+use App\DoctrineType\MessageTypeEnum;
+use App\DoctrineType\OptionTypeEnum;
 use Gedmo\Mapping\Annotation\Timestampable;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+/**
+ * @ORM\Entity
+ * @Vich\Uploadable
+ */
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 class Event
 {
+    const OPTIONS_PRESENTIAL = "presential";
+    const OPTIONS_REMOTE = "remote";
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -18,7 +33,7 @@ class Event
     #[ORM\Column(length: 255)]
     private $name;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
     #[ORM\Column]
@@ -37,6 +52,35 @@ class Event
 
     #[ORM\Column(length: 255)]
     private  $image;
+
+   
+    /**
+     * @Vich\UploadableField(mapping="events_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+ 
+
+    #[ORM\Column(length: 255)]
+    private ?string $options = null;
+
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Article::class)]
+    private Collection $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+    
+
+
+
+
+
+
+
 
     public function getId(): ?int
     {
@@ -114,16 +158,78 @@ class Event
 
         return $this;
     }
+    public function setImageFile(File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        
+        if ($imageFile) {
+           
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
 
     public function getImage(): ?string
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
         return $this;
     }
+
+
+
+    public function getOptions(): ?string
+    {
+        return $this->options;
+    }
+
+    public function setOptions(string $options): self
+    {
+        $this->options = $options;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getEvent() === $this) {
+                $article->setEvent(null);
+            }
+        }
+
+        return $this;
+    }
+    
+
+    
 }

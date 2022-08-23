@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h1>Récapitulatif de la commande:</h1>
+{% for article in order.articles %}
+ <p>{{article.event.name}}</p>
+ <p>{{article.event.price}}€</p>
+ <p>{{article.quantity}}</p>
+
+{% endfor %}
+
+{% endblock %}
