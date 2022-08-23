@@ -1,11 +1,26 @@
 {% extends "base.html.twig" %}
 {% block body %}
 <h1>Récapitulatif de la commande:</h1>
-{% for article in order.articles %}
- <p>{{article.event.name}}</p>
- <p>{{article.event.price}}€</p>
- <p>{{article.quantity}}</p>
 
-{% endfor %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Nom de l'evenement</th>
+      <th scope="col">Pric</th>
+      <th scope="col">Quantité</th>
+    </tr>
+  </thead>
+  <tbody>{% for article in order.articles %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{article.event.name}}</td>
+      <td>{{article.event.price}}€</td>
+      <td>{{article.quantity}}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+<p>Total de la commande: {{order.totalPrice}}</p>
 
 {% endblock %}

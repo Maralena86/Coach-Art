@@ -33,6 +33,9 @@ class Order
     #[ORM\OneToMany(mappedBy: 'orderUser', targetEntity: Article::class)]
     private Collection $articles;
 
+    #[ORM\Column]
+    private ?float $totalPrice = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -105,6 +108,18 @@ class Order
                 $article->setOrderUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
 
         return $this;
     }

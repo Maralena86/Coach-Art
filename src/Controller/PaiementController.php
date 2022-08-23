@@ -7,14 +7,10 @@ namespace App\Controller;
 
 use Stripe\Stripe;
 use App\Entity\Order;
-use App\Entity\Basket;
 use Stripe\Checkout\Session;
 use App\Repository\OrderRepository;
-use App\Repository\BasketRepository;
-use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PaiementController extends AbstractController
@@ -57,24 +53,26 @@ class PaiementController extends AbstractController
       $user =$this->getUser();
     
       $basket = $user->getBasket();
-      
+
       $order = new Order();
       $order->setUser($user);
+   
+      $order->setTotalPrice($user->getBasket()->getTotalPrice());
       foreach ($user->getBasket()->getArticles() as $article) {
           $order->addArticle($article);
           $basket->removeArticle($article);
-      }
-      $repository->add($order, true);
- 
- 
+      }  
 
+      $repository->add($order, true);
+      foreach ($user->getBasket()->getArticles() as $article) {
+        
+        $basket->removeArticle($article);
+    }
       return $this->render('payment/success.html.twig', [
         'order' => $order,
       ]);
 
     }
-
-
 
     #[Route('/cancel', 'cancel_url')]
     public function cancel():Response

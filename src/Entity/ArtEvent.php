@@ -2,16 +2,14 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Article;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\EnumVisibilityType;
-use App\Repository\EventRepository;
-use App\DoctrineType\MessageTypeEnum;
-use App\DoctrineType\OptionTypeEnum;
+use App\Repository\ArtEventRepository;
+use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation\Timestampable;
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -19,48 +17,46 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @Vich\Uploadable
  */
 
-#[ORM\Entity(repositoryClass: EventRepository::class)]
-class Event
+#[ORM\Entity(repositoryClass: ArtEventRepository::class)]
+class ArtEvent
 {
     const OPTIONS_PRESENTIAL = "presential";
     const OPTIONS_REMOTE = "remote";
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+    #[ORM\Column]
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private $name;
+    private ?string $name = null;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $description;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
 
     #[ORM\Column]
-    private $price;
+    private ?float $price = null;
 
-    #[ORM\Column(type: 'datetime')]
-    private $date;
-
-    #[Timestampable(on:'create')]
-    #[ORM\Column(type: 'datetime')]
-    private  $createdAt ;
-
-    #[Timestampable(on: 'update')]
-    #[ORM\Column(type: 'datetime')]
-    private  $updatedAt ;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
-    private  $image;
+    private ?string $image = null;
 
-   
-    /**
+     /**
      * @Vich\UploadableField(mapping="events_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
+    
 
- 
+    #[Timestampable(on:'create')]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[Timestampable(on:'update')]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $options = null;
@@ -72,15 +68,6 @@ class Event
     {
         $this->articles = new ArrayCollection();
     }
-
-    
-
-
-
-
-
-
-
 
     public function getId(): ?int
     {
@@ -135,6 +122,18 @@ class Event
         return $this;
     }
 
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -152,41 +151,12 @@ class Event
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
-    public function setImageFile(File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
-
-        
-        if ($imageFile) {
-           
-            $this->updatedAt = new \DateTime('now');
-        }
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-
 
     public function getOptions(): ?string
     {
@@ -229,7 +199,20 @@ class Event
 
         return $this;
     }
-    
+    public function setImageFile(File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
 
+        
+        if ($imageFile) {
+           
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
     
 }

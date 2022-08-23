@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\ArtEvent;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
@@ -23,7 +24,7 @@ class Article
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Event $event = null;
+    private ?ArtEvent $event = null;
 
     #[Timestampable(on:'create')]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -65,12 +66,12 @@ class Article
         return $this;
     }
 
-    public function getEvent(): ?Event
+    public function getEvent(): ?ArtEvent
     {
         return $this->event;
     }
 
-    public function setEvent(?Event $event): self
+    public function setEvent(?ArtEvent $event): self
     {
         $this->event = $event;
 
