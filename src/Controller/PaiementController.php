@@ -10,7 +10,6 @@ use App\Entity\Order;
 use Stripe\Checkout\Session;
 use App\Repository\UserRepository;
 use App\Repository\OrderRepository;
-use App\Repository\ArtEventRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
