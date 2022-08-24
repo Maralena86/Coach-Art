@@ -51,10 +51,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
     private Collection $orders;
 
+    #[ORM\ManyToMany(targetEntity: ArtEvent::class, mappedBy: 'users')]
+    private Collection $artEvents;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Proposition::class)]
+    private Collection $propositions;
+
     public function __construct()
     {
         $this->setBasket(new Basket());
         $this->orders = new ArrayCollection();
+        $this->artEvents = new ArrayCollection();
+        $this->propositions = new ArrayCollection();
     }
 
 
@@ -229,6 +237,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($order->getUser() === $this) {
                 $order->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ArtEvent>
+     */
+    public function getArtEvents(): Collection
+    {
+        return $this->artEvents;
+    }
+
+    public function addArtEvent(ArtEvent $artEvent): self
+    {
+        if (!$this->artEvents->contains($artEvent)) {
+            $this->artEvents->add($artEvent);
+            $artEvent->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtEvent(ArtEvent $artEvent): self
+    {
+        if ($this->artEvents->removeElement($artEvent)) {
+            $artEvent->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Proposition>
+     */
+    public function getPropositions(): Collection
+    {
+        return $this->propositions;
+    }
+
+    public function addProposition(Proposition $proposition): self
+    {
+        if (!$this->propositions->contains($proposition)) {
+            $this->propositions->add($proposition);
+            $proposition->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProposition(Proposition $proposition): self
+    {
+        if ($this->propositions->removeElement($proposition)) {
+            // set the owning side to null (unless already changed)
+            if ($proposition->getUser() === $this) {
+                $proposition->setUser(null);
             }
         }
 

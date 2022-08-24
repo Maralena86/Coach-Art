@@ -22,7 +22,7 @@ class Article
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\ManyToOne(inversedBy: 'articles', cascade:["persist"])]
     #[ORM\JoinColumn(nullable: false)]
     private ?ArtEvent $event = null;
 
@@ -34,7 +34,7 @@ class Article
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $updatedAt = null;
     
-    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'articles')]
+    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'articles',cascade:["persist"])]
     private ?Order $orderUser = null;
 
     public function getId(): ?int

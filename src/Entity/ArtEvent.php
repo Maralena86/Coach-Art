@@ -60,13 +60,21 @@ class ArtEvent
 
     #[ORM\Column(length: 255)]
     private ?string $options = null;
+    
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Article::class)]
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Article::class, cascade:["persist"])]
     private Collection $articles;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $capacity = null;
+
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'artEvents')]
+    private Collection $users;
 
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -213,6 +221,41 @@ class ArtEvent
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(?int $capacity): self
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+        }
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        $this->users->removeElement($user);
+
+        return $this;
     }
     
 }

@@ -28,7 +28,7 @@ class Proposition
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
@@ -55,6 +55,12 @@ class Proposition
 
     #[ORM\Column(length: 255)]
     private ?string $options = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $capacity = null;
+
+    #[ORM\ManyToOne(inversedBy: 'propositions')]
+    private ?User $user = null;
 
 
     public function getId(): ?int
@@ -168,6 +174,30 @@ class Proposition
     public function setOptions(string $options): self
     {
         $this->options = $options;
+
+        return $this;
+    }
+
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(int $capacity): self
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

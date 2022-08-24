@@ -8,7 +8,9 @@ namespace App\Controller;
 use Stripe\Stripe;
 use App\Entity\Order;
 use Stripe\Checkout\Session;
+use App\Repository\UserRepository;
 use App\Repository\OrderRepository;
+use App\Repository\ArtEventRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,7 +48,7 @@ class PaiementController extends AbstractController
     }
 
     #[Route('/success', 'success_url')]
-    public function success(OrderRepository $repository):Response
+    public function success(OrderRepository $repository, UserRepository $userRepository):Response
     {
       /** @var User $user */
 
@@ -56,18 +58,23 @@ class PaiementController extends AbstractController
 
       $order = new Order();
       $order->setUser($user);
-   
+      
+    
       $order->setTotalPrice($user->getBasket()->getTotalPrice());
+
+      
+       
       foreach ($user->getBasket()->getArticles() as $article) {
           $order->addArticle($article);
-          $basket->removeArticle($article);
-      }  
-
-      $repository->add($order, true);
-      foreach ($user->getBasket()->getArticles() as $article) {
+          $user->addArtEvent($article->getEvent());
         
-        $basket->removeArticle($article);
-    }
+          $basket->removeArticle($article);
+          
+      }  
+      
+      $userRepository->add($user, true);
+      $repository->add($order, true);
+      
       return $this->render('payment/success.html.twig', [
         'order' => $order,
       ]);
