@@ -28,6 +28,14 @@ class ArtEventType extends AbstractType
             'label'=>"Description ",
             'required'=>true
         ])
+        ->add('status', ChoiceType::class, [
+            'label'=>"Status ",
+            'choices' =>[
+                'Approuved'=>'Approved',
+                'Not Approuved'=>'Not approved'
+            ],
+            'required'=>true
+        ])
         ->add('price', NumberType::class, [
             'label'=>"Prix",
             'required'=>true
@@ -55,8 +63,7 @@ class ArtEventType extends AbstractType
         ->add('submit', SubmitType::class, [
             'label'=>'Envoyer',
         ])
-        ;
-        
+        ;     
     }
 
     public function configureOptions(OptionsResolver $resolver): void

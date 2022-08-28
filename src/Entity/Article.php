@@ -34,7 +34,7 @@ class Article
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $updatedAt = null;
     
-    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'articles',cascade:["persist"])]
+    #[ORM\ManyToOne(targetEntity: Order::class, inversedBy: 'articles', cascade:["persist"])]
     private ?Order $orderUser = null;
 
     public function getId(): ?int

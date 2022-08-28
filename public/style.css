@@ -2,17 +2,48 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+:root
+{
+    --primary-color:#420c3e;
+}
+
+button{
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-color1{
+    background-color: var(--primary-color);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;   
+}
+button a{
+    color: white;
+    text-decoration: none;
+  
+}
+
+
+#logo{
+    font-family: fantasy;
+    font-size: 30px;   
+}
 nav a{
     text-decoration: none;
     color: white;
 }
 a{
     text-decoration: none;
+    font-size: 18px;
 }
 nav{
     display: flex;
     justify-content: space-around;
-    background-color: #50164A;
+    background-color: var(--primary-color);
     color: white;
     align-items: center;
     height: 80px;
@@ -32,7 +63,7 @@ nav{
 h2{
     text-align: center;
     margin: 30px;
-    color: #50164A;
+    color: var(--primary-color);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 #imageHome{
@@ -69,12 +100,19 @@ h2{
     height: 600px;
 }
 
-/*--------------product-card---*/
+/*--------------product-container---*/
+.product-container{
+    width: 85%;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+}
+/*--------------product-card---------*/
 .product-card{
     border-radius: 10px;
-    width: 350px;
-    padding: 10px; 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 400px;
+    padding: 18px; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgba(235, 232, 232, 0.5);
     margin-bottom: 30px;
     
@@ -91,31 +129,19 @@ h2{
     text-decoration: none;
     color: black;
 }
-.product-card a:hover{
+
+.product-card:hover{
     opacity: 0.7;
     color: black;
-  
-}
-.btn-color1{
-    background-color: #50164A;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    align-self: flex-end;
-    
-}
-.btn-color1 a{
-    color: white;
     
 }
 
 .product-card img{
     width: 99%;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
     box-shadow: 3px 3px 3px gray;
-    margin-bottom: 10px;
-    
+    margin-bottom: 10px;   
 }
 .product-info{
     display: flex;
@@ -128,6 +154,7 @@ h2{
     flex-direction: column;
     width: 20%;
 }
+
 /*---------------Détail---------------*/
 .product-detail{
     background-color: #F8F7F7;
@@ -145,6 +172,62 @@ h2{
     background-color: rgb(199, 199, 199);
 }
 
+/*----------Profil----------------------*/
+
+.profil-img-behind{
+    background-image: url("./uploads/profil-behin2.jpg");
+    color: white;
+    position: absolute;
+    height: 460px;
+    width: 100%; 
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+    box-shadow: 3px 3px 3px black;
+}
+.profil-description>h1{
+    margin-right: auto;
+    text-align: center;
+    margin-left: auto;  
+    border-bottom: 2px solid white;
+    width: 40%;
+    font-size: 26px;
+    padding-bottom: 15px;
+    margin-bottom: 100px;
+}
+.image-profil{
+    width: 200px;
+    height: 200px;
+    object-position: center;
+    margin-bottom: 100px;
+    margin-right:100px ;
+}
+#profil-img-behind>div{
+    gap: 200px;
+    align-items: center;
+}
+#profil-img-behind>div>p{
+    font-size: 35px;
+}
+.profil-description{
+   display: flex;
+   flex-direction: column;
+    width: 57%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;  
+}
+.profil-description>h4{
+    width: 60%;
+}
+.profil-about{
+    color: black;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.profil-name{
+    margin-top: 50px;
+    font-size: 30px;
+  
+}
 
 /*-------Formulaire evenement-----*/
 #art_event, #proposition{
@@ -167,11 +250,7 @@ label{
 input{    
     height: 30px;
 }
-.product-container{
-    width: 85%;
-    flex-wrap: wrap;
-    padding: 30px;
-}
+
 form{     
     width: 50%;
     display: flex;
@@ -179,11 +258,7 @@ form{
 }
 
 
-button{
-    padding: 5px 10px;
-    background-color: rgb(13, 3, 20);
-    color: white;
-}
+
 /*--------vich image-------*/
 
 .vich-image{
@@ -216,7 +291,6 @@ button{
 
 .footer-info >div{
     padding: 40px 0px 60px 0px ;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 25px;
     display: flex;
     flex-direction: column;

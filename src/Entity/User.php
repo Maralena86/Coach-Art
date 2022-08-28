@@ -2,13 +2,21 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Gedmo\Mapping\Annotation\Timestampable;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
+/**
+ * @ORM\Entity
+ * @Vich\Uploadable
+ */
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -39,6 +47,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+      /**
+     * @Vich\UploadableField(mapping="events_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
@@ -54,8 +68,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: ArtEvent::class, mappedBy: 'users')]
     private Collection $artEvents;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Proposition::class)]
-    private Collection $propositions;
+    #[Timestampable(on:'create')]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[Timestampable(on:'update')]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    
 
     public function __construct()
     {
@@ -278,25 +299,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->propositions;
     }
 
-    public function addProposition(Proposition $proposition): self
+   
+       
+    public function setImageFile(File $imageFile = null): void
     {
-        if (!$this->propositions->contains($proposition)) {
-            $this->propositions->add($proposition);
-            $proposition->setUser($this);
+        $this->imageFile = $imageFile;
+
+        
+        if ($imageFile) {
+           
+            $this->updatedAt = new \DateTime('now');
         }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function removeProposition(Proposition $proposition): self
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        if ($this->propositions->removeElement($proposition)) {
-            // set the owning side to null (unless already changed)
-            if ($proposition->getUser() === $this) {
-                $proposition->setUser(null);
-            }
-        }
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
+    
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->email,
+            $this->password,
+        ) = unserialize($serialized);
+    }
+
 }

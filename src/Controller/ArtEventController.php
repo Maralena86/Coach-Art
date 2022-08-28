@@ -33,6 +33,7 @@ class ArtEventController extends AbstractController
 
         if( $form->isSubmitted() && $form->isValid()){
             $event = $form ->getData();
+            
             $repository->add($event, true);
             $this->addFlash('success', "L'evenement a été bien crée");
             return $this->redirectToRoute('app_home_display');
@@ -57,6 +58,7 @@ class ArtEventController extends AbstractController
        $form->handleRequest($request);
 
        if($form->isSubmitted() && $form->isValid()){
+            $event = new ArtEvent();
             $event = $form ->getData();
             $repository->add($event, true);
             return $this->redirectToRoute('app_home_display');

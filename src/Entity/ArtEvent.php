@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation\Timestampable;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
+
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -70,6 +71,9 @@ class ArtEvent
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'artEvents')]
     private Collection $users;
+
+    #[ORM\Column(length: 255)]
+    private ?string $status = null;
 
     public function __construct()
     {
@@ -254,6 +258,18 @@ class ArtEvent
     public function removeUser(User $user): self
     {
         $this->users->removeElement($user);
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

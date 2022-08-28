@@ -21,7 +21,7 @@
     <body>
         <header>
             <nav>
-                <a href="{{path('app_home_display')}}">Coach Art</a>               
+                <a id="logo" href="{{path('app_home_display')}}">Coach Art</a>               
                 {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{path('app_event_create')}}">Créer evenemnt</a>
                 {% endif %}
@@ -30,7 +30,8 @@
                 {# <p>Bienvenue {{app.user.email}} </p> #}
                 {% if is_granted('ROLE_USER') %}
                 {# <a href="{{path('app_security_myProfile')}}">Changer le profil</a>       #}
-                <a href="{{path('app_basket_display')}}">Mon panier</a>           
+                <a href="{{path('app_basket_display')}}">Mon panier</a>  
+                <a href="{{path('app_security_showProfil', {id:app.user.id})}}">Profil</a>         
                 {% endif %}              
                 <a href="{{path('app_logout')}}">Se déconnecter</a>
                 {% else %}

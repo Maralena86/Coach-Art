@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<div class="profil-img-behind d-flex justfy-content-center">
+    <div class="profil-description">
+        <h1>MON PROFIL</h1>
+
+        <div class="d-flex">
+            <img class="image-profil" src="{{app.user.image ? vich_uploader_asset(app.user) : asset('images/placeholder.jpg')}}"/>
+            <p class="profil-name">{{app.user.name}} {{app.user.lastname}}</p>
+        </div>
+        <h4 class="text-dark mb-5">A propos de moi..</h4>
+
+        <p class="profil-about">{{app.user.description}}</p>
+        <button class="btn-color1"><a href="{{path('app_security_changeProfil')}}">Modifier</a></button>
+    </div>
+</div>
+
+
+{% endblock %}

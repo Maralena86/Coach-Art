@@ -9,9 +9,9 @@
     <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}>
     <div class="product-info">
         <div class="product-info1">
-            <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
+            <h4>{{event.name|u.truncate(5, '...', false)}}</h4>
             <p>{{event.date|date}}</p>
-            <p>{{event.description|u.truncate(30, '...', false)}}</p>
+            <p>{{event.description|u.truncate(20, '...', false)}}</p>
             <p> Paris 15</p>
         </div>
         <div class="product-info2">
@@ -19,7 +19,7 @@
             <p>Créé {{event.createdAt|ago}}</p>
         </div>
     </div>
-    <button class="btn-color1" ><a href="{{path( 'app_basket_add',  {id:event.id})}}">Ajouter au panier</a></button>
+    <button class="btn-color1"><a class="text-light"href="{{path( 'app_basket_add',  {id:event.id})}}">Ajouter au panier</a></button>
     </a>
 </div>
    
