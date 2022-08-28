@@ -1,7 +1,10 @@
 # CoachArt
 
+<<<<<<< HEAD
 # CoachArt
 
+=======
+>>>>>>> c116037d351d2c70622cc9ea05cb0178a77e43c5
 CoachArt est un site internet qui propose des ateliers artistiques et therapeutiques
 
 Projet en symfony
