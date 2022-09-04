@@ -1,31 +1,42 @@
 {% extends "base.html.twig" %}
 {% block body %}
-<div class="flex">
-<div class="product-container flex-around">
 
-{% for event in events %}
-<div class="product-card">
-    <a  href="{{path( 'app_event_showDetail', {id:event.id})}}">
-    <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}>
-    <div class="product-info">
-        <div class="product-info1">
-            <h4>{{event.name|u.truncate(5, '...', false)}}</h4>
-            <p>{{event.date|date}}</p>
-            <p>{{event.description|u.truncate(20, '...', false)}}</p>
-            <p> Paris 15</p>
-        </div>
-        <div class="product-info2">
-            <p>{{event.price}}€</p>     
-            <p>Créé {{event.createdAt|ago}}</p>
+<div class="list-events">
+    <h2>ArtEvents</h2>
+    <p class="text-center">Plein des evenements à Paris</p>
+    <div class="flex">
+        <div class="grid-container ">
+            {% for event in events %}
+            <div class="grid-item">
+                <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
+
+                    <div class="img-container-event">
+                        <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} >
+                        
+                    </div>
+                    <div class="product-info">
+                        <div class="product-info1">
+                            <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
+                            <p>{{event.date|date}}</p>
+                            
+                            <p> <i class="fa-solid fa-location-dot"></i> Paris 15</p>
+                        </div>
+                        <div class="product-info2 flex-around-col">
+                        <p>{{event.price}}€</p>     
+                         <div class="flex-around-col">   
+                            <div class="therapist-image"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"/></div>
+                            <p class="therapist-name">Intervenant</p>
+                            </div>
+                        {# <p>Créé {{event.createdAt|ago}}</p> #}
+                    </div>     
+                    </div>
+                    <button class="btn-color1 mb-3"><a class='btn-a'href="{{path( 'app_basket_add',  {id:event.id})}}">RÉSERVER</a></button>
+                </a>
+            </div>   
+            {% endfor %}
         </div>
     </div>
-    <button class="btn-color1"><a class="text-light"href="{{path( 'app_basket_add',  {id:event.id})}}">Ajouter au panier</a></button>
-    </a>
 </div>
-   
 
-  
-{% endfor %}
-</div>  
-</div>  
+
 {% endblock %}

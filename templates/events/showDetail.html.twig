@@ -2,36 +2,51 @@
 {% block body %}
 <div class="flex">
 <div class="product-detail">
-    <div class="row">
-        <div class ="col-6">
+    <div class="row product-detail_info">
+        <div class ="col-8">
             <h3>{{event.name}}</h3>
-            <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} >
+            <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} height="300" width="400">
             <p>{{event.description}}</p>
-            <p>Intervenant</p>
+            
+            
+            <h3>L'Intervenant</h3>
+            <div class="d-flex">
+            
             {% for user in event.getUsers %}
+            <div>
+            <img src={{user.image ? vich_uploader_asset(user) : asset('images/placeholder.jpg')}} height="150" width="150">
             <p>{{user.name}}</p>
+            </div>
+            <p>{{user.description}}</p>
             {% endfor %}
+            </div>
+            
         </div>
         <div class="col-4">
-        <h4>Adresse</h4>
-        <div id="map"><img src="../uploads/map.png"></div>
-        <p>Paris,11</p>
-        <p>{{event.date|date}}</p>
-        
+            <h3>Adresse</h3>
+            <div id="map">
+                <img src="../uploads/map.png" width"300" height="300">
+            </div>
+            <p>Paris,11</p>
+            <p>{{event.date|date}}</p>
         </div>
     </div>
-    <div>
-        <p>{{event.price}}€</p>
-        {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{path('app_event_update', {id:event.id})}}">Modifier</a>
-        <form method="post" action="{{path('app_event_delete', {id:event.id})}}" style="display:inline-block" onsubmit= "return confirm('Etes vous vraiment sure?')">
-        <input type="hidden" name="method" value="DELETE">
-        <button class="btn btn-danger">Supprimer</button>
-        </form>
-        {% endif %}
-        {# {% if (app.user != USER['ROLE_ADMIN']) %} #}
-        <button class="btn btn-danger"><a href="{{path('app_basket_add', {id:event.id})}}">Acheter</a></button>
-        {# {% endif %} #}
+    <div class="event-action">
+        <div class="d-flex ">
+            <p class="detail-event-price">{{event.price}}€</p>
+            
+            {# {% if (app.user != USER['ROLE_ADMIN']) %} #}
+            <button class="btn-color1"><a class="text-light" href="{{path('app_basket_add', {id:event.id})}}">Réserver</a></button>
+            {# {% endif %} #}
+        </div>
+        <div>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{path('app_event_update', {id:event.id})}}">Modifier</a>
+        
+            <a href="{{path('app_event_delete', {id:event.id})}}">Supprimer</a>
+            {% endif %}
+            
+        </div>
      </div>
 </div>
 </div>

@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -19,21 +18,21 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' =>false,
+                'label' =>'Prénom',
                 'attr'=>array(
                     'placeholder' => 'Prenom'
                 ),               
                 'required' => true
             ])
             ->add('lastname', TextType::class, [
-                'label' =>false,
+                'label' =>'Nom',
                 'attr'=>array(
                     'placeholder' => 'Nom'
                 ),               
                 'required' => true
             ])
             ->add('email', EmailType::class, [
-                'label' =>false,
+                'label' =>'Email',
                 'attr' => array(
                     'placeholder' => 'Email'
                 ),               
@@ -44,13 +43,13 @@ class RegistrationType extends AbstractType
                 'type' => PasswordType::class,
                 'required' => true,
                 'first_options' => [
-                    'label' =>false,
+                    'label' =>'Votre mot de passe',
                     'attr' => array(
                         'placeholder' => 'Votre mot de passe'
                     ),
                 ],
                 'second_options' => [
-                    'label' =>false,
+                    'label' =>'Repetez votre mot de passe',
                     'attr' => array(
                         'placeholder' => 'Repetez votre mot de passe'
                     )

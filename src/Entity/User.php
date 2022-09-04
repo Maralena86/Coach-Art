@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  */
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

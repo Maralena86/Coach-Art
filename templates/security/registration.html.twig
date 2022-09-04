@@ -1,5 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-{{form(form)}}
+<div class="d-flex connexion-container">
+    <div id="img-connexion">
+    </div>
+    <div class="d-flex align-items-center justify-content-center flex-column form-container-connexion">
+        <h3>Inscription</h3>
+        {{form(form)}}
+    </div>
+</div>
 {% endblock %}
