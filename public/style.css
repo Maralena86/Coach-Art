@@ -7,6 +7,9 @@ font-family: 'Nanum Gothic', sans-serif;
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: rgb(248, 247, 245);
+}
 :root
 {
     --primary-color:rgb(73, 12, 68);
@@ -14,7 +17,7 @@ font-family: 'Nanum Gothic', sans-serif;
 .container{
     padding-top: 80px;
 }
-
+/*-----buttons--------*/
 button{
     padding: 5px 10px;
     background-color: var(--primary-color);
@@ -27,6 +30,7 @@ button{
     border-radius: 10px; 
     color: white;  
 }
+
 .btn-color1>a{
     color: white;
 }
@@ -38,10 +42,20 @@ button{
     color: var(--primary-color);
     text-decoration: none;
 }
-
 button a{
     color: white;
     text-decoration: none;
+}
+/*-----------titles----------*/
+h2, h3{
+    color: var(--primary-color);
+}
+h2{
+    text-align: center;
+    margin: 30px;
+}
+h3{
+    margin-bottom: 2rem;
 }
 #registration{
     width: 100%;
@@ -56,7 +70,8 @@ button a{
 #logo{
     font-family: fantasy;
     font-size: 30px;  
-    width: 60%; 
+    margin-left: 50px;
+    display: block;
 }
 nav a{
     text-decoration: none;
@@ -69,15 +84,13 @@ a{
 header{
   justify-content: space-between;
   position: fixed;
-
   z-index: 100;
   width: 100%;
 }
-nav{   
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--primary-color);
+nav{    
+    justify-content: space-between;  
     color: white;
+    background-color: var(--primary-color);
     align-items: center;
     height: 80px;
     width: 100%;
@@ -85,41 +98,24 @@ nav{
 
 .dropdown-menu{
     background-color: #000000;
+
 }
 .show{
   background-color: black;
-  padding: 10px;
 
-  }
-  
-.flex{
-    display: flex;
-    justify-content: center;
 }
-.flex-around{
-    display: flex;
-    justify-content: space-around;
-}
-.flex-col{
-    display: flex;
-    flex-direction: column;
-}
-h2, h3{
-    color: var(--primary-color);
-}
-h2{
-    text-align: center;
-    margin: 30px;
-}
-h3{
-    margin-bottom: 2rem;
+.social-icons{
+    color: white;
+    align-self: flex-end;
+    background-color: black;
+    padding: 5px 10px;
 }
 /*--------------Home-----------------*/
 #imageHome{
     background-image: url('https://images.pexels.com/photos/5566941/pexels-photo-5566941.jpeg?auto=compress&cs=tinysrgb&w=1600');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(153, 75, 51);
     color: white;
     display: flex;
@@ -127,8 +123,6 @@ h3{
     justify-content: flex-end;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: bold;
-   
-    
 }
 .titleDescription{
     font-size: 2.5rem;
@@ -179,26 +173,29 @@ h3{
     width: 100%;
     
 }
-/*---grid-event-container---*/
+/*---events-grid-container---*/
 .list-events{
+    padding: 30px 50px;
+}
+.container-body{
     font-family: 'Nanum Gothic', sans-serif;
-    padding: 80px 40px 50px 40px;
+    padding-top: 80px;
     
 }
 .grid-container{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 50px;
-    padding: 60px 30px; 
+    
 }
 .grid-item{
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden; 
     box-shadow: 5px 3px 10px 0px #DAD4D4;
     border: 1px solid rgb(218, 218, 218);
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center; 
 }
 .grid-item>a{
     width: 100%;
@@ -214,30 +211,24 @@ h3{
 }
 .img-container-event{
     width: 100%;
-    height: 250px;
+    height: 60%;
     background-color: rgb(8, 1, 14);
     display: inline-block;
     overflow: hidden; 
 }
-
 .image-event{
     width: 100%;
-    height:100%;
-      
+    height:100%;     
     transition: 1.3s;
 }
-
 .grid-item h4{
     font-size: 1.2rem;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 10px;
     color: var(--primary-color);
-  
   }
-  .grid-item p{
-      
-      color: black;
+  .grid-item p{  
       font-size: 1rem;
       margin-bottom: 3px;
       color: rgb(92, 88, 88);
@@ -417,7 +408,12 @@ form{
     width: 100px;
     height: 100px;
 }
+.basket-image{
+    height: 50px;
+    width: 80px;
+}
 
+/*----------------------*/
   footer{
     background-color: #eceaea;
   }
@@ -450,29 +446,31 @@ form{
     margin-bottom: 20px;
 }
 
-@media screen and (max-width:  1500px){
+@media screen and (max-width:  1700px){ 
+
+    .info-container p{
+        font-size: 35px;    
+    }
+    .grid-container{
+        padding: 30px 70px;
+        grid-template-columns: repeat(3, minmax(0, 0.4fr));
+    }
+    .img-container-event{
+        height: 180px; 
+    }
+}
+ 
+@media screen and (max-width:  1150px){
     .info-container>div, .carousel-item >img{
-    width: 100%;
+        width: 100%;
         height: 500px;
     }
     .info-container{
       flex-direction: column-reverse; 
     }
-   
-    .info-container p{
-        font-size: 35px; 
-      
+    .list-events{
+        padding: 30px 5px;
     }
-    .grid-container{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .img-container-event{
-        height: 180px; 
-    }
-
-}
- 
-@media screen and (max-width:  1150px){
     .grid-container{
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap:40px
@@ -482,11 +480,16 @@ form{
     }
 } 
 @media screen and (max-width:  700px){
+    .titleDescription{
+        font-weight: 1rem;
+    
+    }
     .grid-item{
         width: 100%;
     }
     .grid-container{
         grid-template-columns: none;
+        padding: 20px;
 
     }
     .img-container-event{       

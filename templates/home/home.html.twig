@@ -55,39 +55,38 @@
 </div>
 
 
-<div class=" list-events">
+<div class="list-events">
 
     <h2>ArtEvents</h2>
     <p class="text-center">Plein des evenements à Paris pour pouvoir profiter d'un moment agrèable</p>
     
-        <div class="grid-container ">
-            {% for event in events %}
-            <div class="grid-item ">
-                <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
-                <div class="img-container-event">
+    <div class="grid-container ">
+        {% for event in events %}
+        <div class="grid-item ">
+            <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
+            <div class="img-container-event">
                 <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} >
-                </div>
-                <div class="product-info">
-                    <div class="product-info1">
-                        <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
-                        <p>{{event.date|date}}</p>
+            </div>
+            <div class="product-info">
+                <div class="product-info1">
+                    <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
+                    <p>{{event.date|date}}</p>
                         
-                        <p> <i class="fa-solid fa-location-dot"></i> Paris 15</p>
-                    </div>
-                    <div class="product-info2 flex-around-col">
-                        <p>{{event.price}}€</p>     
-                         <div class="flex-around-col">   
-                            <div class="therapist-image"><img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"/></div>
-                            <p class="therapist-name">Intervenant</p>
-                            </div>
-                        {# <p>Créé {{event.createdAt|ago}}</p> #}
-                    </div>
+                    <p><i class="fa-solid fa-location-dot"></i> Paris 15</p>
                 </div>
-                </a>
-            </div>   
+                <div class="product-info2 flex-around-col">
+                    <p>{{event.price}}€</p>     
+                        <div class="flex-around-col">   
+                        <div class="therapist-image"<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"/></div>
+                        <p class="therapist-name">Intervenant</p>
+                        </div>
+                        {# <p>Créé {{event.createdAt|ago}}</p> #}
+                </div>
+            </div>
+            </a>
+        </div>   
         {% endfor %}
-        </div>
-   
+    </div>  
 </div>
 {% include "footer.html.twig" %}
 {% endblock %}

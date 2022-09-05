@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Email;
 
 
 use App\Entity\Contact;
@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact')]
+    #[Route('/contact', name: 'app_email_contact')]
     public function index( MailerInterface $mailer, Request $request, ContactRepository $repository): Response
     {
         $contact = new Contact();
@@ -27,8 +27,6 @@ class ContactController extends AbstractController
        
         if($form->isSubmitted() && $form->isValid()){
             
-            
-
             $email = (new TemplatedEmail()) 
                 ->from($contact->get('email')->getData())
                 ->to('you@example.com')
@@ -46,7 +44,7 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_contact');  
 
         }
-        return $this->render('contact/index.html.twig', [
+        return $this->render('emails/contact.html.twig', [
             'form' =>$form->createView()
             
         ]);

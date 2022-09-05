@@ -1,11 +1,40 @@
 {% extends "base.html.twig" %}
 {% block body %}
-<div class="flex">
-<div class="product-container flex-around">
+
+<h3 class="text-center">Mon panier</h3>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ArtEvent</th>
+      <th>Prix</th>
+      <th>Quantité</th>
+    </tr>
+  </thead> 
+  <tbody>{% for article in app.user.basket.articles %}
+    <tr>
+        <td>
+            <img class="basket-image"src={{article.event.image ? vich_uploader_asset(article.event) : asset('images/placeholder.jpg')}} width="100px" height="80px">
+        </td>
+        <td>
+            <div >
+                <p>{{article.event.name|u.truncate(20, '...', false)}}</p>
+                <p>{{article.event.date|date}}</p>
+            </div>
+        </td>
+      <td>{{article.getPriceQuantity}}€</td>
+      <td class="d-flex align-items-center"><a href="{{path('app_basket_decrease', {id:article.id})}}">-</a>
+        <p>{{article.quantity}}</p><a href="{{path('app_basket_increase', {id:article.id})}}">+</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p><strong>Total: </strong>{{app.user.basket.getTotalPrice}}</p>
+</div>
 
 
-{% for article in app.user.basket.articles %}
-<div class="product-card ">
+{# {% for article in app.user.basket.articles %}
+<div class="basket-card ">
     
     <img src={{article.event.image ? vich_uploader_asset(article.event) : asset('images/placeholder.jpg')}}>
     <div class="product-info">
@@ -31,7 +60,7 @@
 {% endfor %}
 <p><strong>Total: </strong>{{app.user.basket.getTotalPrice}}</p>
 </div>
-</div>
+</div> #}
 <form action="/checkout" method="POST">
       <button type="submit">Valider</button>
     </form>
