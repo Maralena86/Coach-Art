@@ -38,8 +38,8 @@ class ArtEvent
     #[ORM\Column]
     private ?float $price = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: 'datetime')]
+    private  $date = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -50,14 +50,14 @@ class ArtEvent
      */
     private $imageFile;
     
+    #[Timestampable(on: 'create')]
+    #[ORM\Column(type: 'datetime')]
+    private $createdAt;
 
-    #[Timestampable(on:'create')]
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    #[Timestampable(on: 'update')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $updatedAt;
 
-    #[Timestampable(on:'update')]
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $options = null;

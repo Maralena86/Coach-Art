@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="flex-center-col">
+    <h2>Liste d'utilisaturs</h2>
+    
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Roles</th>
+      <th scope="col">Date ajout</th>
+    </tr>
+  </thead>
+  <tbody>$
+  {% for user in users %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{user.name}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+        
+  
+</div>
+{% endblock %}

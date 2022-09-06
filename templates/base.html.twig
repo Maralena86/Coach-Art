@@ -36,7 +36,8 @@
                     <li><a class="nav-link text-light" href="{{path('app_email_contact')}}">Nous contacter</a></li>
                     <li class="nav-item">
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a class="nav-link text-light " href="{{path('app_event_create')}}">Créer ArtEvent</a>
+                            <a class="nav-link text-light " href="{{path('admin_event_create')}}">Créer ArtEvent</a>
+                            <a class="nav-link text-light " href="{{path('admin_users')}}">Utilisateurs</a>
                         {% endif %}
                     </li>
                     <li class="nav-item">

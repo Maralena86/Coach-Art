@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Email;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

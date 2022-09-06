@@ -3,22 +3,13 @@
 {% block title %}Contactez nous!{% endblock %}
 
 {% block body %}
+<div class="flex-center-col">
 <h2>Nous contacter</h2>
 <p>Laisses nous un message! On se mettra un contact bientôt</p>
 {% for message in app.flashes('succes') %}
 {{message}}
 {% endfor %}
-    {{form_start(form)}}
-    <div class="">
-        {{form_row(form.name)}}
-    </div>
-    <div>
-        {{form_row(form.email)}}
-    </div>
-    <div>
-        {{form_row(form.message)}}
-    </div>
-   
-    {{form_end(form)}}
-
+    {{form(form)}}
+</div>   
+{% include "footer.html.twig" %}
 {% endblock %}

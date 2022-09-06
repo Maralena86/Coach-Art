@@ -1,36 +1,64 @@
 {% extends "base.html.twig" %}
 {% block body %}
-
-<h3 class="text-center">Mon panier</h3>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>ArtEvent</th>
-      <th>Prix</th>
-      <th>Quantité</th>
-    </tr>
-  </thead> 
-  <tbody>{% for article in app.user.basket.articles %}
-    <tr>
-        <td>
-            <img class="basket-image"src={{article.event.image ? vich_uploader_asset(article.event) : asset('images/placeholder.jpg')}} width="100px" height="80px">
-        </td>
-        <td>
-            <div >
-                <p>{{article.event.name|u.truncate(20, '...', false)}}</p>
-                <p>{{article.event.date|date}}</p>
-            </div>
-        </td>
-      <td>{{article.getPriceQuantity}}€</td>
-      <td class="d-flex align-items-center"><a href="{{path('app_basket_decrease', {id:article.id})}}">-</a>
-        <p>{{article.quantity}}</p><a href="{{path('app_basket_increase', {id:article.id})}}">+</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<p><strong>Total: </strong>{{app.user.basket.getTotalPrice}}</p>
+<div class="flex-center-col">
+<div class="flex-center-col basket-container">
+    <h3 class="text-center p-4">Votre panier</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ArtEvent</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
+        </thead> 
+        <tbody>
+            {% for article in app.user.basket.articles %}
+            <tr>
+                <td>
+                <a class="detail-link" href="{{path( 'app_event_showDetail', {id:article.event.id})}}">
+                    <div class="d-flex" >
+                    <img class="basket-image"src={{article.event.image ? vich_uploader_asset(article.event) : asset('images/placeholder.jpg')}} width="120" height="100"> 
+                    <div class="pl-2">  
+                        <p>{{article.event.name|u.truncate(20, '...', false)}}</p>
+                        <p>{{article.event.date|date}}</p>
+                        </div>
+                    </div>
+                    </a>
+                </td>
+                <td>{{article.event.price}}€</td>
+                <td>
+                    <div class="d-flex basket-quantity">
+                        <div>
+                            <a href="{{path('app_basket_decrease', {id:article.id})}}">-</a>
+                        </div>
+                        
+                        <div>
+                            <p>{{article.quantity}}</p>
+                        </div>
+                        
+                        <div>
+                            <a href="{{path('app_basket_increase', {id:article.id})}}">+</a>
+                        </div>
+                    </div>
+                </td>
+                <td>{{article.getPriceQuantity}}€</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="basket-totalPrice"><strong>Total: </strong>{{app.user.basket.getTotalPrice}}€</p>
+    <div class="d-flex btn-basket">
+    <a class="btn-art btn-color2"href="{{path('app_events_list')}}">Continuer les achats</a>
+    <form action="/checkout" method="POST">
+        <button class="btn-art btn-color1"type="submit">passer la commande</button>
+    </form>
 </div>
+</div>
+</div>
+
+
+{% endblock %}
 
 
 {# {% for article in app.user.basket.articles %}
@@ -61,9 +89,3 @@
 <p><strong>Total: </strong>{{app.user.basket.getTotalPrice}}</p>
 </div>
 </div> #}
-<form action="/checkout" method="POST">
-      <button type="submit">Valider</button>
-    </form>
-
-
-{% endblock %}

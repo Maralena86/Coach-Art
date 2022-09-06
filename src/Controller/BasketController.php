@@ -6,7 +6,6 @@ namespace App\Controller;
 
 
 use App\Entity\User;
-use App\Entity\Event;
 use App\Entity\Article;
 use App\Entity\ArtEvent;
 use App\Repository\BasketRepository;
