@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="d-flex">
+{% include "admin/admin.html.twig" %}
+<div class=" admin-action">
+    <h2>Therapists</h2>
+    <table>
+    <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Télephone</th>
+            </tr>
+        </thead> 
+        <tbody>
+            {% for therapist in therapists %}
+            <tr>
+                <td>{{therapist.name}}</td>
+                <td>{{therapist.lastname}}</td>
+                <td>{{therapist.email}}</td>
+                <td>{{therapist.phone}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</diV>
+
+{% endblock %}

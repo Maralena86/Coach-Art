@@ -19,7 +19,9 @@ class ArtEventController extends AbstractController
 {
     #[Route('/events', 'app_events_list')]
     function listEvents(ArtEventRepository $repo ):Response{
-        $events = $repo->findAll();
+        
+        $events = $repo->findByDateAsc();
+
         return $this->render('events/list.html.twig', ['events'=> $events]);
     }
    

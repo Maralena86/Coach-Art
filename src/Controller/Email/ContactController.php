@@ -32,7 +32,7 @@ class ContactController extends AbstractController
                 ->to('you@example.com')
                 ->subject('Votre commande est en traitement')
                 ->text('Sending emails is fun again!')
-                ->htmlTemplate('mailer/index.html.twig')
+                ->htmlTemplate('emails/mailer/index.html.twig')
                 ->context([
                     'name' =>$contact->get('name')->getData(),
                     
@@ -41,7 +41,7 @@ class ContactController extends AbstractController
             $mailer->send($email);
             // $contact = $form->getData();
             // $repository->add($contact, true);
-            return $this->redirectToRoute('app_contact');  
+            return $this->redirectToRoute('app_email_contact');  
 
         }
         return $this->render('emails/contact.html.twig', [

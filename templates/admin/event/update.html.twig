@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 {% block body %}
-
-<h2>Modifier l'evenement</h2>
-<div class="flex">
-{{form(form)}}
+<div class="d-flex">
+{% include "admin/admin.html.twig" %}
+<div class=" admin-action">
+    <h2>Modifier l'evenement</h2>
+        {{form(form)}}
 </diV
 
 {% endblock %}

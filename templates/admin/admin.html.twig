@@ -1,0 +1,15 @@
+{% if is_granted('ROLE_ADMIN') %}
+<div class="d-flex flex-column admin-nav">
+    <h2>ADMIN</h2>
+    <p class="text-center mb-4">Bienvenue @{{app.user.name}}</p>
+    <div class="admin-links d-flex flex-column">
+        <a class="" href="{{path('admin_users')}}"><i class="fa-solid fa-user"></i>Utilisateurs</a>
+        <a class="" href="{{path('admin_event_create')}}"><i class="fa-solid fa-pen"></i>Créer un ArtEvent</a>
+        <a class="" href="{{path('admin_event_list')}}"><i class="fa-solid fa-calendar"></i>Events</a>
+        <a class="" href="{{path('admin_event_approuved')}}"><i class="fa-solid fa-check"></i></i>Validés</a>
+        <a class="" href="{{path('admin_event_notApprouved')}}"><i class="fa-solid fa-xmark"></i></i>Non Validés</a>
+        <a class="" href="{{path('admin_order_list')}}"><i class="fa-solid fa-basket-shopping"></i>Commandes</a>
+        <a class="" href="{{path('admin_therapist_list')}}"><i class="fa-solid fa-palette"></i>Art-Thérapeutes</a>
+    </div>
+</div>
+{% endif %}

@@ -18,6 +18,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[IsGranted('ROLE_ADMIN')] 
 class AdminEventController extends AbstractController
 { 
+    #[Route('/events', 'event_list')]
+    public function listEvents(ArtEventRepository $repository):Response
+    {
+        return $this->render('admin/event/list.html.twig', [
+            'events'=>$repository->findAll() ]);
+    }
     #[Route('/event/create', 'event_create')]
     public function createEvent(ArtEventRepository $repository, Request $request):Response
     {       
@@ -31,7 +37,7 @@ class AdminEventController extends AbstractController
             
             $repository->add($event, true);
             $this->addFlash('success', "L'evenement a été bien crée");
-            return $this->redirectToRoute('app_events_display');
+            return $this->redirectToRoute('app_events_list');
         }
         return $this->render('admin/event/create.html.twig', [
             'form' =>$form->createView()
@@ -47,18 +53,43 @@ class AdminEventController extends AbstractController
             $event = new ArtEvent();
             $event = $form ->getData();
             $repository->add($event, true);
-            return $this->redirectToRoute('app_home_display');
+            return $this->redirectToRoute('admin_event_list');
         }
         return $this->render('admin/event/update.html.twig', [
             'form'=> $form->createView()
         ]);
     }
+    
     #[Route('/events/delete/{id}', 'event_delete')]
     public function deleteEvent(ArtEvent $event, ArtEventRepository $repository):Response
     {
         $repository->remove($event, true);
         return $this->redirectToRoute('app_events_list');
     }
+    #[Route('/events/approuved', 'event_approuved')]
+    public function listApprouved(ArtEventRepository $repository):Response
+    {
+
+        return $this->render('admin/event/approved.html.twig', [
+            'events'=>$repository->findByStatus('Approved') ]);
+    }
+    #[Route('/events/notApprouved', 'event_notApprouved')]
+    public function listNotApprouved(ArtEventRepository $repository):Response
+    {
+        return $this->render('admin/event/notApproved.html.twig', [
+            'events'=>$repository->findByStatus('Not approved') ]);
+    }
+
+    #[Route('/events/check/{id}', 'event_check')]
+    public function checkEvent(ArtEventRepository $repository, ArtEvent $event)
+    {
+        $event->setStatus('Approved');
+        $repository->add($event, true);
+        return $this->redirectToRoute('admin_event_approuved');
+    }
+    
+
+
     
     
 }

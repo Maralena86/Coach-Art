@@ -1,0 +1,60 @@
+.btn-admin{
+    width: 200px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+.btn-up{
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-del{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+.btn-validate{
+    background-color: rgb(36, 107, 36);
+    color: white;
+    width: 300px;
+}
+
+/*-----------------------------------*/
+
+.admin-nav{
+    width: 220px;
+    background-color: rgb(243, 238, 243);
+    padding: 10px;
+    min-height: 100vh;
+}
+.admin-action{
+    width: 100%;
+    align-items: center;
+}
+.admin-links a{
+    color: var(--primary-color);
+    padding: 10px;
+}
+.admin-links a:hover{
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+.admin-links .fa-solid{
+    margin-right: 5px;
+}
+
+/*-----------Events-List-Admin--------*/
+
+/* .icon-check{
+    background-color: green;
+    color: white;
+    padding: 2px;
+    border-radius: 1px;
+
+}
+.icon-notcheck{
+    background-color: rgb(236, 11, 11);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 1px;
+} */

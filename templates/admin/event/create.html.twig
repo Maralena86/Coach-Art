@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 {% block body %}
-<div class="flex-center-col">
-    <h2>Ajouter un atelier</h2>
-  
-        {{ form(form) }}
-  
+<div class="d-flex">
+{% include "admin/admin.html.twig" %}
+    <div class="d-flex flex-column admin-action">
+        <h2>Créer un art-event</h2>  
+            {{ form(form) }}
+    </div>
 </div>
 {% endblock %}

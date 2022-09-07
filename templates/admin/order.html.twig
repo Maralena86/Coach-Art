@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="d-flex">
+{% include "admin/admin.html.twig" %}
+<div class=" admin-action">
+    <h2>Commandes</h2>
+    <table>
+    <thead>
+            <tr>
+                <th>ArtEvent</th>
+                <th>Evenements</th>
+                <th>Quantité</th>
+                <th>PrixTotal</th>
+            </tr>
+        </thead> 
+        <tbody>
+            {% for order in orders %}
+                
+            <tr>
+                <td>{{order.getUser.name}}</td>
+                <td class="d-flex flex-column">{% for article in order.articles %}
+                <p>{{article.event.name}} ({{article.quantity}})</p>
+                {% endfor %}
+                </td>
+                <td>
+                {% for article in order.articles %}
+                {{article.quantity}}
+                {% endfor %}</td>
+                <td>
+                
+                {{order.totalPrice}}€
+                </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+
+</diV>
+
+{% endblock %}

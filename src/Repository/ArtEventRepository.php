@@ -63,4 +63,26 @@ class ArtEventRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function findByDateAsc(): array
+   {
+       return $this->createQueryBuilder('a')
+            ->andWhere('a.status = :val')
+            ->setParameter('val', 'Approved') 
+            ->orderBy('a.date', 'ASC')
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult()
+       ;
+   }
+ public function findByStatus($value)
+    {
+        return $this->createQueryBuilder('a') 
+        ->andWhere('a.status = :val')
+        ->setParameter('val', $value)     
+        ->orderBy('a.date', 'ASC')
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
 }
