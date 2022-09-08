@@ -6,10 +6,12 @@ use App\Entity\User;
 use App\Form\ProfilType;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -19,18 +21,29 @@ class SecurityController extends AbstractController
         
 
     #[Route('/registration', 'app_registration')]
-    public function registration(Request $request, UserRepository $repository, UserPasswordHasherInterface $hasher)
+    public function registration(Request $request, UserRepository $repository, MailerInterface $mailer, UserPasswordHasherInterface $hasher)
     {
         $form = $this->createForm(RegistrationType::class);
         $form->handleRequest($request);
+        
         if($form->isSubmitted()&& $form->isValid()){
             $user = $form->getData();
-
             $cryptedPassword = $hasher->hashPassword($user, $user->getPassword());
             $user->setPassword($cryptedPassword);
             $repository->add($user, true);
+
+            $email = (new TemplatedEmail())
+                ->from('coachart@mail.com')
+                ->to($user->getEmail())
+                ->subject('Bienvenue à coachArt!')
+                ->htmlTemplate('emails/security/registration.html.twig')
+                ->context([
+                    'name'=>$user->getName()
+                ]);
+                $mailer->send($email);
             return $this->redirectToRoute('app_home_display');
         }
+
         return $this->render('security/registration.html.twig',[
             'form' => $form->createView(),
         ]);

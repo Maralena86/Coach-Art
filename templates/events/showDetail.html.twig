@@ -1,11 +1,13 @@
 {% extends "/base.html.twig" %}
 {% block body %}
-<div class="flex-center-col">
-    <div class="product-detail p-5">
-        <div class="row product-detail_info">
-            <div class="row ">          
-                <img class="col-7" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} height="400" width="400">
-                <div class="col-5 mt-3">
+<div class="flex-center-col ">
+    <div class="product-detail mt-4">
+        <div class="p-4 ">
+            <div class="d-flex">  
+                <div class="image-event-detail">        
+                    <img class="w-100"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
+                </div>
+                <div class="w-40 p-3">
                     <h3>{{event.name}}</h3>
                     <div class="mb-3">
                         <p><i class="fa-solid fa-location-dot mr-3"></i>Paris,11</p>
@@ -17,43 +19,34 @@
                     <p>{{event.description}}</p>
                 </div>
             </div>
-            <div class="row col-12 mt-5">
-                <div class="col-9 row">
+            <div class="row mt-4">             
                     <div class="col-2">
                     {% for user in event.getUsers %}
-                        <img src={{user.image ? vich_uploader_asset(user) : asset('images/placeholder.jpg')}} height="150" width="150">
-                        
-                        <p class="p-3">{{user.name}}</p>
+                        <img class="w-100"src={{user.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}} height="140" >
+                        <p class="text-center ">{{user.name}}</p>
                     </div>
-                    <div class="col-9 ml-5">
+                    <div class="col-7">
                         <h3>L'Intervenant</h3>
-                        <p>{{user.description}}</p>
+                        <p class="text-center">{{user.description}}</p>
                     {% endfor %}
                     </div>
+                    <div class="col-3">
+                        <div id="map">
+                            <img class="w-100" src="../uploads/map.png">
+                        </div>
+                    </div>    
                 </div>
-                <div class="col-3">
-                    <div id="map">
-                        <img src="../uploads/map.png" width"300" height="300">
-                    </div>
-                </div>    
             </div>
-        </div>
         <div class="event-action">
-            <div class="d-flex ">
+            <div class="d-flex mb-2">
                 <p class="detail-event-price">{{event.price}}€</p>
                 
                 {# {% if (app.user != USER['ROLE_ADMIN']) %} #}
                 <button class="btn-color1 btn-art"><a class="text-light" href="{{path('app_basket_add', {id:event.id})}}">Réserver</a></button>
                 {# {% endif %} #}
             </div>
-            <div>
-                {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{path('admin_event_update', {id:event.id})}}">Modifier</a>
             
-                <a href="{{path('admin_event_delete', {id:event.id})}}">Supprimer</a>
-                {% endif %}
-                
-            </div>
+        </div>
         </div>
     </div>
 </div>

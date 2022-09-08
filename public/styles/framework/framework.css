@@ -1,3 +1,10 @@
+/*  ----Contains:------
+1-buttons
+2-styles-fonts
+3-tables
+
+*/
+
 *{
     margin: 0;
     padding: 0;
@@ -77,4 +84,9 @@ h3{
 a{
     text-decoration: none;
     font-size: 18px;
+}
+/*------------tables-----------------*/
+
+.table-container{
+    width: 80%;
 }

@@ -37,6 +37,7 @@ class ContactController extends AbstractController
                     'name' =>$contact->get('name')->getData(),
                     
                 ]);
+                
 
             $mailer->send($email);
             // $contact = $form->getData();

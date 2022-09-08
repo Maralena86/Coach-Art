@@ -24,7 +24,8 @@ class AdminEventController extends AbstractController
         return $this->render('admin/event/list.html.twig', [
             'events'=>$repository->findAll() ]);
     }
-    #[Route('/event/create', 'event_create')]
+
+    #[Route('/events/create', 'event_create')]
     public function createEvent(ArtEventRepository $repository, Request $request):Response
     {       
         $form= $this->createForm(ArtEventType::class);
@@ -43,6 +44,7 @@ class AdminEventController extends AbstractController
             'form' =>$form->createView()
         ]);       
     }
+
     #[Route('/events/update/{id}', 'event_update')]
     public function updateEvent(ArtEventRepository $repository, Request $request, ArtEvent $event): Response
     {
@@ -66,6 +68,7 @@ class AdminEventController extends AbstractController
         $repository->remove($event, true);
         return $this->redirectToRoute('app_events_list');
     }
+
     #[Route('/events/approuved', 'event_approuved')]
     public function listApprouved(ArtEventRepository $repository):Response
     {
@@ -73,6 +76,7 @@ class AdminEventController extends AbstractController
         return $this->render('admin/event/approved.html.twig', [
             'events'=>$repository->findByStatus('Approved') ]);
     }
+    
     #[Route('/events/notApprouved', 'event_notApprouved')]
     public function listNotApprouved(ArtEventRepository $repository):Response
     {

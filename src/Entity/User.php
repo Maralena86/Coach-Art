@@ -76,6 +76,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $updatedAt = null;
 
+    #[ORM\OneToMany(mappedBy: 'therapist', targetEntity: ArtEvent::class)]
+    private Collection $artEventsTherapist;
+
     
 
     public function __construct()
@@ -84,6 +87,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
         $this->orders = new ArrayCollection();
         $this->artEvents = new ArrayCollection();
         $this->propositions = new ArrayCollection();
+        $this->artEventsTherapist = new ArrayCollection();
     }
 
 
@@ -358,6 +362,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->email,
             $this->password,
         ) = unserialize($serialized);
+    }
+
+    /**
+     * @return Collection<int, ArtEvent>
+     */
+    public function getArtEventsTherapist(): Collection
+    {
+        return $this->artEventsTherapist;
+    }
+
+    public function addArtEventsTherapist(ArtEvent $artEventsTherapist): self
+    {
+        if (!$this->artEventsTherapist->contains($artEventsTherapist)) {
+            $this->artEventsTherapist->add($artEventsTherapist);
+            $artEventsTherapist->setTherapist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtEventsTherapist(ArtEvent $artEventsTherapist): self
+    {
+        if ($this->artEventsTherapist->removeElement($artEventsTherapist)) {
+            // set the owning side to null (unless already changed)
+            if ($artEventsTherapist->getTherapist() === $this) {
+                $artEventsTherapist->setTherapist(null);
+            }
+        }
+
+        return $this;
     }
 
 }

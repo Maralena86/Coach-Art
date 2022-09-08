@@ -75,6 +75,9 @@ class ArtEvent
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
+    #[ORM\ManyToOne(inversedBy: 'artEventsTherapist')]
+    private ?User $therapist = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -270,6 +273,18 @@ class ArtEvent
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getTherapist(): ?User
+    {
+        return $this->therapist;
+    }
+
+    public function setTherapist(?User $therapist): self
+    {
+        $this->therapist = $therapist;
 
         return $this;
     }

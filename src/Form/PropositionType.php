@@ -2,17 +2,17 @@
 
 namespace App\Form;
 
-use App\Entity\Proposition;
+use App\Entity\ArtEvent;
 use App\DoctrineType\OptionTypeEnum;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PropositionType extends AbstractType
@@ -28,16 +28,16 @@ class PropositionType extends AbstractType
             'label'=>"Description ",
             'required'=>true
         ])
+    
         ->add('price', NumberType::class, [
             'label'=>"Prix",
             'required'=>true
         ])
-        ->add('date', DateType::class,[
+        ->add('date', DateTimeType::class,[
             'label'=>'Date',
-            'placeholder' => [
-            'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
-            'hour' => 'Hour', 'minute' => 'Minute', 'second' => 'Second',
-        ]])         
+            'date_widget'=>'single_text',
+            
+        ])         
         ->add('options', ChoiceType::class, [
             
             'required' => true,
@@ -55,13 +55,13 @@ class PropositionType extends AbstractType
         ->add('submit', SubmitType::class, [
             'label'=>'Envoyer',
         ])
-        ;
+        ;     
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Proposition::class,
+            'data_class' => ArtEvent::class,
         ]);
     }
 }

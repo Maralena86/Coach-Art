@@ -33,6 +33,7 @@
 .admin-links a{
     color: var(--primary-color);
     padding: 10px;
+    font-size: 15px;
 }
 .admin-links a:hover{
     background-color: var(--primary-color);
@@ -44,17 +45,7 @@
 }
 
 /*-----------Events-List-Admin--------*/
-
-/* .icon-check{
-    background-color: green;
-    color: white;
-    padding: 2px;
-    border-radius: 1px;
+.table-container tbody>tr:hover{
+    background-color: rgb(224, 216, 216);
 
 }
-.icon-notcheck{
-    background-color: rgb(236, 11, 11);
-    color: white;
-    padding: 3px 5px;
-    border-radius: 1px;
-} */

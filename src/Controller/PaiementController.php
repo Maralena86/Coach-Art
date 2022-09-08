@@ -10,9 +10,11 @@ use App\Entity\Order;
 use Stripe\Checkout\Session;
 use App\Repository\UserRepository;
 use App\Repository\OrderRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\MailerInterface;
 
 class PaiementController extends AbstractController
 {
@@ -47,7 +49,7 @@ class PaiementController extends AbstractController
     }
 
     #[Route('/success', 'success_url')]
-    public function success(OrderRepository $repository, UserRepository $userRepository):Response
+    public function success(OrderRepository $repository, UserRepository $userRepository, MailerInterface $mailer):Response
     {
       /** @var User $user */
 
@@ -57,23 +59,26 @@ class PaiementController extends AbstractController
 
       $order = new Order();
       $order->setUser($user);
-      
-    
       $order->setTotalPrice($user->getBasket()->getTotalPrice());
 
-      
-       
       foreach ($user->getBasket()->getArticles() as $article) {
           $order->addArticle($article);
           $user->addArtEvent($article->getEvent());
-        
-          $basket->removeArticle($article);
-          
+          $basket->removeArticle($article);        
       }  
       
       $userRepository->add($user, true);
       $repository->add($order, true);
-      
+
+      $email = (new TemplatedEmail())
+        ->from('coach-art@mail.com')
+        ->to($user->getEmail())
+        ->subject('Tu es bien inscrit!')
+        ->htmlTemplate('emails/paiement.html.twig')
+        ->context([
+          'order'=>$order
+        ]); 
+        $mailer->send($email);    
       return $this->render('payment/success.html.twig', [
         'order' => $order,
       ]);

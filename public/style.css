@@ -5,6 +5,7 @@ font-family: 'Nanum Gothic', sans-serif;
 */
 
 /*------------Header-------------------*/
+
 #logo{
     font-family: fantasy;
     font-size: 30px;  
@@ -42,7 +43,9 @@ nav{
     background-color: black;
     padding: 5px 10px;
 }
+
 /*--------------Home-----------------*/
+
 #imageHome{
     background-image: url('https://images.pexels.com/photos/5566941/pexels-photo-5566941.jpeg?auto=compress&cs=tinysrgb&w=1600');
     background-repeat: no-repeat;
@@ -80,7 +83,9 @@ nav{
     width: 300px;
     text-align: center;
 }
+
 /*-----info----------*/
+
 .info-container{
     background-color: var(--primary-color);
     color: white;
@@ -101,20 +106,20 @@ nav{
 .carousel-item >img{
     width: 100%;   
 }
+
 /*---events-grid-container---*/
+
 .list-events{
     padding: 30px 90px;
 }
 .container-body{
     font-family: 'Nanum Gothic', sans-serif;
-    padding-top: 80px;
-    
+    padding-top: 80px;  
 }
 .grid-container{
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 50px;
-    
+    gap: 50px;   
 }
 .grid-item{
     border-radius: 10px;
@@ -156,12 +161,12 @@ nav{
     font-weight: bold;
     margin-bottom: 10px;
     color: var(--primary-color);
-  }
-  .grid-item p{  
-      font-size: 1rem;
-      margin-bottom: 3px;
-      color: rgb(92, 88, 88);
-  }
+}
+.grid-item p{  
+    font-size: 1rem;
+    margin-bottom: 3px;
+    color: rgb(92, 88, 88);
+}
 .image-event:hover{
     transform: scale(1.1);
 }
@@ -194,14 +199,18 @@ nav{
 .therapist-name{
     font-size: 0.5rem;
 }
+
 /*---------------Détail---------------*/
+
 .product-detail{
     background-color: #F8F7F7;
     border: 1px solid rgb(233, 229, 229);
-    box-shadow: 3px 3px 3px rgb(204, 202, 202);
-    width: 60%;   
-    margin: 50px;
+    box-shadow: 3px 3px 3px rgb(204, 202, 202);  
+    width: 70%;
     border-radius: 10px;
+}
+.image-event-detail{
+    width: 60%;
 }
 .product-detail h3{
     color: rgb(155, 98, 155);
@@ -291,9 +300,7 @@ nav{
     height: 100px;
 }
 /*-----------basket------------*/
-.basket-container{
-    width: 80%;
-}
+
 .basket-image{
     height: 50px;
     width: 80px;
@@ -330,9 +337,10 @@ thead{
 }
 
 /*----------------------*/
-  footer{
+
+footer{
     background-color: #eceaea;
-  }
+}
 .footer-info{
     display: flex; 
     justify-content: space-around;

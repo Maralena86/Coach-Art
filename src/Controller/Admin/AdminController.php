@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Repository\OrderRepository;
 use Laminas\Code\Generator\EnumGenerator\Name;
@@ -14,11 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminController extends AbstractController
 {
     
-    public function display()
-    {
-        return $this->render('admin/admin.html.twig');
-    }
-
     #[Route('/order', name:"_order_list")]
     public function orderList(OrderRepository $repository)
     {
@@ -33,4 +29,12 @@ class AdminController extends AbstractController
              'therapists' =>$repository->findTherapist()
         ]);
     }
+    #[Route('/users/{id}', name:"_roles_setRoleTherapist")]
+    public function setRoleTherapist(UserRepository $repository, User $user)
+    {
+        $user->setRoles(['ROLE_THERAPIST']);
+        $repository->add($user, true);
+        return $this->redirectToRoute('admin_therapist_list');
+    }
+
 }
