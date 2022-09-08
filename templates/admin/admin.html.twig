@@ -1,7 +1,8 @@
 {% if is_granted('ROLE_ADMIN') %}
 <div class="d-flex flex-column admin-nav">
     <h2>ADMIN</h2>
-    <p class="text-center mb-4">Bienvenue @{{app.user.name}}</p>
+    <p class="text-center">Bienvenue @{{app.user.name}}</p>
+    <p class="text-center mb-4">{{'now'|date('h:i A')}}</p>
     <div class="admin-links d-flex flex-column">
         <a class="" href="{{path('admin_users')}}"><i class="fa-solid fa-user"></i>Utilisateurs</a>
         <a class="" href="{{path('admin_event_create')}}"><i class="fa-solid fa-pen"></i>Créer un ArtEvent</a>

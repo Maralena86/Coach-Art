@@ -26,8 +26,7 @@ class PaiementController extends AbstractController
         $user =$this->getUser();
         $basket = $user->getBasket();
         $price = $basket->getTotalPrice();
-
-       
+ 
         Stripe::setApiKey('sk_test_51LYwABJzRBt6SsUOM7Zqbii89wvTqDmw7BO7f1J7hrIzB2h4gmHNysIRPkkCM4uvOxcIp62XoMGIbFvWowcT1eqb00nDZnePjb');
         $session = Session::create([
             'line_items' => [[

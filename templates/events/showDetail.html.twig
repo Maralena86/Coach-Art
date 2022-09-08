@@ -21,15 +21,15 @@
             </div>
             <div class="row mt-4">             
                     <div class="col-2">
-                    {% for user in event.getUsers %}
-                        <img class="w-100"src={{user.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}} height="140" >
-                        <p class="text-center ">{{user.name}}</p>
+                    {% if  event.therapist %}
+                        <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}} height="140" >
+                        <p class="text-center ">{{event.therapist.name}}</p>
                     </div>
                     <div class="col-7">
                         <h3>L'Intervenant</h3>
-                        <p class="text-center">{{user.description}}</p>
-                    {% endfor %}
+                        <p class="text-center">{{event.therapist.description}}</p>         
                     </div>
+                    {% endif %}
                     <div class="col-3">
                         <div id="map">
                             <img class="w-100" src="../uploads/map.png">

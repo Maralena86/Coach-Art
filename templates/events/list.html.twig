@@ -21,9 +21,11 @@
                     </div>
                     <div class="product-info2 flex-around-col">
                     <p>{{event.price}}€</p>     
-                        <div class="flex-around-col">   
+                        <div class="flex-around-col">  
+                        {% if event.therapist %} 
                         <div class="therapist-image"<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"/></div>
                         <p class="therapist-name">Intervenant</p>
+                        {% endif %}
                             </div>
                     {# <p>Créé {{event.createdAt|ago}}</p> #}
                 </div>     
