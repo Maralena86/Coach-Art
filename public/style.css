@@ -11,6 +11,9 @@ font-family: 'Nanum Gothic', sans-serif;
     font-size: 30px;  
     margin-left: 50px;
     display: block;
+    color: var(--second-color);
+    line-height: 1;
+    padding-bottom: 0px; 
 }
 nav a{
     text-decoration: none;
@@ -21,6 +24,7 @@ header{
   position: fixed;
   z-index: 100;
   width: 100%;
+  
 }
 nav{    
     justify-content: space-between;  
@@ -29,6 +33,9 @@ nav{
     align-items: center;
     height: 80px;
     width: 100%;
+    box-shadow: 3px 3px 3px rgb(51, 42, 50);
+    font-family: 'Nanum Gothic', sans-serif;
+   
 }
 .dropdown-menu{
     background-color: #000000;
@@ -47,7 +54,7 @@ nav{
 /*--------------Home-----------------*/
 
 #imageHome{
-    background-image: url('https://images.pexels.com/photos/5566941/pexels-photo-5566941.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    background-image: url('./uploads/pexels-photo-914922.webp');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -67,9 +74,10 @@ nav{
     width: 40%;
 }
 #about-coachArt-container{
-    padding: 40px;
+    padding: 70px;
     font-family: 'Nanum Gothic', sans-serif;
     text-align: center;
+    
   
 }
 .about-coachArt img{
@@ -87,7 +95,7 @@ nav{
 /*-----info----------*/
 
 .info-container{
-    background-color: var(--primary-color);
+    background-image: url('uploads/behind-description.jpeg');
     color: white;
     padding: 20px;
 }
@@ -118,6 +126,8 @@ nav{
 }
 .grid-container{
     display: grid;
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 50px;   
 }
@@ -376,15 +386,13 @@ footer{
         font-size: 35px;    
     }
     .grid-container{
-        padding: 30px 70px;
+        width: 1100px;
         grid-template-columns: repeat(3, minmax(0, 0.4fr));
     }
-    .img-container-event{
-        height: 180px; 
-    }
+
 }
  
-@media screen and (max-width:  1150px){
+@media screen and (max-width:  1200px){
     .info-container>div, .carousel-item >img{
         width: 100%;
         height: 500px;
@@ -396,14 +404,12 @@ footer{
         padding: 30px 5px;
     }
     .grid-container{
+        width: 800px;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap:40px
     }
-    .img-container-event{       
-        height: 180px;     
-    }
 } 
-@media screen and (max-width:  700px){
+@media screen and (max-width:  870px){
     .titleDescription{
         font-weight: 1rem;
     
@@ -412,12 +418,11 @@ footer{
         width: 100%;
     }
     .grid-container{
+        width: 480px;
         grid-template-columns: none;
         padding: 20px;
 
     }
-    .img-container-event{       
-        height: 180px;     
-    }
+ 
 
 } 

@@ -17,7 +17,9 @@ body p{
 }
 :root
 {
-    --primary-color:#492646;
+    --primary-color:#462066;
+    --second-color: #d65f41; 
+    --third-color: #FFB85F;  
 }
 .flex-center-col{
     display: flex;
@@ -28,8 +30,9 @@ body p{
 /*-----buttons--------*/
 button{
     padding: 5px 10px;
-    background-color: var(--primary-color);
+    background-color: var(--second-color);
     color: white;
+    border: none;
 }
 .btn-art{
     padding: 10px;
@@ -43,7 +46,7 @@ a:hover{
     text-decoration: none;
 }
 .btn-color1{
-    background-color: var(--primary-color);  
+    background-color: var(--second-color);  
     border: none;  
     color: white; 
     
@@ -80,6 +83,7 @@ h2{
 }
 h3{
     margin-bottom: 2rem;
+    color: var(--primary-color);
 }
 a{
     text-decoration: none;

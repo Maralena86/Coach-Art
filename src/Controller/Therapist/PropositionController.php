@@ -45,7 +45,7 @@ class PropositionController extends AbstractController
             $this->addFlash('success', "La proposition a été bien envoyé");
         }
 
-        return $this->render('proposition/index.html.twig', [
+        return $this->render('therapist/proposition.html.twig', [
             'form' => $form->createView(),
         ]);
     }

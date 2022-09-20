@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 
 use App\Entity\User;
@@ -21,7 +21,7 @@ class BasketController extends AbstractController
     #[Route('/basket', 'app_basket_display')]
     public function display()
     {   
-        return $this->render('basket/display.html.twig');
+        return $this->render('user/basket.html.twig');
     }
 
     #[IsGranted('ROLE_USER')]

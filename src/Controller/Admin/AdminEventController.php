@@ -65,9 +65,17 @@ class AdminEventController extends AbstractController
     #[Route('/events/delete/{id}', 'event_delete')]
     public function deleteEvent(ArtEvent $event, ArtEventRepository $repository):Response
     {
+        foreach($event->getUsers() as $ev){
+            if($ev->getId()){
+                $this->addFlash('danger', "Ce n'est pas possible d'éliminer");
+            return $this->redirectToRoute('app_events_list');   
+            }       
+        }
         $repository->remove($event, true);
+        $this->addFlash('succes', "L'event a été effacé");
         return $this->redirectToRoute('app_events_list');
     }
+        
 
     #[Route('/events/approuved', 'event_approuved')]
     public function listApprouved(ArtEventRepository $repository):Response

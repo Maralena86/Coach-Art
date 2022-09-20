@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 
 use Stripe\Stripe;
@@ -78,7 +78,7 @@ class PaiementController extends AbstractController
           'order'=>$order
         ]); 
         $mailer->send($email);    
-      return $this->render('payment/success.html.twig', [
+      return $this->render('user/payment/success.html.twig', [
         'order' => $order,
       ]);
 

@@ -6,10 +6,11 @@
 <div class="d-flex connexion-container">
     <div id="img-connexion">
     </div>
-    <div class="d-flex align-items-center justify-content-center flex-column form-container-connexion">
-        <h3>Connexion</h3>
-        <p>Grâce à votre compte, vous pourrez retrouver vos billets, votre reçu et tous nos services.</p>
-        <form class="d-flex flex-column" method="post">
+    <div class="flex-center-col form-container-connexion">
+        
+        
+        <h3 class="text-center">Connexion</h3>
+        <p class="mb-3">Grâce à votre compte, vous pourrez retrouver vos billets, votre reçu et tous nos services.</p>
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
@@ -21,33 +22,35 @@
             {% endif %}
 
         
-
-            <label class="mb-3"for="inputEmail">Email</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus >
-            <label class="mb-3 mt-3" for="inputPassword">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <form class="d-flex flex-column" method="post">
+            <label class=""for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  autocomplete="email" required autofocus >
+            <label class=" mt-3" for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword"  autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
             >
-            <a href="{{path('app_forgot_password_request')}}">Mot de passe oublié?</a>
+            <a class="mt-3"href="{{path('app_forgot_password_request')}}">Mot de passe oublié?</a>
             
                 {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
                 See https://symfony.com/doc/current/security/remember_me.html #}
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                </div>
+                    
+                
                 
 
-            <button class="btn-color1 mt-5" type="submit">
+            <button class="btn-color1 mt-2 mb-3" type="submit">
                 Sign in
             </button>
-            <a href="{{path('app_registration')}}">S'inscrire</a>
+         </form>
+            <p>Pas de compte?</p> <a href="{{path('app_registration')}}">S'inscrire</a>
+        
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
             
-        </form>
+        
     </div>
 <div>
 {% endblock %}
