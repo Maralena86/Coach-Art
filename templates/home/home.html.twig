@@ -79,7 +79,7 @@
                     <p>{{event.price}}€</p>     
                         <div class="flex-around-col">
                         {% if event.therapist %} 
-                        <div class="therapist-image"><img class="w-100"src={{event.therapist.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}} ></div>
+                        <div class="therapist-image"><img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} ></div>
                         <p class="therapist-name">{{event.therapist.name}}</p>
                         {% endif %}   
                     

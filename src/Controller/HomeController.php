@@ -19,6 +19,14 @@ class HomeController extends AbstractController
         
         return $this->render('home/home.html.twig', ['events'=> $events]);
     }
+    #[Route('/about', 'app_home_about')]
+    function aboutCoachArt():Response{
+        
+        
+        return $this->render('home/about-us.html.twig');
+    }
+    
+
     
 
     

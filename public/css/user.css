@@ -1,0 +1,90 @@
+/*-----------basket------------*/
+
+.basket-image{
+    height: 50px;
+    width: 80px;
+}
+.basket-quantity>div{
+    padding: 0px 10px;
+    border: 0.4px solid gray;
+    display: flex;
+    align-items: center;
+}
+
+.basket-quantity>div>a{
+    text-decoration: none;
+}
+.basket-totalPrice{
+    padding: 30px 100px;
+    align-self: flex-end;
+}
+.btn-basket{
+    gap: 20px;
+}
+table{
+    width: 100%;
+}
+td, th{
+    padding: 10px;
+}
+tr{
+    border-bottom: 1Px solid rgb(219, 215, 215);
+}
+thead{
+    border-bottom: 1Px solid black;
+}
+
+/*---------- Profil----------------------*/
+.profil-img-behind{
+    background-image: url("../uploads/profil-behin2.jpg");
+    color: white;
+    position: absolute;
+    height: 460px;
+    width: 100%; 
+    box-shadow: 3px 3px 3px black;
+}
+.profil-description>h1{
+    margin-right: auto;
+    text-align: center;
+    margin-left: auto;  
+    border-bottom: 2px solid white;
+    width: 40%;
+    font-size: 26px;
+    padding-bottom: 15px;
+    margin-bottom: 100px;
+}
+.image-profil{
+    width: 200px;
+    height: 200px;
+    object-position: center;
+    margin-bottom: 100px;
+    margin-right:100px ;
+}
+#profil-img-behind>div{
+    gap: 200px;
+    align-items: center;
+}
+#profil-img-behind>div>p{
+    font-size: 35px;
+}
+.profil-description{
+   display: flex;
+   flex-direction: column;
+    width: 57%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;  
+}
+.profil-description>h4{
+    width: 60%;
+}
+.profil-about{
+    color: black;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.profil-name{
+    margin-top: 50px;
+    font-size: 30px;
+  
+}

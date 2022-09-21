@@ -1,10 +1,17 @@
 /*  ----Contains:------
-1-buttons
-2-styles-fonts
-3-tables
-
+1-General
+2-Buttons
+3-Styles-fonts
+4-Tables
+5-Images
+*/
+/* ----Font-styles
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Mali', cursive;
+font-family: 'Nanum Gothic', sans-serif;
 */
 
+/*----    1-General-    -----*/
 *{
     margin: 0;
     padding: 0;
@@ -27,7 +34,13 @@ body p{
     justify-content: center;
     align-items: center;   
 }
-/*-----buttons--------*/
+.flex-around-col{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+}
+/*-----     2-Buttons    --------*/
 button{
     padding: 5px 10px;
     background-color: var(--second-color);
@@ -75,7 +88,7 @@ button a{
     color: white;
     text-decoration: none;
 }
-/*-----------style-font----------*/
+/*-----------  3- style-headings-     ----------*/
 
 h2{
     text-align: center;
@@ -89,8 +102,21 @@ a{
     text-decoration: none;
     font-size: 18px;
 }
-/*------------tables-----------------*/
+/*------------   4-tables-  -----------------*/
 
 .table-container{
     width: 80%;
+}
+/*-----------   5-vich images-   -------------*/
+
+.vich-image{
+    display: flex;
+    flex-direction: column;
+}
+.vich-image img{
+    width: 100px;
+    height: 100px;
+}
+#art_event_imageFile_file, #user_edit_imageFile_file{
+    height: 50px;
 }

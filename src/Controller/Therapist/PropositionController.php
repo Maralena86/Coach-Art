@@ -5,15 +5,17 @@ namespace App\Controller\Therapist;
 use App\Entity\ArtEvent;
 use App\Form\ArtEventType;
 use App\Form\PropositionType;
-use App\Repository\ArtEventRepository;
 use App\Repository\UserRepository;
+use App\Repository\ArtEventRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mailer\MailerInterface;
 
+#[IsGranted('ROLE_THERAPIST')] 
 class PropositionController extends AbstractController
 {
     #[Route('/proposition', name: 'app_therapist_proposition')]
@@ -28,7 +30,7 @@ class PropositionController extends AbstractController
         if($form->isSubmitted() &&$form->isValid()){
             $proposition = new ArtEvent();
             $proposition =$form->getData();
-            $proposition->setStatus('Not approuved');
+            $proposition->setStatus('Not approved');
             $proposition->setTherapist($user);
             $repository->add($proposition, true);
 

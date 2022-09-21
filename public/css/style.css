@@ -1,10 +1,16 @@
-/*
-font-family: 'Gloria Hallelujah', cursive;
-font-family: 'Mali', cursive;
-font-family: 'Nanum Gothic', sans-serif;
+/*  ----Contains:------
+1-Header
+2-Home
+    a.First-block
+    b.Second-block
+    c.Third-block
+    d.Fourth-block (events-grid-container)
+3-Event Détail
+4-Footer
+
 */
 
-/*------------Header-------------------*/
+/*------------ 1-Header-  -------------------*/
 
 #logo{
     font-family: fantasy;
@@ -34,8 +40,7 @@ nav{
     height: 80px;
     width: 100%;
     box-shadow: 3px 3px 3px rgb(51, 42, 50);
-    font-family: 'Nanum Gothic', sans-serif;
-   
+    font-family: 'Nanum Gothic', sans-serif;  
 }
 .dropdown-menu{
     background-color: #000000;
@@ -51,10 +56,10 @@ nav{
     padding: 5px 10px;
 }
 
-/*--------------Home-----------------*/
-
+/*--------------  2-Home- -----------------*/
+/* --- a.First-block  */
 #imageHome{
-    background-image: url('./uploads/pexels-photo-914922.webp');
+    background-image: url('../uploads/pexels-photo-914922.webp');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -66,6 +71,7 @@ nav{
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: bold;
 }
+/* --- b.Second-block  */
 .titleDescription{
     font-size: 2.5rem;
     color: white;
@@ -76,9 +82,7 @@ nav{
 #about-coachArt-container{
     padding: 70px;
     font-family: 'Nanum Gothic', sans-serif;
-    text-align: center;
-    
-  
+    text-align: center;  
 }
 .about-coachArt img{
     width: 200px;
@@ -92,10 +96,10 @@ nav{
     text-align: center;
 }
 
-/*-----info----------*/
+/*-----  c.Third-block ----------*/
 
 .info-container{
-    background-image: url('uploads/behind-description.jpeg');
+    background-image: url('../uploads/behind-description.jpeg');
     color: white;
     padding: 20px;
 }
@@ -104,8 +108,7 @@ nav{
     font-weight: lighter;   
     text-align: center;   
 }
-.info-container>div, .carousel-item >img{
-    
+.info-container>div, .carousel-item >img{ 
     height: 600px;
 }
 .info-container>div{
@@ -115,7 +118,7 @@ nav{
     width: 100%;   
 }
 
-/*---events-grid-container---*/
+/*---   d.Fourth-blocl (events-grid-container)-    ---*/
 
 .list-events{
     padding: 30px 90px;
@@ -180,7 +183,6 @@ nav{
 .image-event:hover{
     transform: scale(1.1);
 }
-
 .product-info{
     display: flex;
     justify-content: space-between;
@@ -188,12 +190,6 @@ nav{
 }
 .product-info2{
     width: 20%;
-}
-.flex-around-col{
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-    flex-direction: column;
 }
 .therapist-image{
     height: 50px;
@@ -210,7 +206,7 @@ nav{
     font-size: 0.5rem;
 }
 
-/*---------------Détail---------------*/
+/*---------------   3-Event Détail-  ---------------*/
 
 .product-detail{
     background-color: #F8F7F7;
@@ -244,109 +240,7 @@ nav{
     padding: 20px;
 }
 
-/*----------Profil----------------------*/
-
-.profil-img-behind{
-    background-image: url("./uploads/profil-behin2.jpg");
-    color: white;
-    position: absolute;
-    height: 460px;
-    width: 100%; 
-    box-shadow: 3px 3px 3px black;
-}
-.profil-description>h1{
-    margin-right: auto;
-    text-align: center;
-    margin-left: auto;  
-    border-bottom: 2px solid white;
-    width: 40%;
-    font-size: 26px;
-    padding-bottom: 15px;
-    margin-bottom: 100px;
-}
-.image-profil{
-    width: 200px;
-    height: 200px;
-    object-position: center;
-    margin-bottom: 100px;
-    margin-right:100px ;
-}
-#profil-img-behind>div{
-    gap: 200px;
-    align-items: center;
-}
-#profil-img-behind>div>p{
-    font-size: 35px;
-}
-.profil-description{
-   display: flex;
-   flex-direction: column;
-    width: 57%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px;  
-}
-.profil-description>h4{
-    width: 60%;
-}
-.profil-about{
-    color: black;
-    margin-bottom: 30px;
-    font-size: 20px;
-}
-.profil-name{
-    margin-top: 50px;
-    font-size: 30px;
-  
-}
-/*--------vich image-------*/
-
-.vich-image{
-    display: flex;
-    flex-direction: column;
-}
-.vich-image img{
-    width: 100px;
-    height: 100px;
-}
-/*-----------basket------------*/
-
-.basket-image{
-    height: 50px;
-    width: 80px;
-}
-
-.basket-quantity>div{
-    padding: 0px 10px;
-    border: 0.4px solid gray;
-    display: flex;
-    align-items: center;
-}
-
-.basket-quantity>div>a{
-    text-decoration: none;
-}
-.basket-totalPrice{
-    padding: 30px 100px;
-    align-self: flex-end;
-}
-.btn-basket{
-    gap: 20px;
-}
-table{
-    width: 100%;
-}
-td, th{
-    padding: 10px;
-}
-tr{
-    border-bottom: 1Px solid rgb(219, 215, 215);
-}
-thead{
-    border-bottom: 1Px solid black;
-}
-
-/*----------------------*/
+/*--------- 4-Footer-   ------------*/
 
 footer{
     background-color: #eceaea;
@@ -389,9 +283,8 @@ footer{
         width: 1100px;
         grid-template-columns: repeat(3, minmax(0, 0.4fr));
     }
-
 }
- 
+
 @media screen and (max-width:  1200px){
     .info-container>div, .carousel-item >img{
         width: 100%;
@@ -411,8 +304,7 @@ footer{
 } 
 @media screen and (max-width:  870px){
     .titleDescription{
-        font-weight: 1rem;
-    
+        font-weight: 1rem;  
     }
     .grid-item{
         width: 100%;
@@ -421,7 +313,6 @@ footer{
         width: 480px;
         grid-template-columns: none;
         padding: 20px;
-
     }
  
 
