@@ -40,7 +40,7 @@
       </td>
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
-      <td><a href="{{path( 'admin_roles_setRoleTherapist', {id:user.id})}}">Change role</a></td>
+      <td><a href="{{path( 'admin_users_updateUser', {id:user.id})}}">Modifier</a></td>
     </tr>
     {% endfor %}
     

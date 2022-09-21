@@ -47,7 +47,6 @@ class ArtEventType extends AbstractType
             
         ])         
         ->add('options', ChoiceType::class, [
-            
             'required' => true,
             'choices' => ['Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,'À distance'=>OptionTypeEnum::OPTIONS_REMOTE]          
         ])       
@@ -58,7 +57,7 @@ class ArtEventType extends AbstractType
             'download_uri' => true,
             'image_uri' => true,
             'asset_helper' => true,
-            'required'=>true
+            'required'=>false
         ])
         ->add('submit', SubmitType::class, [
             'label'=>'Envoyer',

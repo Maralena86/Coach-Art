@@ -4,7 +4,7 @@
     <p class="text-center">Bienvenue @{{app.user.name}}</p>
     <p class="text-center mb-4">{{'now'|date('h:i A')}}</p>
     <div class="admin-links d-flex flex-column">
-        <a class="" href="{{path('admin_users')}}"><i class="fa-solid fa-user"></i>Utilisateurs</a>
+        <a class="" href="{{path('admin_users_list')}}"><i class="fa-solid fa-user"></i>Utilisateurs</a>
         <a class="" href="{{path('admin_event_create')}}"><i class="fa-solid fa-pen"></i>Créer un ArtEvent</a>
         <a class="" href="{{path('admin_event_list')}}"><i class="fa-solid fa-calendar"></i>Events</a>
         <a class="" href="{{path('admin_event_approuved')}}"><i class="fa-solid fa-check"></i></i>Validés</a>

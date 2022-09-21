@@ -52,7 +52,6 @@ class AdminEventController extends AbstractController
        $form->handleRequest($request);
 
        if($form->isSubmitted() && $form->isValid()){
-            $event = new ArtEvent();
             $event = $form ->getData();
             $repository->add($event, true);
             return $this->redirectToRoute('admin_event_list');
