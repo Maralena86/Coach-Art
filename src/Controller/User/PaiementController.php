@@ -40,8 +40,8 @@ class PaiementController extends AbstractController
               'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => 'https://127.0.0.1:8001/success',
-            'cancel_url' => 'https://127.0.0.1:8001/cancel',
+            'success_url' => 'https://127.0.0.1:8000/success',
+            'cancel_url' => 'https://127.0.0.1:8000/cancel',
           ]);
         
           return $this->redirect($session->url, 303); 

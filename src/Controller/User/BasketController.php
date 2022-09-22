@@ -34,7 +34,7 @@ class BasketController extends AbstractController
         $basket = $user->getBasket();
      
         foreach($basket->getArticles() as $article){
-            if(($article->getEvent()===$event)){
+            if(($article->getEvent() === $event)){
                 $article->setQuantity($article->getQuantity($article)+1); 
                 $article->setBasket($basket);
                 $article->setEvent($event);  

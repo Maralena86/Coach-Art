@@ -22,7 +22,7 @@
             <div class="row mt-4">             
                     <div class="col-2">
                     {% if  event.therapist %}
-                        <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}} height="140" >
+                        <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} height="140" >
                         <p class="text-center ">{{event.therapist.name}}</p>
                     </div>
                     <div class="col-7">
