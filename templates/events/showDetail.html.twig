@@ -1,16 +1,18 @@
 {% extends "/base.html.twig" %}
 {% block body %}
+<div class="nav-bg-div">
+</div>
 <div class="flex-center-col ">
     <div class="product-detail mt-4">
         <div class="p-4 ">
-            <div class="d-flex">  
+            <div class=" top-detail">  
                 <div class="image-event-detail">        
                     <img class="w-100"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
                 </div>
-                <div class="w-40 p-3">
-                    <h3>{{event.name}}</h3>
-                    <div class="mb-3">
-                        <p><i class="fa-solid fa-location-dot mr-3"></i>Paris,11</p>
+                <div class="info-event-detail">
+                    <h3 class="mb-3">{{event.name}}</h3>
+                    <div class="mb-4">
+                        <p class="mb-2"><i class="fa-solid fa-location-dot mr-3"></i>Paris,11</p>
                         <p><i class="fa-solid fa-calendar mr-3"></i>{{event.date|date}}</p>
                         {% for user in event.getUsers %}
                         <p ><i class="fa-solid fa-user mr-3"></i>{{user.name}}</p>
@@ -19,15 +21,15 @@
                     <p>{{event.description}}</p>
                 </div>
             </div>
-            <div class="row mt-4">             
+            <div class="row d-flex bottom-detail mt-5">             
                     <div class="col-2">
                     {% if  event.therapist %}
                         <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} height="140" >
-                        <p class="text-center ">{{event.therapist.name}}</p>
+                        <p id="name-therapist-detail">{{event.therapist.name}}</p>
                     </div>
                     <div class="col-7">
                         <h3>L'Intervenant</h3>
-                        <p class="text-center">{{event.therapist.description}}</p>         
+                        <p>{{event.therapist.description}}</p>         
                     </div>
                     {% endif %}
                     <div class="col-3">
@@ -39,6 +41,7 @@
             </div>
         <div class="event-action">
             <div class="d-flex mb-2">
+                
                 <p class="detail-event-price">{{event.price}}€</p>
                 
                 {# {% if (app.user != USER['ROLE_ADMIN']) %} #}

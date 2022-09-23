@@ -1,11 +1,13 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
 <div class="d-flex connexion-container">
     <div id="img-connexion">
     </div>
     <div class="flex-center-col form-container-connexion">
-        <h3>Inscription</h3>
+        <h3 >Inscription</h3>
         <p class="mb-4">Grâce à votre compte, vous pourrez retrouver vos billets, votre reçu et tous nos services.</p>
         {{form(form)}}
         <p>Déjà inscrit(e)</p><a href="{{path('app_login')}}">Se connecter</a>

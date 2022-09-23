@@ -1,8 +1,12 @@
 {% extends "base.html.twig" %}
 {% block body %}
+
+    <div class="art-event-title title-container">
+        <h1 class="title-page ">ArtEvents</h1>
+        <p class="text-center">Plein des evenements à Paris</p>
+    </div>
 <div class="list-events">
-    <h2>ArtEvents</h2>
-    <p class="text-center pb-5">Plein des evenements à Paris</p>  
+      
     <div class="grid-container ">
         {% for event in events %}
         <div class="grid-item">
@@ -38,4 +42,5 @@
         {% endfor %}
     </div>
 </div>
+{% include "footer.html.twig" %}
 {% endblock %}

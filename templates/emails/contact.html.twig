@@ -4,12 +4,14 @@
 
 {% block body %}
 <div class="flex-center-col contact-container">
+<div class="contact-form flex-center-col">
 <h2>Nous contacter</h2>
-<p>Laisses nous un message! On se mettra un contact bientôt</p>
+<p class="mb-5">Laisses nous un message! On se mettra un contact bientôt</p>
 {% for message in app.flashes('succes') %}
 {{message}}
 {% endfor %}
     {{form(form)}}
+    </div>
 </div>   
 {% include "footer.html.twig" %}
 {% endblock %}

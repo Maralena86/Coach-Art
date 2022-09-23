@@ -1,5 +1,7 @@
 /*-----------basket------------*/
-
+.panier-title {
+    background-image: url("./uploads/behind-description.jpeg");
+}
 .basket-image{
     height: 50px;
     width: 80px;

@@ -3,6 +3,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
 <div class="d-flex connexion-container">
     <div id="img-connexion">
     </div>
@@ -23,10 +25,10 @@
 
         
         <form class="d-flex flex-column" method="post">
-            <label class=""for="inputEmail">Email</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  autocomplete="email" required autofocus >
-            <label class=" mt-3" for="inputPassword">Password</label>
-            <input type="password" name="password" id="inputPassword"  autocomplete="current-password" required>
+            <label class=""for="inputEmail" ></label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  placeholder="Email" autocomplete="email" required autofocus >
+            <label class=" mt-3" for="inputPassword"></label>
+            <input type="password" name="password"  placeholder="Mot de passe" id="inputPassword"  autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
@@ -43,12 +45,13 @@
             <button class="btn-color1 mt-2 mb-3" type="submit">
                 Sign in
             </button>
-         </form>
-            <p>Pas de compte?</p> <a href="{{path('app_registration')}}">S'inscrire</a>
+            <a href="{{path('app_registration')}}">S'inscrire</a>
         
             <label>
                 <input type="checkbox" name="_remember_me"> Remember me
             </label>
+         </form>
+            
             
         
     </div>

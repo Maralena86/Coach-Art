@@ -9,10 +9,26 @@
 import './styles/app.scss';
 import Swal from "sweetalert2";
 
+
+
+
+function changeBg(){
+    let header = document.querySelector(".navbar");
+    let scrollValue = window.scrollY;
+    console.log(scrollValue);
+    if(scrollValue < 60){
+        header.classList.remove('bgColor')
+    }else{
+        header.classList.add('bgColor');
+    }
+    
+  }
+  window.addEventListener('scroll', changeBg);
+
 let dels =document.querySelectorAll('.btn-del');
   dels.forEach(del=> {
-    del.on('click', function(e){
-      e.preventDefault();
+    del.addEventListener('click', function(){
+      
       let self = $(this);
       console.log(self.data('title'));
         Swal.fire({

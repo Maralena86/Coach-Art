@@ -32,8 +32,11 @@
                 </td>
                 <td>{{event.price}}€</td>
                 <td>
-                    <p>Pepe</p>
-                   
+                {% if event.therapist %}
+                
+                    <p class="text-capitalize">{{event.therapist.name}}</p>
+                 
+                {% endif %}
                 </td>
                 <td class="text-center">
                     <div>

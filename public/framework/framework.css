@@ -9,6 +9,8 @@
 font-family: 'Gloria Hallelujah', cursive;
 font-family: 'Mali', cursive;
 font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Archivo', sans-serif;
+font-family: 'Signika Negative', sans-serif;
 */
 
 /*----    1-General-    -----*/
@@ -24,9 +26,13 @@ body p{
 }
 :root
 {
-    --primary-color:#462066;
+    --primary-color:#240144;
     --second-color: #d65f41; 
-    --third-color: #FFB85F;  
+    --third-color: #FFB85F;
+    
+    --primary-font:'Nanum Gothic', sans-serif;
+    --second-font: 'Signika Negative', sans-serif;
+    --third-font: 'Mali', cursive;
 }
 .flex-center-col{
     display: flex;
