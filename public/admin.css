@@ -23,11 +23,14 @@
 .admin-nav{
     width: 220px;
     background-color: rgb(243, 238, 243);
-    padding: 10px;
     min-height: 100vh;
+    position: fixed;
+    padding-top: 100px;
 }
 .admin-action{
-    width: 100%;
+   padding-left: 200px;
+   padding-top: 85px;
+   width: 100%;
     align-items: center;
 }
 .admin-links a{

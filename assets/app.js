@@ -10,11 +10,21 @@ import './styles/app.scss';
 import Swal from "sweetalert2";
 
 
+window.onload = () => {
+    
+    const FiltersForm = document.querySelector("#search_event");
 
+    document.querySelectorAll("#search_event input").forEach(input =>{
+        input.addEventListener("change", ()=>{
+      
+        })
+    });
+}
 
 function changeBg(){
     let header = document.querySelector(".navbar");
     let scrollValue = window.scrollY;
+   
     console.log(scrollValue);
     if(scrollValue < 60){
         header.classList.remove('bgColor')
@@ -49,10 +59,10 @@ let dels =document.querySelectorAll('.btn-del');
               location.href = self.attr('href');
             }
           })
-          console.log('hi');
+          
     }, true)
 });
-        
+
 
 
 

@@ -5,8 +5,14 @@
         <h1 class="title-page ">ArtEvents</h1>
         <p class="text-center">Plein des evenements à Paris</p>
     </div>
+    <div class="form-search-event-home d-flex">
+        {{form_start(form)}} 
+            {{form_row(form.date)}} 
+             {{form_row(form.options)}} 
+        {{form_end(form)}}
+    </div>
 <div class="list-events">
-      
+    
     <div class="grid-container ">
         {% for event in events %}
         <div class="grid-item">
@@ -17,25 +23,24 @@
                 <div class="product-info">
                     <div class="product-info1">
                         <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
-                        <p>{{event.date|date}}</p>
+                        <p> <i class="fa-regular fa-calendar mr-1"></i>{{event.date|date}}</p>
                             
                         <p> 
-                            <i class="fa-solid fa-location-dot"></i> Paris 15
+                            <i class="fa-solid fa-location-dot mr-1"></i> Paris 15
                         </p>
                     </div>
                     <div class="product-info2 flex-around-col">
                     <p>{{event.price}}€</p>     
                         <div class="flex-around-col">  
                         {% if event.therapist %} 
-                        <div class="therapist-image"<img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600"/></div>
-                        <p class="therapist-name">Intervenant</p>
+                        <div class="therapist-image"><img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} ></div>
+                        <p class="therapist-name text-capitalize">{{event.therapist.name}}</p>
                         {% endif %}
                             </div>
-                    {# <p>Créé {{event.createdAt|ago}}</p> #}
                 </div>     
             </div>
-            <button class="btn-color1 mb-3">
-                <a class='btn-a'href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
+            <button class="btn-color1 reservation-button mb-2">
+                <a id="btn-a"href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
             </button>
             </a>
         </div>   

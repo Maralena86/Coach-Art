@@ -20,8 +20,10 @@ class RegistrationType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => false,
                 'attr'=>array(
-                    'placeholder' => 'Prenom'
-                ),               
+                    'placeholder' => 'Prenom',
+                    'autofocus' => true, 
+                ), 
+                             
                 'required' => true
             ])
             ->add('lastname', TextType::class, [

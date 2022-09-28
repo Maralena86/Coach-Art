@@ -41,32 +41,39 @@ thead{
     background-image: url("../uploads/profil-behin2.jpg");
     color: white;
     position: absolute;
-    height: 460px;
+    height: 400px;
     width: 100%; 
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 6px 4px 15px black;
 }
-.profil-description>h1{
-    margin-right: auto;
+.profil-img-behind > h1{
     text-align: center;
-    margin-left: auto;  
-    border-bottom: 2px solid white;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 50px;
+    margin-top:500px; 
+    font-family: var(--second-font);
     width: 40%;
-    font-size: 26px;
-    padding-bottom: 15px;
-    margin-bottom: 100px;
+    font-size: 40px; 
+}
+.profil-description  p{
+    font-family: var(--primary-font);
 }
 .image-profil{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-position: center;
-    margin-bottom: 100px;
-    margin-right:100px ;
+    margin-bottom: 50px;
+    margin-right:70px ;
+    border: 30px solid black;
+    box-shadow: 3px 3px 5px rgb(29, 24, 24);
 }
+
 #profil-img-behind>div{
     gap: 200px;
     align-items: center;
 }
 #profil-img-behind>div>p{
+    
     font-size: 35px;
 }
 .profil-description{
@@ -75,7 +82,7 @@ thead{
     width: 57%;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;  
+    padding: 20px;  
 }
 .profil-description>h4{
     width: 60%;
@@ -84,9 +91,13 @@ thead{
     color: black;
     margin-bottom: 30px;
     font-size: 20px;
+    
 }
 .profil-name{
-    margin-top: 50px;
+    margin-top: 60px;
     font-size: 30px;
-  
+}
+
+.change-profil-container{
+    padding-top: 100px;
 }

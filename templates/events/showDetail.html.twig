@@ -3,45 +3,44 @@
 <div class="nav-bg-div">
 </div>
 <div class="flex-center-col ">
-    <div class="product-detail mt-4">
-        <div class="p-4 ">
-            <div class=" top-detail">  
+    <div class="product-detail-container mt-4">
+        <div class="product-detail ">
+            <div class="top-detail">  
                 <div class="image-event-detail">        
-                    <img class="w-100"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
+                    <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
                 </div>
                 <div class="info-event-detail">
-                    <h3 class="mb-3">{{event.name}}</h3>
-                    <div class="mb-4">
-                        <p class="mb-2"><i class="fa-solid fa-location-dot mr-3"></i>Paris,11</p>
-                        <p><i class="fa-solid fa-calendar mr-3"></i>{{event.date|date}}</p>
-                        {% for user in event.getUsers %}
-                        <p ><i class="fa-solid fa-user mr-3"></i>{{user.name}}</p>
-                        {% endfor %}
+                    <h3 class="mb-3 detail-title">{{event.name}}</h3>
+                    <div class="mb-2">
+                        <p class=""><i class="fa-solid fa-location-dot mr-2"></i>Paris,11</p>
+                        <p><i class="fa-regular fa-calendar mr-2"></i>{{event.date|date}}</p>
+            
                     </div>
                     <p>{{event.description}}</p>
                 </div>
             </div>
-            <div class="row d-flex bottom-detail mt-5">             
-                    <div class="col-2">
-                    {% if  event.therapist %}
-                        <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} height="140" >
-                        <p id="name-therapist-detail">{{event.therapist.name}}</p>
-                    </div>
-                    <div class="col-7">
-                        <h3>L'Intervenant</h3>
-                        <p>{{event.therapist.description}}</p>         
-                    </div>
-                    {% endif %}
-                    <div class="col-3">
-                        <div id="map">
-                            <img class="w-100" src="../uploads/map.png">
+            <div class="bottom-detail mt-5 d-flex">
+            
+                <div class="therapist-container">
+                    <h3 id="therapist-detail-title">L'Intervenant</h3>
+                    <div class="therapist-detail d-flex w-100">             
+                        {% if  event.therapist %}
+                        <div class="col-3 ">
+                            <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} height="140" >
+                            <p id="name-therapist-detail">{{event.therapist.name}}</p>
                         </div>
-                    </div>    
+                        <p>{{event.therapist.description}}</p>
+                        {% endif %} 
+                    </div>
                 </div>
-            </div>
+                <div id="map">
+                    <p>L'addresse: </p>
+                    <img  src="../uploads/map.png">
+                </div>
+            </div> 
+        </div> 
         <div class="event-action">
-            <div class="d-flex mb-2">
-                
+            <div class="d-flex mb-2">   
                 <p class="detail-event-price">{{event.price}}€</p>
                 
                 {# {% if (app.user != USER['ROLE_ADMIN']) %} #}

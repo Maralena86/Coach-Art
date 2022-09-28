@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use Doctrine\ORM\Query;
 use App\Entity\ArtEvent;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\DTO\SearchEventCriteria;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<ArtEvent>
@@ -69,20 +71,84 @@ public function findByDateAsc(): array
             ->andWhere('a.status = :val')
             ->setParameter('val', 'Approved') 
             ->orderBy('a.date', 'ASC')
-            ->setMaxResults(12)
+            ->setMaxResults(8)
+            ->setFirstResult((1 - 1) * 8)
             ->getQuery()
             ->getResult()
        ;
    }
+
+   public function findEventCriteria(SearchEventCriteria $search):Query
+   {
+       $query = $this->createQueryBuilder('a')
+       ->andWhere('a.status = :val')
+       ->setParameter('val', 'Approved') 
+       ->orderBy('a.date', 'ASC');
+    //    ->setMaxResults(8)
+    //    ->setFirstResult((1 - 1) * 8);
+      
+
+    //    if ($search ->getOptions()){
+    //     $query = $query
+    //    ->where('a.options = :val')
+    //    ->setParameter('val', $search->getOptions()); 
+    // }
+    //    if ($search ->getDate()){
+    //         $query = $query
+    //         ->where('a.date = :val')
+    //         ->setParameter('val', $search->getDate()); 
+    //     }
+        return $query->getQuery();
+                   
+   }
+
  public function findByStatus($value)
     {
         return $this->createQueryBuilder('a') 
         ->andWhere('a.status = :val')
         ->setParameter('val', $value)     
         ->orderBy('a.date', 'ASC')
-        ->setMaxResults(10)
+        ->setMaxResults(5)
+        ->setFirstResult((1 - 1) * 5)
         ->getQuery()
         ->getResult()
         ;
+    }
+    public function findByCriteria(SearchEventCriteria $search): array
+    { 
+        $qb= $this->createQueryBuilder('event');
+        if($search->title){
+            $qb
+                ->andWhere('event.name LIKE :name')
+                ->setParameter('name', "%$search->name%");
+            
+        }
+        if(!empty($search->categories)){
+            $qb
+                ->leftJoin('book.categories',  'category')
+                ->andWhere('category.id IN (:categoryIds)')
+                ->setParameter('categoryIds', $search->categories);
+        }
+        if($search->minPrice){
+            $qb
+                ->andWhere('event.price >= :minPrice')
+                ->setParameter('minPrice', $search->minPrice);     
+        }
+        if($search->maxPrice){
+             $qb
+                ->andWhere('event.price <= :maxPrice')
+                ->setParameter('maxPrice', $search->maxPrice);
+          
+        }
+
+        
+        
+        return $qb
+            ->orderBy('event.' . $search->orderBy, $search->direction)
+            ->setMaxResults($search->limit)
+            ->setFirstResult(($search->page - 1) * $search->limit)
+            ->getQuery()
+            ->getResult();
+        
     }
 }

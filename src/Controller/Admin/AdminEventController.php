@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\ArtEvent;
 use App\Form\ArtEventType;
+use App\Form\SearchEventAdminType;
 use App\Repository\ArtEventRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +22,9 @@ class AdminEventController extends AbstractController
     #[Route('/events', 'event_list')]
     public function listEvents(ArtEventRepository $repository):Response
     {
+        $form = $this->createForm(SearchEventAdminType::class);
         return $this->render('admin/event/list.html.twig', [
+            'form' =>$form->createView(),
             'events'=>$repository->findAll() ]);
     }
 

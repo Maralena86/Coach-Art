@@ -27,8 +27,9 @@ body p{
 :root
 {
     --primary-color:#240144;
-    --second-color: #d65f41; 
+    --second-color: #c85639; 
     --third-color: #FFB85F;
+    --primarylight-color: #925bc5;
     
     --primary-font:'Nanum Gothic', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
@@ -60,6 +61,8 @@ button{
     text-decoration: none;
     width: 300px;
     text-align: center;
+    font-size: 15px;
+
 }
 a:hover{
     text-decoration: none;
@@ -83,16 +86,20 @@ a:hover{
     color: white;
 }
 .btn-color1:hover{
-    background-color: rgb(32, 14, 29);  
-    color: white; 
+    background-color: var(--primary-color);
+
+    color: var(--second-color); 
 }
 .btn-color1>a:hover{
-    color: var(--primary-color);
+   color: white;
     text-decoration: none;
 }
 button a{
     color: white;
     text-decoration: none;
+}
+#btn-a:hover{
+    color: white;
 }
 /*-----------  3- style-headings-     ----------*/
 
@@ -113,6 +120,10 @@ a{
 .table-container{
     width: 80%;
 }
+td p, td, th, .basket-totalPrice{
+    font-family: var(--primary-font);
+    font-size: 15px;
+}
 /*-----------   5-vich images-   -------------*/
 
 .vich-image{
@@ -125,4 +136,21 @@ a{
 }
 #art_event_imageFile_file, #user_edit_imageFile_file{
     height: 50px;
+}
+@media screen and (max-width:  1100px){
+    .table-container{
+        width: 95%;
+    }
+}
+@media screen and (max-width:  870px){
+    td p, td, th, .basket-totalPrice{
+        font-family: var(--primary-font);
+        font-size: 12px;
+    } 
+    .btn-color1{
+        font-size: 15px;
+    }
+    .btn-art{
+        font-size: 12px;
+    }
 }

@@ -8,11 +8,10 @@
 <div class="d-flex connexion-container">
     <div id="img-connexion">
     </div>
+    <div class="box-connexion d-flex justify-content-center">
     <div class="flex-center-col form-container-connexion">
-        
-        
-        <h3 class="text-center">Connexion</h3>
-        <p class="mb-3">Grâce à votre compte, vous pourrez retrouver vos billets, votre reçu et tous nos services.</p>
+        <h3 class="text-center mb-3">Connexion</h3>
+        <p class="text-center mb-4">Grâce à votre compte, vous pourrez retrouver vos billets, votre reçu et tous nos services.</p>
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
@@ -22,26 +21,15 @@
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
-
         
         <form class="d-flex flex-column" method="post">
             <label class=""for="inputEmail" ></label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  placeholder="Email" autocomplete="email" required autofocus >
             <label class=" mt-3" for="inputPassword"></label>
             <input type="password" name="password"  placeholder="Mot de passe" id="inputPassword"  autocomplete="current-password" required>
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
             >
-            <a class="mt-3"href="{{path('app_forgot_password_request')}}">Mot de passe oublié?</a>
-            
-                {# Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                See https://symfony.com/doc/current/security/remember_me.html #}
-
-                    
-                
-                
-
+            <a class="mt-3"href="{{path('app_forgot_password_request')}}">Mot de passe oublié?</a>  
             <button class="btn-color1 mt-2 mb-3" type="submit">
                 Sign in
             </button>
@@ -51,7 +39,7 @@
                 <input type="checkbox" name="_remember_me"> Remember me
             </label>
          </form>
-            
+        </div>    
             
         
     </div>

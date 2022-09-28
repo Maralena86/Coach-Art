@@ -3,7 +3,9 @@
 <div class="d-flex">
 {% include "admin/admin.html.twig" %}
 <div class=" admin-action">
+
 <div class="flex-center-col">
+{{form(form)}}
 <div class="flex-center-col table-container">
     <h3 class="text-center p-4">ArtEvents</h3>
     <table>
@@ -26,6 +28,7 @@
                     <div class="pl-2">  
                         <p>{{event.name|u.truncate(20, '...', false)}}</p>
                         <p>{{event.date|date}}</p>
+                        <p>Crée il y a {{event.date|ago}}</p>
                         </div>
                     </div>
                     </a>

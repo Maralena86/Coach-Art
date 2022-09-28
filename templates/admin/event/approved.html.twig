@@ -12,6 +12,7 @@
                 <th>ArtEvent</th>
                 <th>Prix</th>
                 <th>Intervenant</th>
+                <th>Assistants</th>
                 <th>Action</th>
             </tr>
         </thead> 
@@ -30,8 +31,18 @@
                     </a>
                 </td>
                 <td>{{event.price}}€</td>
+                {% if event.therapist %}
                 <td>
-                    <p></p>
+                    <p class="text-capitalize">{{event.therapist.name}}</p>
+                </td>
+               {% else %}
+                    <td class="text-danger">Chercher</td>
+                {% endif %}
+                <td>
+                    <p><i class="fa-solid fa-calendar mr-3"></i>{{event.date|ago}}</p>
+                        {% for user in event.getUsers %}
+                        <p ><i class="fa-solid fa-user mr-3"></i>{{user.name}}</p>
+                        {% endfor %}
                    
                 </td>
                 <td>
