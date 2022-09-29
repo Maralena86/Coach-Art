@@ -17,13 +17,15 @@ use Symfony\Contracts\Cache\CacheInterface;
 class ArtEventController extends AbstractController
 {
     #[Route('/events', 'app_events_list')]
-    function listEvents(ArtEventRepository $repo, CacheInterface $cache):Response{
+    function listEvents(ArtEventRepository $repo, CacheInterface $cache, Request $request):Response{
         
-        $texte = $cache->get('text_details', function(){});
+        
         $search = new SearchEventCriteria();
         $form = $this->createForm(SearchEventType::class, $search);
-
-        $events = $repo->findByDateAsc($search); 
+        $form->handleRequest($request);
+  
+        $events = $repo->findByCriteriaAscEvent($search); 
+        ;
 
         return $this->render('events/list.html.twig', [
             'events' => $events,

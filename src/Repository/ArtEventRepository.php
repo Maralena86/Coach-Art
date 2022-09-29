@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\DTO\Admin\SearchEventAdminCriteria;
 use Doctrine\ORM\Query;
 use App\Entity\ArtEvent;
 use App\DTO\SearchEventCriteria;
+use App\Form\SearchEventType;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -65,40 +67,70 @@ class ArtEventRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-public function findByDateAsc(): array
+public function findByCriteriaAscEvent(SearchEventCriteria $search): array
    {
-       return $this->createQueryBuilder('a')
-            ->andWhere('a.status = :val')
-            ->setParameter('val', 'Approved') 
-            ->orderBy('a.date', 'ASC')
-            ->setMaxResults(8)
-            ->setFirstResult((1 - 1) * 8)
-            ->getQuery()
-            ->getResult()
+       
+       $query = $this
+            ->createQueryBuilder('a') 
+            ->orderBy('a.date', 'ASC');
+            // ->setMaxResults(8)
+            // ->setFirstResult((1 - 1) * 8);
+            if(!empty($search->options)){
+               
+                if($search->options == 'Tous'){
+                }else
+                $query = $query
+                ->andWhere('a.options LIKE :val')
+                ->setParameter('val', "%{$search->options}%"); 
+       
+            }
+            
+            // if(!empty($search->date)){
+                
+            //     $query = $query
+            //     ->andWhere('a.date LIKE :val')
+            //     ->setParameter('val', "%{$search->date}%"); 
+            //     var_dump($search->options);   
+            // }
+            return $query->getQuery()->getResult();
        ;
    }
 
-   public function findEventCriteria(SearchEventCriteria $search):Query
+   public function findEventAdminCriteria(SearchEventAdminCriteria $search):array
    {
-       $query = $this->createQueryBuilder('a')
-       ->andWhere('a.status = :val')
-       ->setParameter('val', 'Approved') 
-       ->orderBy('a.date', 'ASC');
-    //    ->setMaxResults(8)
-    //    ->setFirstResult((1 - 1) * 8);
-      
+       $query = $this
+            ->createQueryBuilder('a')
+            ->orderBy('a.date', 'ASC')
+            ->setMaxResults(6)
+            ->setFirstResult((1 - 1) * 8);
 
-    //    if ($search ->getOptions()){
-    //     $query = $query
-    //    ->where('a.options = :val')
-    //    ->setParameter('val', $search->getOptions()); 
-    // }
-    //    if ($search ->getDate()){
-    //         $query = $query
-    //         ->where('a.date = :val')
-    //         ->setParameter('val', $search->getDate()); 
-    //     }
-        return $query->getQuery();
+        if(!empty($search->name)){
+            $query = $query
+                ->andWhere('a.name LIKE :val')
+                ->setParameter('val', "%{$search->name}%"); 
+                dd($search);
+        }
+            
+      
+       if(!empty($search->options)){
+        $query = $query
+        ->andWhere('a.options LIKE :val')
+        ->setParameter('val', "%{$search->options}%"); 
+        dd($search);
+        }
+        if(!empty($search->status)){
+            $query = $query
+            ->andWhere('a.status LIKE :val')
+            ->setParameter('val', "%{$search->status}%"); 
+        }
+        if(!empty($search->therapist)){
+            $query = $query
+            ->leftJoin('a.therapist', 'user')
+            ->andWhere('therapist.id IN (:userIds)')
+            ->setParameter('val', "%{$search->status}%"); 
+        }
+        return $query->getQuery()->getResult();
+       
                    
    }
 

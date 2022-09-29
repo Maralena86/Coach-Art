@@ -20,10 +20,7 @@ class SearchEventAdminType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('date', DateTimeType::class,[
-            'label'=>false,
-            'date_widget'=>'single_text',            
-        ]) 
+        
         ->add('name', TextType::class, [
         'label' => 'Nom',
         'required' => false
@@ -37,26 +34,20 @@ class SearchEventAdminType extends AbstractType
             ], 
             'required' => false,
             ])
-        ->add('therapist', EntityType::class, [
-            'label'=>'Thérapeute',
-            'class'=> User::class,
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                ->where('u.roles LIKE :role')
-                ->setParameter('role', '%"'.'ROLE_THERAPIST'.'"%')
-                ->orderBy('u.name', 'ASC')
-                ;               
-            },
-            'choice_label' => 'name',
-            'multiple' => true,
-            'required' => false,
-            ])        
+        // ->add('therapist', EntityType::class, [
+        //     'label'=>'Thérapeute',
+        //     'class'=> User::class,
+        //     'choice_label' => 'name',
+        //     'multiple' => true,
+        //     'required' => false,
+        //     ])  
+              
             ->add('options', ChoiceType::class, [
                 'required' => true,
                 'choices' => ['Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,'À distance'=>OptionTypeEnum::OPTIONS_REMOTE]          
             ])  
             ->add('send', SubmitType::class, [
-                'label' => 'Envoyer',
+                'label' => 'Rechercher',
             ]);     
         ;
     }
@@ -65,6 +56,8 @@ class SearchEventAdminType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => SearchEventAdminCriteria::class,
+            'method' => 'GET',
+            'csrf_protection' => false,
         ]);
     }
 }

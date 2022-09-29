@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DTO;
 
-
+use DateTimeInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class SearchEventCriteria
@@ -12,10 +12,10 @@ class SearchEventCriteria
 
     public ?string $options = '';
 
-    /**
-     * @var \DateTime
-     */
-    public $date;
+    // /**
+    //  * @var \DateTime
+    //  */
+    // public $date ;
 
     /**
      * Get the value of name
@@ -82,4 +82,6 @@ class SearchEventCriteria
 
         return $this;
     }
+
+  
 }

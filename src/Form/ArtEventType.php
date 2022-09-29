@@ -28,15 +28,15 @@ class ArtEventType extends AbstractType
         
         $builder
         ->add('name', TextType::class, [
-            'label'=>"Nom de l'evenement",
+            'label'=>"Nom de l'evenement:",
             'required'=>true
         ])
         ->add('description', TextareaType::class, [
-            'label'=>"Description ",
+            'label'=>"Description: ",
             'required'=>true
         ])
         ->add('status', ChoiceType::class, [
-            'label'=>"Status ",
+            'label'=>"Status:",
             'choices' =>[
                 'Approuved'=>'Approved',
                 'Not Approuved'=>'Not approved'
@@ -44,16 +44,16 @@ class ArtEventType extends AbstractType
             'required'=>true
         ])
         ->add('price', NumberType::class, [
-            'label'=>"Prix",
+            'label'=>"Prix:",
             'required'=>true
         ])
         ->add('date', DateTimeType::class,[
-            'label'=>'Date',
+            'label'=>'Date:',
             'date_widget'=>'single_text',
             
         ]) 
         ->add('therapist', EntityType::class, [
-            'label'=>'Thérapeute',
+            'label'=>'Thérapeute:',
             'class'=> User::class,
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
@@ -66,6 +66,7 @@ class ArtEventType extends AbstractType
             'required' => false,
         ])        
         ->add('options', ChoiceType::class, [
+            'label' => 'Options:',
             'required' => true,
             'choices' => ['Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,'À distance'=>OptionTypeEnum::OPTIONS_REMOTE]          
         ])       

@@ -14,9 +14,4 @@ class SearchEventAdminCriteria
 
     public ?array $therapist = [];
 
-    /**
-     * @var \DateTime
-     */
-    public $date;
-
 }

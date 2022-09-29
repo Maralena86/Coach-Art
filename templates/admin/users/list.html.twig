@@ -6,7 +6,7 @@
 <div class="flex-center-col">
 <div class="flex-center-col table-container">
 
-  <h2 class="text-center p-4">Liste d'utilisaturs</h2>
+  <h3 class="text-center">Liste d'utilisaturs</h3>
     
   <table>
     <thead>
@@ -40,7 +40,7 @@
       </td>
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
-      <td><a href="{{path( 'admin_users_updateUser', {id:user.id})}}">Modifier</a></td>
+      <td><a class="btn-admin btn-up"href="{{path('admin_users_updateUser', {id:user.id})}}">Modifier <i class="fa-solid fa-pencil"></i></a>
     </tr>
     {% endfor %}
     

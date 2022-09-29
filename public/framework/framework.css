@@ -29,7 +29,7 @@ body p{
     --primary-color:#240144;
     --second-color: #c85639; 
     --third-color: #FFB85F;
-    --primarylight-color: #925bc5;
+    --primarylight-color: #3e1d5a;
     
     --primary-font:'Nanum Gothic', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
@@ -68,13 +68,15 @@ a:hover{
     text-decoration: none;
 }
 .btn-color1{
-    background-color: var(--second-color);  
+    
+    background: linear-gradient(var(--second-color), rgb(149, 59, 37));
+    ; 
     border: none;  
     color: white; 
     
 }
 .btn-color2{
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--second-color);
     color: var(--primary-color); 
 }
 .btn-color2:hover{
@@ -83,12 +85,14 @@ a:hover{
 
 }
 .btn-color1>a{
-    color: white;
+    color:  white;
+    font-weight: 500;
+    
+
 }
 .btn-color1:hover{
     background-color: var(--primary-color);
-
-    color: var(--second-color); 
+    color: white; 
 }
 .btn-color1>a:hover{
    color: white;
@@ -109,7 +113,7 @@ h2{
 }
 h3{
     margin-bottom: 2rem;
-    color: var(--primary-color);
+    color: rebeccapurple;
 }
 a{
     text-decoration: none;
@@ -118,11 +122,21 @@ a{
 /*------------   4-tables-  -----------------*/
 
 .table-container{
-    width: 80%;
+    width: 90%;
 }
 td p, td, th, .basket-totalPrice{
     font-family: var(--primary-font);
     font-size: 15px;
+}
+table{
+    border: 0.3px solid var(--primary-color);
+    padding: 50px;
+}
+thead{
+    background-color: var(--primary-color);
+    color: white;
+  
+    border-radius: 20px;
 }
 /*-----------   5-vich images-   -------------*/
 
@@ -134,8 +148,11 @@ td p, td, th, .basket-totalPrice{
     width: 100px;
     height: 100px;
 }
-#art_event_imageFile_file, #user_edit_imageFile_file{
-    height: 50px;
+#art_event_imageFile_file, #user_edit_imageFile_file, #profil_imageFile_file{
+    height: 30px;
+    font-size: 10px;
+    padding: 4px;
+    background-color: white;
 }
 @media screen and (max-width:  1100px){
     .table-container{

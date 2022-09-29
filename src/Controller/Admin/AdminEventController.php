@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-
+use App\DTO\Admin\SearchEventAdminCriteria;
 use App\Entity\ArtEvent;
 use App\Form\ArtEventType;
 use App\Form\SearchEventAdminType;
@@ -20,12 +20,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminEventController extends AbstractController
 { 
     #[Route('/events', 'event_list')]
-    public function listEvents(ArtEventRepository $repository):Response
+    public function listEvents(ArtEventRepository $repository, Request $request):Response
     {
+        $search = new SearchEventAdminCriteria();
         $form = $this->createForm(SearchEventAdminType::class);
+        $form->handleRequest($request);
+
+        $events = $repository->findEventAdminCriteria($search);
         return $this->render('admin/event/list.html.twig', [
-            'form' =>$form->createView(),
-            'events'=>$repository->findAll() ]);
+            'form' => $form->createView(),
+            'events' => $events ]);
     }
 
     #[Route('/events/create', 'event_create')]

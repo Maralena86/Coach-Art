@@ -3,8 +3,10 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
 
-    <div class="p-5">
+    <div class="p-5 reset_password">
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}

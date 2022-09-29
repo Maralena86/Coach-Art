@@ -8,19 +8,8 @@ input{
     border-radius: 6px;
     border: 0.4px solid gray;
 }
-/* form[name="search_event"]>div{
-   width: 150px;
-   background-color: aquamarine
- ;
-} */
-form[name="search_event"], form[name="search_event_admin"]{
-   display: flex;
-   width: 100%;
-   justify-content: space-around;
-   padding: 10px;
-   margin-bottom: 40px;
-   background-color: beige;
-}
+
+
 form{     
     width: 80%;
      
@@ -106,6 +95,47 @@ form{
 #contact_message{
     margin-bottom: 20px;
 }
+
+/*-----------SEARCH-----------------*/
+form[name="search_event"], form[name="search_event_admin"]{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 10px;
+    margin-bottom: 20px; 
+    box-shadow: 2px 2px 15px black;
+ }
+
+     
+ form[name="search_event"]{
+    background-color: rgb(37, 28, 47);
+ }
+ #search_event_admin_send{
+     margin-left: 25px;
+ }
+select{
+    appearance: none;
+    padding: 5px 10px;
+    width: 250px;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    font-weight: bold;  
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    border:none;
+    -webkit-appearance: button;
+    outline: none;
+    transform: 2s;
+}
+select:hover{
+   
+    scale: 1.05;
+    
+}
+
+
 @media screen and (max-width:  1150px){
     #img-connexion{
         display: none;
