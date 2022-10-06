@@ -1,16 +1,17 @@
-/*  ----Contains:------
-1-General
-2-Buttons
-3-Styles-fonts
-4-Tables
-5-Images
-*/
 /* ----Font-styles
 font-family: 'Gloria Hallelujah', cursive;
 font-family: 'Mali', cursive;
 font-family: 'Nanum Gothic', sans-serif;
 font-family: 'Archivo', sans-serif;
 font-family: 'Signika Negative', sans-serif;
+*/
+
+/*  ----Contains:------
+1-General
+2-Buttons
+3-Styles-fonts
+4-Tables
+5-Images
 */
 
 /*----    1-General-    -----*/
@@ -26,14 +27,12 @@ body p{
 }
 :root
 {
-    --primary-color:#240144;
-    --second-color: #c85639; 
-    --third-color: #FFB85F;
+    --primary-color:#080045;
+    --second-color: #c35016; 
     --primarylight-color: #3e1d5a;
     
     --primary-font:'Nanum Gothic', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
-    --third-font: 'Mali', cursive;
 }
 .flex-center-col{
     display: flex;
@@ -69,8 +68,8 @@ a:hover{
 }
 .btn-color1{
     
-    background: linear-gradient(var(--second-color), rgb(149, 59, 37));
-    ; 
+    /* background: linear-gradient(var(--second-color), rgb(149, 59, 37)); */
+    background-color: var(--second-color);
     border: none;  
     color: white; 
     

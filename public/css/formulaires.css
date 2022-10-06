@@ -58,7 +58,9 @@ form{
     font-weight: bold;
     color: var(--primarylight-color);
 }
-
+#rememeber-me{
+    background-color: violet;
+}
 /*--------------inscription----------------*/
 
 #registration{
@@ -73,7 +75,7 @@ form{
 /*-------------------contact---------------------*/
 .contact-container{
     min-height: 76vh;
-    background-image: url('./uploads/profil-behin2.jpg');
+    background-image: url('public/uploads/profil-behin2.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -96,7 +98,7 @@ form{
     margin-bottom: 20px;
 }
 
-/*-----------SEARCH-----------------*/
+/*-----------search-----------------*/
 form[name="search_event"], form[name="search_event_admin"]{
     display: flex;
     width: 100%;
