@@ -82,9 +82,11 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
                 $query = $query
                 ->andWhere('a.options LIKE :val')
                 ->setParameter('val', "%{$search->options}%"); 
-       
             }
-            
+            return $query->getQuery()->getResult();
+       ;
+   }
+    
             // if(!empty($search->date)){
                 
             //     $query = $query
@@ -92,10 +94,6 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
             //     ->setParameter('val', "%{$search->date}%"); 
             //     var_dump($search->options);   
             // }
-            return $query->getQuery()->getResult();
-       ;
-   }
-
    public function findEventAdminCriteria(SearchEventAdminCriteria $search):array
    {
        $query = $this
@@ -108,10 +106,7 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
             $query = $query
                 ->andWhere('a.name LIKE :val')
                 ->setParameter('val', "%{$search->name}%"); 
-                dd($search);
         }
-            
-      
        if(!empty($search->options)){
         $query = $query
         ->andWhere('a.options LIKE :val')
@@ -129,12 +124,10 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
             ->andWhere('therapist.id IN (:userIds)')
             ->setParameter('val', "%{$search->status}%"); 
         }
-        return $query->getQuery()->getResult();
-       
-                   
+        return $query->getQuery()->getResult();               
    }
 
- public function findByStatus($value)
+    public function findByStatus($value)
     {
         return $this->createQueryBuilder('a') 
         ->andWhere('a.status = :val')
@@ -152,8 +145,7 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
         if($search->title){
             $qb
                 ->andWhere('event.name LIKE :name')
-                ->setParameter('name', "%$search->name%");
-            
+                ->setParameter('name', "%$search->name%");      
         }
         if(!empty($search->categories)){
             $qb
@@ -169,18 +161,13 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
         if($search->maxPrice){
              $qb
                 ->andWhere('event.price <= :maxPrice')
-                ->setParameter('maxPrice', $search->maxPrice);
-          
+                ->setParameter('maxPrice', $search->maxPrice); 
         }
-
-        
-        
         return $qb
             ->orderBy('event.' . $search->orderBy, $search->direction)
             ->setMaxResults($search->limit)
             ->setFirstResult(($search->page - 1) * $search->limit)
             ->getQuery()
-            ->getResult();
-        
+            ->getResult();     
     }
 }

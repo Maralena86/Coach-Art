@@ -2,7 +2,7 @@
 {% block body %}
 
 <div id="imageHome">
-    <h2 class="titleDescription">L’art pour tous. Un endroit pour s’epanouir, pour prendre un moment pour soi...</h2>
+    <p class="titleDescription">L’art pour tous. Un endroit pour s’epanouir, pour prendre un moment pour soi...</p>
 </div>
 
 <div id="about-coachArt-container" >
@@ -10,16 +10,16 @@
     <p class="mb-5 display-5">Les arts events sont: </p>
     <div class=" d-flex justify-content-around flex-wrap">
     <div class=" about-coachArt">
-        <img class="mb-3"src="https://cdn-icons-png.flaticon.com/512/4359/4359854.png"/>
+        <img class="mb-3"src="https://cdn-icons-png.flaticon.com/512/4359/4359854.png" alt="creativité"/>
         <p>Un endroit pour liberer sa creativité</p>
 
     </div>
     <div class="about-coachArt">
-        <img class="mb-3"src="https://www.saultchurch.com/wp-content/uploads/2019/10/istockphoto-665333894-612x612.jpg"/>
+        <img class="mb-3"src="https://www.saultchurch.com/wp-content/uploads/2019/10/istockphoto-665333894-612x612.jpg" alt="solidarité"/>
         <p>Un endroit pour partager avec une communaute solidaire et ouverte</p>
     </div>
     <div class="about-coachArt">
-    <img class="mb-3"src="https://www.nicepng.com/png/detail/361-3619749_the-foundation-of-your-brand-identity-design-creative.png"/>
+    <img class="mb-3"src="https://www.nicepng.com/png/detail/361-3619749_the-foundation-of-your-brand-identity-design-creative.png" alt="entraide"/>
     <p>Des art therapteutes, qui planifient les ArtsEvents pour te faire passer un moment unique où tu pourras te ressourcer et passer un moment spècial</p>
     </div>
     </div>
@@ -86,7 +86,9 @@
                     <p>{{event.price}}€</p>     
                         <div class="flex-around-col">
                         {% if event.therapist %} 
-                        <div class="therapist-image"><img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} ></div>
+                        <div class="therapist-image">
+                            <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} >
+                        </div>
                         <p class="therapist-name">{{event.therapist.name}}</p>
                         {% endif %}   
                     

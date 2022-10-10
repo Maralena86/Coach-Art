@@ -1,46 +1,60 @@
 
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<title>Bienvenue</title>
-</head>
+{% apply inline_css %}
 <style>
-    header{
-        background-color: black;
-        color: white;
-        width:100%;
-        height: 200px;  
-        display:flex;
-        justify-container: center;
-        align-items:center;
+    .headerEmail{
+    background-color: #080045;
+    color: #c35016;
+    width:100%;
+    height: 100px;  
+    display:flex;
+    align-items:center;
+}
+    h1{
+        padding-left: 10px;
+        font-size: 25px;
+        color: #080045;
+    }
+    table{
+        border: 0.5px solid black;
+    }
+    .coachArt{
+        color:#c35016;
+    }
+    thead{
+      background-color: #080045;
+      color: white;  
+    }
+    th, td{
+        padding: 5px 15px;
     }
 </style>
 <body>
     <header>
-        <h1>Coach art</h1>
+        <h1 class="headerEmail">Coach art</h1>
     </header>
     <div>
+
         <h1>Récapitulatif de la commande:</h1>
+        <h2>Bonjour {{order.user.name}} Merci de commander chez nous. Bientot tu vas pouvoir profiter de ton évènement.</h2>
 
         <table class="table">
         <thead>
             <tr>
-            <th scope="col"></th>
-            <th scope="col">Nom de l'evenement</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Quantité</th>
+                <th scope="col">Nom de l'evenement</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Quantité</th>
             </tr>
         </thead>
         <tbody>{% for article in order.articles %}
             <tr>
-            <td scope="row"></td>
-            <td>{{article.event.name}}</td>
-            <td>{{article.event.price}}€</td>
-            <td>{{article.quantity}}</td>
+                <td>{{article.event.name}}</td>
+                <td>{{article.event.price}}€</td>
+                <td>{{article.quantity}}</td>
             </tr>
         {% endfor %}
         </tbody>
         </table>
-        <p>Total de la commande: {{order.totalPrice}}</p>
+        <p>Total de la commande: {{order.totalPrice}}€</p>
     </div>
-</body>
+    <p class="coachArt">Coach Art 2022</p>
+{% endapply %}

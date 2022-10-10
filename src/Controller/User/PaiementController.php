@@ -52,10 +52,8 @@ class PaiementController extends AbstractController
     {
       /** @var User $user */
 
-      $user =$this->getUser();
-    
+      $user =$this->getUser();    
       $basket = $user->getBasket();
-
       $order = new Order();
       $order->setUser($user);
       $order->setTotalPrice($user->getBasket()->getTotalPrice());
@@ -64,11 +62,9 @@ class PaiementController extends AbstractController
           $order->addArticle($article);
           $user->addArtEvent($article->getEvent());
           $basket->removeArticle($article);        
-      }  
-      
+      }      
       $userRepository->add($user, true);
       $repository->add($order, true);
-
       $email = (new TemplatedEmail())
         ->from('coach-art@mail.com')
         ->to($user->getEmail())
@@ -81,7 +77,6 @@ class PaiementController extends AbstractController
       return $this->render('user/payment/success.html.twig', [
         'order' => $order,
       ]);
-
     }
 
     #[Route('/cancel', 'cancel_url')]

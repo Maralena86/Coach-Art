@@ -79,8 +79,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     #[ORM\OneToMany(mappedBy: 'therapist', targetEntity: ArtEvent::class)]
     private Collection $artEventsTherapist;
 
-    
-
     public function __construct()
     {
         $this->setBasket(new Basket());

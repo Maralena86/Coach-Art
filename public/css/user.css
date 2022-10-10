@@ -1,6 +1,6 @@
 /*-----------basket------------*/
 .panier-title {
-    background-image: url("./uploads/behind-description.jpeg");
+    background-image: url("../uploads/behind-description.jpeg");
 }
 .basket-image{
     height: 50px;
@@ -34,6 +34,9 @@ tr{
 }
 thead{
     border-bottom: 1Px solid black;
+}
+.basket-succes{
+    padding-top: 100px;
 }
 
 /*---------- Profil----------------------*/

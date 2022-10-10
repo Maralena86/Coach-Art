@@ -16,6 +16,7 @@ form{
 }
 [type=submit]{
     border-radius: 10px; 
+    width: 100%;
 }
 /*-------Formulaire evenement-----*/
 
@@ -50,7 +51,8 @@ form{
 .form-container-connexion{
     margin-top: 80px;
     height: 600px;
-    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
     border-radius: 20px;
 }
 .connexion-container a{
@@ -58,9 +60,7 @@ form{
     font-weight: bold;
     color: var(--primarylight-color);
 }
-#rememeber-me{
-    background-color: violet;
-}
+
 /*--------------inscription----------------*/
 
 #registration{
@@ -75,7 +75,7 @@ form{
 /*-------------------contact---------------------*/
 .contact-container{
     min-height: 76vh;
-    background-image: url('public/uploads/profil-behin2.jpg');
+    background-image: url('../uploads/profil-behin2.jpg');
     background-position: center;
     background-size: cover;
 }
