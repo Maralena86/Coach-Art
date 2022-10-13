@@ -18,7 +18,11 @@
         <div class="grid-item">
             <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
                 <div class="img-container-event">
-                    <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} alt="art-thérapie évènement">         
+                    {% if event.options == "remote"%}
+                    <p class="event-option">En distanciel</p>  
+                    {% endif %}  
+                    <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} alt="art-thérapie évènement"> 
+                        
                 </div>
                 <div class="product-info">
                     <div class="product-info1">
