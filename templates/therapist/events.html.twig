@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block title %}Mes ateliers{% endblock %}
+{% block body %}
+
+<div class="nav-bg-div connexion-fixed"></div>
+<div class="d-flex flex-column admin-action">
+{{form(form)}}
+    <h2>Mes ateliers</h2>
+<div class="flex-center-col table-container">
+<table>
+        <thead>
+            <tr>
+                <th>ArtEvent</th>
+                <th>Prix</th>
+                <th>Date</th>
+                <th> Assistantes</th>
+                <th>Mode</th>
+            </tr>
+        </thead> 
+
+   <tbody>
+        {% for event in events %}
+        <tr>
+            {% if event.therapist.name == app.user.name %}
+                <td> <a class="detail-link" href="{{path( 'app_event_showDetail', {id:event.id})}}">
+                    <div class="d-flex" >
+                    <img class="basket-image"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} width="120" height="100"> 
+                    <div class="pl-2">  
+                        <p>{{event.name|u.truncate(20, '...', false)}}</p>
+                        </div>
+                    </div>
+                    </a>
+                </td>
+                <td> {{event.price}}</td>
+                <td>{{event.date|date}}</td>
+                <td>{% for user in event.users %}               
+                {% if  user.name != event.therapist.name %}
+                    <p>{{user.name}}</p>
+                {% endif %}
+                {% endfor %}</td>
+                <td>{{event.options}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+   
+</div>
+
+
+{% endblock %}
