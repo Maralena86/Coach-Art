@@ -23,10 +23,13 @@ class AdminEventController extends AbstractController
     public function listEvents(ArtEventRepository $repository, Request $request):Response
     {
         $search = new SearchEventAdminCriteria();
-        $form = $this->createForm(SearchEventAdminType::class);
+        $form = $this->createForm(SearchEventAdminType::class, $search);
         $form->handleRequest($request);
+ 
+
 
         $events = $repository->findEventAdminCriteria($search);
+      
         return $this->render('admin/event/list.html.twig', [
             'form' => $form->createView(),
             'events' => $events ]);

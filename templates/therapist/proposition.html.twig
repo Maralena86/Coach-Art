@@ -3,9 +3,12 @@
 {% extends "base.html.twig" %}
 {% block title %}Proposer un atelier{% endblock %}
 {% block body %}
-<h2>Proposer un atelier</h2>
-<div class="flex">
- {{ form(form) }}
+
+<div class="nav-bg-div connexion-fixed"></div>
+<div class="d-flex flex-column admin-action">
+    <h2>Proposer un atelier</h2>
+    {{ form(form) }}
 </div>
+
 
 {% endblock %}

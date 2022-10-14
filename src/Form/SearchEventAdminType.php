@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
+
 use App\Entity\User;
-use Doctrine\ORM\EntityRepository;
 use App\DoctrineType\OptionTypeEnum;
 use Symfony\Component\Form\AbstractType;
 use App\DTO\Admin\SearchEventAdminCriteria;
@@ -29,8 +29,8 @@ class SearchEventAdminType extends AbstractType
         ->add('status', ChoiceType::class, [
             'label'=>"Status ",
             'choices' =>[
-                'Approuved'=>'Approved',
-                'Not Approuved'=>'Not approved'
+                'Validés'=>'Approved',
+                'Non validés'=>'Not approved'
             ], 
             'required' => false,
             ])
@@ -43,8 +43,11 @@ class SearchEventAdminType extends AbstractType
         //     ])  
               
             ->add('options', ChoiceType::class, [
-                'required' => true,
-                'choices' => ['Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,'À distance'=>OptionTypeEnum::OPTIONS_REMOTE]          
+                'choices' => [
+                    'Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,
+                    'À distance'=>OptionTypeEnum::OPTIONS_REMOTE,
+                    'Tous les évenements'=>'Tous'
+                ]          
             ])  
             ->add('send', SubmitType::class, [
                 'label' => 'Rechercher',

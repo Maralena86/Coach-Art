@@ -97,7 +97,9 @@ form{
 #contact_message{
     margin-bottom: 20px;
 }
-
+.title-proposition{
+    background-color: black;
+}
 /*-----------search-----------------*/
 form[name="search_event"], form[name="search_event_admin"]{
     display: flex;

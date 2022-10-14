@@ -81,7 +81,7 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
                 }else
                 $query = $query
                 ->andWhere('a.options LIKE :val')
-                ->setParameter('val', "%{$search->options}%"); 
+                ->setParameter('val', "%$search->options%"); 
             }
             return $query->getQuery()->getResult();
        ;
@@ -98,32 +98,31 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
    {
        $query = $this
             ->createQueryBuilder('a')
-            ->orderBy('a.date', 'ASC')
-            ->setMaxResults(6)
-            ->setFirstResult((1 - 1) * 8);
+            ->orderBy('a.date', 'ASC');
 
-        if(!empty($search->name)){
-            $query = $query
+        if($search->name){
+            $query 
                 ->andWhere('a.name LIKE :val')
-                ->setParameter('val', "%{$search->name}%"); 
+                ->setParameter('val', "%$search->name%"); 
         }
-       if(!empty($search->options)){
-        $query = $query
-        ->andWhere('a.options LIKE :val')
-        ->setParameter('val', "%{$search->options}%"); 
-        dd($search);
+        if($search->options){      
+            if($search->options == 'Tous'){
+            }else
+            $query 
+            ->andWhere('a.options LIKE :val')
+            ->setParameter('val', $search->options); 
         }
-        if(!empty($search->status)){
-            $query = $query
+        if($search->status){
+            $query
             ->andWhere('a.status LIKE :val')
-            ->setParameter('val', "%{$search->status}%"); 
+            ->setParameter('val', "%$search->status%"); 
         }
-        if(!empty($search->therapist)){
-            $query = $query
-            ->leftJoin('a.therapist', 'user')
-            ->andWhere('therapist.id IN (:userIds)')
-            ->setParameter('val', "%{$search->status}%"); 
-        }
+        // if($search->therapist){
+        //     $query = $query
+        //     ->leftJoin('a.therapist', 'user')
+        //     ->andWhere('therapist.id IN (:userIds)')
+        //     ->setParameter('userIds', "$search->therapist"); 
+        // }
         return $query->getQuery()->getResult();               
    }
 

@@ -57,27 +57,26 @@
 }
 /*----------Modification and creation event and user------------*/
 
-#art_event, #user_edit, #profil{
+#art_event, #user_edit, #profil, #proposition {
     background-color: rgb(243, 241, 237);
     padding: 10px 20px;
     border-radius: 10px;
 }
-#art_event > div, #user_edit > div, #profil >div{
+#art_event > div, #user_edit > div, #profil >div, #proposition>div{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
     font-size: 14px;
 }
 
-#art_event select{
+#art_event select, #proposition select{
     border: .6px solid black;
     border-radius: 5px;
     font-size: 10px;
 }
-#art_event_date_time > select{
+#art_event_date_time > select, #proposition_date_time > select{
     width: 50px;
     padding: 0px;
-   
 }
 #art_event_submit{
     margin-top: 20px;
@@ -94,7 +93,7 @@
 
 
 /*-----------Events-Tables--------*/
-.table-container tbody>tr:hover{
+.table-container tbody > tr:hover{
     background-color: rgb(224, 216, 216);
     cursor: pointer;
     
@@ -113,7 +112,7 @@ form[name="search_event_admin"]{
     margin-right: 10px;
     font-size: 10px;
 }
-#art_event_imageFile_file{
+input[type="file"]{
     background-color: white;
 }
 

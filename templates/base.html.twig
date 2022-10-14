@@ -40,6 +40,11 @@
                             <a class="nav-link text-light pl-2" href="{{path('admin_event_list')}}">Admin</a>
                         </li>
                         {% endif %}
+                        {% if is_granted('ROLE_THERAPIST') %}
+                        <li class="nav-item">  
+                            <a class="nav-link text-light pl-2" href="{{path('app_therapist_proposition')}}">Proposer atelier</a>
+                        </li>
+                        {% endif %}
                         
                         <li class="nav-item active ">
                             <a class="nav-link text-light pl-2" href="{{path('app_home_about')}}">A propos de nous<span class="sr-only">(current)</span></a>
