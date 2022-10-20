@@ -7,8 +7,12 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-import Swal from "sweetalert2";
 
+// start the Stimulus application
+
+
+import Swal from "sweetalert2";
+console.log("pepe");
 
 window.onload = () => {
     
@@ -23,40 +27,61 @@ window.onload = () => {
 
 function changeBg(){
     let header = document.querySelector(".navbar");
+    
+   
     let scrollValue = window.scrollY;
    
     console.log(scrollValue);
-    if(scrollValue < 60){
+    if(scrollValue < 200){
         header.classList.remove('bgColor')
+       
+
     }else{
         header.classList.add('bgColor');
+   
     }
     
   }
   window.addEventListener('scroll', changeBg);
-
+ console.log('hi')
 let dels =document.querySelectorAll('.btn-del');
   dels.forEach(del=> {
-    del.addEventListener('click', function(){
+    del.addEventListener('click', function(e){
       
-      let self = $(this);
-      console.log(self.data('title'));
+      e.preventDefault();
+      let link = del;
+      let target = del.href;
+     
         Swal.fire({
             title: 'Vous êtes sure de réaliser cette action?',
-            text: "You won't be able to revert this!",
+            text: "Aprés vous ne pourrais pas revenir en arrière!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: 'green',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Oui, supprimer!'
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
+              console.log(result)
+              fetch(target, {method: 'get'}).then(response => response.data).then(message => {
+                console.log(message)
+                Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
                 'success'
               )
-              location.href = self.attr('href');
+              link.closest('tr').fadeOut();
+              }).catch(err =>{
+                console.log(err)
+                Swal.fire({
+                  title: 'Oups',
+                  text: 'Un erreur se produit',
+                }
+                )
+
+              }) 
+              
+             
             }
           })
           

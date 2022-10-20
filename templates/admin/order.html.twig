@@ -9,35 +9,34 @@
     <table>
     <thead>
             <tr>
-                <th>ArtEvent</th>
-                <th>Evenements</th>
-                <th>Quantité</th>
+                <th>ArtEvent(s)</th>
+                <th>Intervenant(s)</th>
+                <th>Date de commande</th>
                 <th>PrixTotal</th>
             </tr>
         </thead> 
         <tbody>
-            {% for order in orders %}
-                
+            {% for order in orders %}  
             <tr>
-                <td>{{order.getUser.name}}</td>
-                <td class="d-flex flex-column">{% for article in order.articles %}
-                <p>{{article.event.name}} ({{article.quantity}})</p>
-                {% endfor %}
+                <td class="d-flex flex-column">
+                    {% for article in order.articles %}                
+                    <p>{{article.event.name}} ({{article.quantity}})</p>
+                    {% endfor %}
                 </td>
                 <td>
-                {% for article in order.articles %}
-                {{article.quantity}}
-                {% endfor %}</td>
-                <td>
-                
-                {{order.totalPrice}}€
+                    {% for article in order.articles %}
+                    <p>{{article.event.therapist.name|capitalize}}</p>
+                    {% endfor %}
                 </td>
+                <td>{{order.createdAt|date }}</td>
+                <td>{{order.totalPrice}}€</td>
             </tr>
-            
             {% endfor %}
         </tbody>
     </table>
-
+    <div class= "m-5">
+    {{ knp_pagination_render(orders, 'pagination.html.twig') }}
+    </div>
 </diV>
 
 {% endblock %}

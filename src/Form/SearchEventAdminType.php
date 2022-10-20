@@ -29,7 +29,7 @@ class SearchEventAdminType extends AbstractType
         ->add('status', ChoiceType::class, [
             'label'=>"Status ",
             'choices' =>[
-                'Validés'=>'Approved',
+                'Validés' =>'Approved',
                 'Non validés'=>'Not approved'
             ], 
             'required' => false,

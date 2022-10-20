@@ -17,6 +17,7 @@
                 <th>Prix</th>
                 <th>Quantité</th>
                 <th>Total</th>
+                <th></th>
             </tr>
         </thead> 
         <tbody>
@@ -47,9 +48,11 @@
                         <div>
                             <a href="{{path('app_basket_increase', {id:article.id})}}">+</a>
                         </div>
+                        
                     </div>
                 </td>
                 <td>{{article.getPriceQuantity}}€</td>
+                <td><a href="{{path('app_basket_remove', {id:article.id})}}">Remove</a></td>
             </tr>
             {% endfor %}
         </tbody>

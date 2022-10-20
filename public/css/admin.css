@@ -76,7 +76,7 @@
 }
 #art_event_date_time > select, #proposition_date_time > select{
     width: 50px;
-    padding: 0px;
+    padding: 0px 15px;
 }
 #art_event_submit{
     margin-top: 20px;

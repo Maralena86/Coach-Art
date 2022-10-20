@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\UserEditType;
 use App\Repository\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminUserController extends AbstractController
 {
     #[Route('', 'list')]
-    public function usersList(UserRepository $repository): Response
+    public function usersList(UserRepository $repository, PaginatorInterface $paginator, Request $request): Response
     {
+        $data = $repository->findAll();
+        $users =  $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            6
+        );
         return $this->render('admin/users/list.html.twig', [
-            'users' => $repository->findAll(),
+            'users' => $users,
         ]);
     }
     #[Route('/{id}', name:"updateUser")]

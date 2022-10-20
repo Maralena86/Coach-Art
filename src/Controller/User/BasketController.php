@@ -79,5 +79,22 @@ class BasketController extends AbstractController
         }else
         $repository->add($article, true);      
         return $this->redirectToRoute('app_basket_display');
-    }   
+    } 
+    #[Route('basket/{id}/remove', 'app_basket_remove')]
+    public function remove(Article $article, ArticleRepository $repository, BasketRepository $basketRepository)
+    { 
+       
+            /** @var User $user */
+            $user =$this->getUser();
+            $basket = $user->getBasket();
+            $repository->remove($article);           
+            $basketRepository->add($basket, true);
+            return $this->redirectToRoute('app_basket_display');
+
+    } 
+    
+
+    
+
+
 }

@@ -9,6 +9,7 @@ use App\Entity\ArtEvent;
 use App\Form\ArtEventType;
 use App\Form\SearchEventAdminType;
 use App\Repository\ArtEventRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,16 +21,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminEventController extends AbstractController
 { 
     #[Route('/events', 'event_list')]
-    public function listEvents(ArtEventRepository $repository, Request $request):Response
+    public function listEvents(ArtEventRepository $repository, Request $request, PaginatorInterface $paginator):Response
     {
         $search = new SearchEventAdminCriteria();
         $form = $this->createForm(SearchEventAdminType::class, $search);
         $form->handleRequest($request);
  
-
-
-        $events = $repository->findEventAdminCriteria($search);
-      
+        $data = $repository->findEventAdminCriteria($search);
+        $events =  $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            5
+        );
         return $this->render('admin/event/list.html.twig', [
             'form' => $form->createView(),
             'events' => $events ]);
@@ -47,8 +50,7 @@ class AdminEventController extends AbstractController
             $event = $form ->getData();
             
             $repository->add($event, true);
-            $this->addFlash('success', "L'evenement a été bien crée");
-            return $this->redirectToRoute('app_events_list');
+            return $this->redirectToRoute('admin_event_list');
         }
         return $this->render('admin/event/create.html.twig', [
             'form' =>$form->createView()
@@ -71,7 +73,7 @@ class AdminEventController extends AbstractController
         ]);
     }
     
-    #[Route('/events/delete/{id}', 'event_delete')]
+    #[Route('/events/delete/{id}', 'event_delete', methods:['GET'])]
     public function deleteEvent(ArtEvent $event, ArtEventRepository $repository):Response
     {
         foreach($event->getUsers() as $ev){
@@ -81,8 +83,9 @@ class AdminEventController extends AbstractController
             }       
         }
         $repository->remove($event, true);
-        $this->addFlash('succes', "L'event a été effacé");
-        return $this->redirectToRoute('app_events_list');
+        $response = ['succes' => 'Tâche supprimée'];
+        return $this->json($response);
+
     }
         
 
