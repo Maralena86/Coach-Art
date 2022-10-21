@@ -100,12 +100,12 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
             ->createQueryBuilder('a')
             ->orderBy('a.date', 'ASC');
 
-        if($search->name){
+        if(!empty($search->name)){
             $query 
                 ->andWhere('a.name LIKE :val')
                 ->setParameter('val', "%$search->name%"); 
         }
-        if($search->options){      
+        if(!empty($search->options)){      
             if($search->options == 'Tous'){
             }else
             $query 
@@ -123,6 +123,7 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
         //     ->andWhere('therapist.id IN (:userIds)')
         //     ->setParameter('userIds', "$search->therapist"); 
         // }
+      
         return $query->getQuery()->getResult();               
    }
 

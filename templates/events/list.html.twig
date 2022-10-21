@@ -21,7 +21,7 @@
                     {% if event.options == "remote"%}
                     <p class="event-option">En distanciel</p>  
                     {% endif %}  
-                    <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg') | imagine_filter('my_thumb_filter') }} alt="art-thérapie évènement"> 
+                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="art-thérapie évènement"> 
                         
                 </div>
                 <div class="product-info">

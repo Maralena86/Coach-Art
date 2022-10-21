@@ -7,5 +7,5 @@ liip_imagine:
         my_thumb_filter:
             filters:
                 thumbnail:
-                    size: [700, 300]
+                    size: [700, 500]
                     mode: outbound

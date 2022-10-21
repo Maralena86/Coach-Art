@@ -13,6 +13,7 @@
             <tr>
                 <th>ArtEvent</th>
                 <th>Prix</th>
+                <th>Mode</th>
                 <th>Intervenant</th>
                 <th class="text-center">Action</th>
                 <th class="text-center">Status</th>
@@ -33,6 +34,7 @@
                     </div>
                     </a>
                 </td>
+                <td>{{event.options|capitalize}}</td>
                 <td>{{event.price}}€</td>
                 <td>
                 {% if event.therapist %}

@@ -12,7 +12,7 @@ class SearchEventAdminCriteria
 
     public ?string $status = '';
 
-    public ?array $therapist = [];
+    public ?int $therapist;
 
 
     /**
