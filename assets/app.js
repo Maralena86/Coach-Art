@@ -32,7 +32,7 @@ function changeBg(){
     let scrollValue = window.scrollY;
    
     console.log(scrollValue);
-    if(scrollValue < 200){
+    if(scrollValue < 80){
         header.classList.remove('bgColor')
        
 
@@ -46,16 +46,14 @@ function changeBg(){
  console.log('hi')
 let dels =document.querySelectorAll('.btn-del');
   dels.forEach(del=> {
-    del.addEventListener('click', function(e){
-      
+    del.addEventListener('click', function(e){   
       e.preventDefault();
       let link = del;
-      let target = del.href;
-     
+      let target = del.href; 
         Swal.fire({
             title: 'Vous êtes sure de réaliser cette action?',
             text: "Aprés vous ne pourrais pas revenir en arrière!",
-            icon: 'warning',
+            imageUrl:"https://www.onlygfx.com/wp-content/uploads/2017/12/warning-stamp-2.png",
             showCancelButton: true,
             confirmButtonColor: 'green',
             cancelButtonColor: '#d33',
@@ -75,18 +73,12 @@ let dels =document.querySelectorAll('.btn-del');
                 console.log(err)
                 Swal.fire({
                   title: 'Oups',
-                  text: 'Un erreur se produit',
+                  text: 'L\'image ne peut pas être effacé, verifier si l\'évenement a été déjà publié',
                 }
                 )
-
-              }) 
-              
-             
+              })         
             }
-          })
-          
-    }, true)
-});
+          })}, true)});
 
 
 

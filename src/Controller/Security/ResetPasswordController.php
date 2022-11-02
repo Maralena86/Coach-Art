@@ -30,7 +30,6 @@ class ResetPasswordController extends AbstractController
         private EntityManagerInterface $entityManager
     ) {
     }
-
     /**
      * Display & process form to request a password reset.
      */

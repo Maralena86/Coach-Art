@@ -13,7 +13,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class SearchEventAdminType extends AbstractType
 {
@@ -28,8 +27,8 @@ class SearchEventAdminType extends AbstractType
         
         ->add('status', ChoiceType::class, [
             'choices' =>[
-                'Validés' => 'Approved',
-                'Non validés' => 'Not approved'
+                'Non validés' => 'Not approved',
+                'Validés' => 'Validated'
             ], 
             'required' => false,
             ])
@@ -40,17 +39,16 @@ class SearchEventAdminType extends AbstractType
         //     'multiple' => true,
         //     'required' => false,
         //     ])  
-              
-            ->add('options', ChoiceType::class, [
-                'choices' => [
-                    'Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,
-                    'À distance'=>OptionTypeEnum::OPTIONS_REMOTE,
-                    'Tous les évenements'=>'Tous'
-                ]          
-            ])  
-            ->add('send', SubmitType::class, [
-                'label' => 'Rechercher',
-            ]);     
+        ->add('options', ChoiceType::class, [
+            'choices' => [
+                'Présentiel'=>OptionTypeEnum::OPTIONS_PRESENTIAL,
+                'À distance'=>OptionTypeEnum::OPTIONS_REMOTE,
+                'Tous les évenements'=>'Tous'
+            ]          
+        ])  
+        ->add('send', SubmitType::class, [
+            'label' => 'Rechercher',
+        ]);     
         ;
     }
 

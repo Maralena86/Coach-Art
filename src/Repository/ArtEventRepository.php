@@ -96,26 +96,25 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
             // }
    public function findEventAdminCriteria(SearchEventAdminCriteria $search):array
    {
-       $query = $this
-            ->createQueryBuilder('a')
-            ->orderBy('a.date', 'ASC');
+       $query = $this->createQueryBuilder('a');
+            
 
-        if(!empty($search->name)){
+        if($search->name){
             $query 
-                ->andWhere('a.name LIKE :val')
-                ->setParameter('val', "%$search->name%"); 
+                ->andWhere('a.name LIKE :name')
+                ->setParameter('name', "%$search->name%"); 
         }
         if(!empty($search->options)){      
             if($search->options == 'Tous'){
             }else
             $query 
-            ->andWhere('a.options LIKE :val')
-            ->setParameter('val', $search->options); 
+                ->andWhere('a.options LIKE :options')
+                ->setParameter('options', "%$search->options%"); 
         }
         if($search->status){
             $query
-            ->andWhere('a.status LIKE :val')
-            ->setParameter('val', "%$search->status%"); 
+                ->andWhere('a.status LIKE :status')
+                ->setParameter('status', "%$search->status%"); 
         }
         // if($search->therapist){
         //     $query = $query
@@ -124,7 +123,10 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
         //     ->setParameter('userIds', "$search->therapist"); 
         // }
       
-        return $query->getQuery()->getResult();               
+        return $query
+                ->orderBy('a.date', 'ASC')
+                ->getQuery()
+                ->getResult();               
    }
 
     public function findByStatus($value)
@@ -139,35 +141,5 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
         ->getResult()
         ;
     }
-    public function findByCriteria(SearchEventCriteria $search): array
-    { 
-        $qb= $this->createQueryBuilder('event');
-        if($search->title){
-            $qb
-                ->andWhere('event.name LIKE :name')
-                ->setParameter('name', "%$search->name%");      
-        }
-        if(!empty($search->categories)){
-            $qb
-                ->leftJoin('book.categories',  'category')
-                ->andWhere('category.id IN (:categoryIds)')
-                ->setParameter('categoryIds', $search->categories);
-        }
-        if($search->minPrice){
-            $qb
-                ->andWhere('event.price >= :minPrice')
-                ->setParameter('minPrice', $search->minPrice);     
-        }
-        if($search->maxPrice){
-             $qb
-                ->andWhere('event.price <= :maxPrice')
-                ->setParameter('maxPrice', $search->maxPrice); 
-        }
-        return $qb
-            ->orderBy('event.' . $search->orderBy, $search->direction)
-            ->setMaxResults($search->limit)
-            ->setFirstResult(($search->page - 1) * $search->limit)
-            ->getQuery()
-            ->getResult();     
-    }
+    
 }

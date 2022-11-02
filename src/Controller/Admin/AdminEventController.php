@@ -94,7 +94,7 @@ class AdminEventController extends AbstractController
     {
 
         return $this->render('admin/event/approved.html.twig', [
-            'events'=>$repository->findByStatus('Approved') ]);
+            'events'=>$repository->findByStatus('Validated') ]);
     }
     
     #[Route('/events/notApprouved', 'event_notApprouved')]
@@ -107,7 +107,7 @@ class AdminEventController extends AbstractController
     #[Route('/events/check/{id}', 'event_check')]
     public function checkEvent(ArtEventRepository $repository, ArtEvent $event)
     {
-        $event->setStatus('Approved');
+        $event->setStatus('Validated');
         $repository->add($event, true);
         return $this->redirectToRoute('admin_event_approuved');
     }
