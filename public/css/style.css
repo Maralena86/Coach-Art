@@ -80,7 +80,7 @@ nav{
 /* --- a.First-block  */
 #imageHome{
     
-    background-image: url('../uploads/pexels-photo-914922.webp');
+    background-image: url('../uploads/coach-art-home-intro.webp');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -89,16 +89,18 @@ nav{
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-weight: bold;
+    font-family: var(--primary-font);
+   
 }
 /* --- b.Second-block  */
 .titleDescription{
     font-size: 2.5rem;
     color: white;
     text-align: end;
-    margin: 280px 70px;  
-    width: 40%;
+    margin: 200px 70px;  
+    width: 45%;
+    font-weight: 100;
+
 }
 #about-coachArt-container{
     padding: 70px;

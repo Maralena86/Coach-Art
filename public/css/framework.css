@@ -30,8 +30,7 @@ body p{
     --primary-color:#080045;
     --second-color: #c35016; 
     --primarylight-color: #3e1d5a;
-    
-    --primary-font:'Nanum Gothic', sans-serif;
+    --primary-font:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
 }
 .flex-center-col{
