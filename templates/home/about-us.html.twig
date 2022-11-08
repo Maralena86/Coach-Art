@@ -2,27 +2,41 @@
 {% block body %}
 
     <div class="about-us-title title-container">
-        <h1 class="title-page ">À propos de Coach Art</h1>      
+        <h1 class="title-page ">À propos de Coach-<span class="color-2">Art</span> </h1>      
     </div>
     <div class="about-us-info">
-    <div>
-        <p>Coach-art est le résultat de ces expériences. La particularité du coach-art est qu'il offre une expertise thérapeutique, qui apporte une exploration personnelle plus profonde dans les ateliers, destinés à libérer le stress, les angoisses de la vie quotidienne. L'idée n'est pas de réaliser une séance thérapeutique, mais d'explorer à travers les différents ateliers ...</p>
-        
+        <div>
+            <p><strong>Coach-art</strong> naît de l'expérience de ses créateurs en art-thérapie et coach personnel. L'objectif est de proposer des expériences uniques et originales qui permettent aux participants de vivre un moment agréable, dans lequel ils peuvent s'exprimer à travers l'art et également s'éloigner de la fatigue et du stress que la routine peut produire.</p>
+            <p>Les ateliers proposés par coach art ne sont pas des séances thérapeutiques, leur but est d'utiliser les connaissances que les intervenants ont dans les domaines du développement personnel pour intégrer certains éléments de ces disciplines dans les ateliers.</p>
+            
+        </div>
+        <div class="btn-container">
+            <button class="btn-color1 about-us-btn">
+                <a id="btn-a"href="{{path('app_home_about')}}">DÉCOUVRIR NOS ATELIERS</a>
+            </button>
+        </div>
+        <div>
+            <div class="d-flex">
+                <img class="img-about-us"src="./uploads/emilie.webp"/>
+                <div class="ml-5">
+                    <h2>Emilie Bénard, créatrice de coach-art (Coach personnel, artiste et art-therapteute)</h2>
+                    <p>Emilie est une coach personnelle et artiste thérapeute de grande trajectoire, elle a réalisé différents ateliers dans différentes parties du monde, dans lesquels elle a pu observer les apports que les techniques de développement personnel ont.</p>
+                    <p>Tout au long de sa carrière, Emilie a vu la transformation de nombreuses personnes. Elle a également constaté que le stress est une source de nombreux problèmes tels que la démotivation, l'anxiété, la fatigue, entre autres.  C'est ainsi qu'est né Coach art, qui vise à offrir des moments permettant aux participants de changer d'environnement, de se détendre, de créer, de découvrir de nouvelles choses et de sortir du quotidien. </p> 
+                    <p>Pour connaitre plus sur Emilie: <a class="link-to"href="https://www.emiliebenard-coach.com/">Lien vers sa page</a></p>  
+                </div>  
+            </div>
+            <div class="d-flex">
+                <div >
+                    <h2>C'est quoi l'art-thérapie?</h2>
+                    <p class="mr-4">L'art-thérapie est une forme de psychothérapie qui utilise la création artistique (dessin, peinture, collage, sculpture, etc.) pour prendre contact avec sa vie intérieure (sentiments, rêves, inconscient, etc.), l'exprimer et se transformer.</p>
+                </div>
+                <img src="./uploads/art-therapy.jpeg">
+            </div>
+                <h2>Comment coach-art implement la therapie et le développement personnel dans les ateliers?</h2>
+                <p>Le principe de nos artistes therapteutes est de créer des evenements où les participants puissent approcher l'art d'une façon interactive, n'importe le niveau, car le but est d'utiliser l'art comme moyen de liberation du stress, une opportunité pour lacher prise...</p>
+            
+            </div>
+        </div>
     </div>
-    <div>
-    <h2>Les personnes derriére coach-art</h2>
-    <div class="d-flex">
-        <img src="./uploads/emilie.webp" width="300"/>
-        <p class="m-3">Emilie est une coach personnelle et artiste thérapeute de grande trajectoire, elle a réalisé différents ateliers dans différentes parties du monde, dans lesquels elle a pu observer les apports que les techniques de développement personnel ont.</p>  
-        </div>  
-    </div>
-    <div>
-        <h2 class="my-5">L'art-thérapie</h2>
-        <p>L'art-thérapie est une forme de psychothérapie qui utilise la création artistique (dessin, peinture, collage, sculpture, etc.) pour prendre contact avec sa vie intérieure (sentiments, rêves, inconscient, etc.), l'exprimer et se transformer.</p>
-        <h2 class="my-5">Comment coach-art implement la therapie dans les ArtEvents?</h2>
-        <p>Le principe de nos artistes therapteutes est de créer des evenements où les participants puissent approcher l'art d'une façon interactive, n'importe le niveau, car le but est d'utiliser l'art comme moyen de liberation du stress, une opportunité pour lacher prise...</p>
-     
-    </div>
-</div>
 {% include "footer.html.twig" %}
 {% endblock %}

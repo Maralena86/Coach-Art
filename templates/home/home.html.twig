@@ -7,20 +7,22 @@
 
 <div id="about-coachArt-container" >
 <h1 class="mb-3 display-4">Coach-art offre des ateliers créatifs à Paris <img src="https://s3-eu-west-1.amazonaws.com/sqily/production/workspaces/2204/attachments/Tour-eiffel.gif" alt="paris" width= "80"/></h1>
-    <p class="mb-5 display-5">Les arts events sont: </p>
+    <p class="mb-5">Tu pourrait profiter de: </p>
     <div class=" d-flex justify-content-around flex-wrap">
-    <div class=" about-coachArt">
-        <img class="mb-3"src="https://cdn-icons-png.flaticon.com/512/4359/4359854.png" alt="creativité"/>
-        <p>Un endroit pour liberer sa creativité</p>
-
+    <div class="about-coachArt">
+    <img class="mb-3"src="uploads/pencil.png" alt="entraide"/>
+    <p>Nos intervenants consacrés a créer un moment unique où tu pourras te ressourcer</p>
     </div>
     <div class="about-coachArt">
-        <img class="mb-3"src="https://www.saultchurch.com/wp-content/uploads/2019/10/istockphoto-665333894-612x612.jpg" alt="solidarité"/>
+        <img class="mb-3"src="uploads/hands.png" alt="solidarité"/>
         <p>Un endroit pour partager avec une communaute solidaire et ouverte</p>
     </div>
-    <div class="about-coachArt">
-    <img class="mb-3"src="https://www.nicepng.com/png/detail/361-3619749_the-foundation-of-your-brand-identity-design-creative.png" alt="entraide"/>
-    <p>Des art therapteutes, qui planifient les ArtsEvents pour te faire passer un moment unique où tu pourras te ressourcer et passer un moment spècial</p>
+    
+    
+    <div class=" about-coachArt">
+        <img class="mb-3"src="uploads/creativity.png" alt="creativité"/>
+        <p>Un endroit pour liberer ta creativité</p>
+
     </div>
     </div>
 
@@ -30,7 +32,7 @@
         <div class="col-9 align-self-center">
             <p class="">Des activités pour se retrouver, pour partager et découvrir....</p>
             <div class="d-flex justify-content-center mt-4">
-                <button class="btn-color1 about-us-btn">
+                <button class="btn-color2 about-us-btn">
                     <a id="btn-a"href="{{path('app_home_about')}}"> À PROPOS DE NOUS</a>
                 </button>
             </div>
@@ -65,7 +67,7 @@
 <div class="list-events">
 
     <h2>ArtEvents</h2>
-    <p class="text-center pb-5">Plein des evenements à Paris pour pouvoir profiter d'un moment agrèable</p>
+    <p class="text-center pb-5">Des ateliers créatifs à Paris pour pouvoir profiter d'un moment unique!</p>
     
     <div class="grid-container ">
         {% for event in events %}

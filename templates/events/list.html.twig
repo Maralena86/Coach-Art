@@ -2,8 +2,8 @@
 {% block body %}
 
     <div class="art-event-title title-container">
-        <h1 class="title-page ">ArtEvents</h1>
-        <p class="text-center">Plein des evenements à Paris</p>
+        <h1 class="title-page "><span class="color-2">Art</span>Events</h1>
+        <p class="text-center">Des ateliers créatifs à Paris</p>
     </div>
     <div class="form-search-event-home d-flex">
         {{form_start(form)}} 
@@ -13,7 +13,7 @@
     </div>
 <div class="list-events">
     
-    <div class="grid-container ">
+    <div class="grid-container">
         {% for event in events %}
         <div class="grid-item">
             <a href="{{path( 'app_event_showDetail', {id:event.id})}}">

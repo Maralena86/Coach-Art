@@ -12,9 +12,14 @@
 @media-queries
 */
 
+
 h2{
     color: var(--primary-color);
     margin: 10px;
+}
+.link-to{
+    color:var(--second-color);
+    font-weight: bold;
 }
 /*------------ 1-Header-  -------------------*/
 
@@ -97,25 +102,30 @@ nav{
     font-size: 2.5rem;
     color: white;
     text-align: end;
-    margin: 200px 70px;  
+    margin: 70px;  
     width: 45%;
     font-weight: 100;
-
+ 
 }
 #about-coachArt-container{
-    padding: 70px;
+    padding: 150px 40px;
     font-family: 'Nanum Gothic', sans-serif;
     text-align: center;  
 }
 .about-coachArt img{
-    width: 200px;
+
     height: 200px;
+}
+.about-coachArt p{
+    font-size: 23px;
+    
+   
 }
 .about-coachArt{
     display: flex;  
     flex-direction: column;
     align-items: center;
-    width: 300px;
+    width: 400px;
     text-align: center;
 }
 
@@ -124,11 +134,11 @@ nav{
 .info-container{
     background-image: url('../uploads/behind-description.jpeg');
     color: white;
-    padding: 20px;
+    padding: 70px 50px;
 }
 .info-container p{
-    font-size: 55px; 
-    font-family: 'Nanum Gothic', sans-serif;   
+    font-size: 50px; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     text-align: center;   
 }
 .info-container>div, .carousel-item >img{ 
@@ -193,7 +203,7 @@ nav{
     transition: 1.3s;
 }
 .event-option{
-    color: white;
+    color: rgb(219, 192, 192);
     font-weight: bolder;
     padding: 5px 10px;
     margin: 10px 5px;
@@ -203,7 +213,8 @@ nav{
     right: 0;
     border-radius: 10px;
     font-family: 'Gloria Hallelujah', cursive;
-    background-color: var(--primary-color)
+    background-color: var(--primary-color);
+    box-shadow: 2px 2px 15px var(--primary-color);
     
 }
 .grid-item h4{
@@ -257,7 +268,6 @@ nav{
     margin-bottom: 20px;
     padding: 10px 0px;
     box-shadow: 3px 3px 10px rgb(98, 98, 98);
-    border: 0.8px solid rgb(65, 63, 63);
 }
 
 /*-------- list events page ----*/
@@ -369,28 +379,45 @@ nav{
 }
 
 
-/*--------- 4-About-us-   ------------*/
+/*------------------------------------ 4-About-us-   -------------------------------*/
 
 .about-us-title{
     background-image: url("../uploads/profil-behin2.jpg");
 }
 .title-page{
     font-size: 80px;
-    font-family: 'Signika Negative', sans-serif;
+    
     text-align: center;  
 }
 .about-us-info{
-    padding: 40px 200px;
+    padding: 60px 100px;
+   
+}
+.about-us-info h2{
+    color: var(--primary-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: left;
+    margin: 50px 0px;
+    
+}
+.about-us-info img{
+    height: 400px;
+    margin-top: 40px;
+    border-radius: 10px;
 }
 .about-us-info p{
-    font-size: 20px;
-    font-family: 'Signika Negative', sans-serif;
-  
+    font-size: 22px;
+    font-family: var(--primary-font);
+    text-indent: 20px;
+    text-align: justify;
+    margin-bottom: 40px;
 }
 .about-us-btn{
     border-radius: 10px;
-    padding: 10px;
-}
+    padding: 10px 20px;
+} 
+
+
 .page{
     padding: 30px;
     background-color: aquamarine;

@@ -113,7 +113,7 @@ form[name="search_event"], form[name="search_event_admin"]{
 
      
  form[name="search_event"]{
-    background-color: rgb(37, 28, 47);
+    background-color: var(--primary-color);
  }
  #search_event_admin_send{
      margin-left: 25px;
