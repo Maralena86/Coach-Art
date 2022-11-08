@@ -114,7 +114,7 @@ nav{
 }
 .about-coachArt img{
 
-    height: 200px;
+    height: 150px;
 }
 .about-coachArt p{
     font-size: 23px;
@@ -273,6 +273,7 @@ nav{
 /*-------- list events page ----*/
 .art-event-title{
     background-image: url('../uploads/behind-description.jpeg');
+    background-position: center
 }
 
 /*---------------   3-Event Détail-  ---------------*/
@@ -383,10 +384,11 @@ nav{
 
 .about-us-title{
     background-image: url("../uploads/profil-behin2.jpg");
+    
 }
 .title-page{
     font-size: 80px;
-    
+
     text-align: center;  
 }
 .about-us-info{

@@ -72,7 +72,10 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
        
        $query = $this
             ->createQueryBuilder('a') 
-            ->orderBy('a.date', 'ASC');
+            ->orderBy('a.date', 'ASC')
+            ->andWhere('a.status LIKE :val')
+            ->setParameter('val', "Approved"); 
+            
             // ->setMaxResults(8)
             // ->setFirstResult((1 - 1) * 8);
             if(!empty($search->options)){

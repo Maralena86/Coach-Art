@@ -12,14 +12,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Contracts\Cache\CacheInterface;
 
 class ArtEventController extends AbstractController
 {
     #[Route('/events', 'app_events_list')]
     function listEvents(ArtEventRepository $repo, Request $request):Response{
-        
-        
+         
         $search = new SearchEventCriteria();
         $form = $this->createForm(SearchEventType::class, $search);
         $form->handleRequest($request);
@@ -31,7 +29,7 @@ class ArtEventController extends AbstractController
             'form' => $form->createView()
     ]);
     }
-   
+
     #[Route('/events/{id<[0-9]+>}', 'app_event_showDetail')]
     public function showDetail(ArtEvent $event): Response{   
         return $this->render('events/showDetail.html.twig', compact('event'));

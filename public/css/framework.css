@@ -57,14 +57,22 @@ button{
     background-color: var(--primary-color);
     color: rgb(214, 197, 197);
     border: none;
-    cursor: pointer;
-    
+    cursor: pointer;   
+}
+button a{
+    color: white;
+    text-decoration: none;
 }
 button:hover{
     background-color:var(--second-color);
     color: var(--primary-color);
     font-weight: bold;
     border: 0.4px solid var(--primary-color);
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin: 60px;
 }
 .btn-art{
     padding: 10px;
@@ -75,7 +83,6 @@ button:hover{
     text-align: center;
     font-size: 15px;
     background-color: var(--second-color);
-
 }
 .btn-art>a{
     color: var(--primary-color);
@@ -94,24 +101,6 @@ a:hover{
     border: none;  
     color: rgb(218, 192, 192);   
 }
-.btn-container{
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-}
-.btn-color2 a{
-    color: var(--primary-color); 
-}
-.btn-color2 a:hover{
-    color: white;
-    text-decoration: none;
-    width: 100%;
-
-}
-.btn-color2:hover{
-    background-color: var(--primary-color);
-    color: var(--second-color);
-}
 .btn-color1>a{
     color:  rgb(235, 214, 214);
     font-weight: 500;
@@ -126,10 +115,20 @@ a:hover{
    color: var(--primary-color);
     text-decoration: none;
 }
-button a{
-    color: white;
+
+
+.btn-color2{
+    color: var(--primary-color); 
+    background-color: var(--second-color);
+ border: 0.2px solid rgb(58, 36, 36);
+}
+
+.btn-color2:hover{
+    background-color: var(--primary-color);
+    color: var(--second-color);
     text-decoration: none;
 }
+
 
 /*-----------  3- style-headings-     ----------*/
 

@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\Validator\Constraints\Length;
 
 class BasketController extends AbstractController
 {   
@@ -32,19 +32,16 @@ class BasketController extends AbstractController
 
         $user =$this->getUser();
         $basket = $user->getBasket();
-     
-        foreach($basket->getArticles() as $article){
-            if(($article->getEvent() === $event)){
-                $article->setQuantity($article->getQuantity($article)+1); 
-                $article->setBasket($basket);
-                $article->setEvent($event);  
-                $basket->addArticle($article);
-                $repository->add($basket, true);
-                return $this->redirectToRoute('app_basket_display');            
+      
+     if(count($basket->getArticles()) > 1){
+         foreach($basket->getArticles() as $article){          
+                $article->setQuantity($article->getQuantity($article)+1);
             }
-        }       
-                $article = new Article();
-                $article->setQuantity(1);
+    }else{
+         $article = new Article();
+         $article->setQuantity(1);
+    }
+                     
                 $article->setBasket($basket);
                 $article->setEvent($event);  
                 $basket->addArticle($article);

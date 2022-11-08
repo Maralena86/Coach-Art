@@ -103,7 +103,7 @@
 /*--------------Search--------------*/
 form[name="search_event_admin"]{
     color: white;
-    background-color: rgb(44, 46, 61)   
+    background-color: #0f4f57;   
 }
 #search_event_admin{
     display: flex;
