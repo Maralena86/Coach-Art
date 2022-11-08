@@ -54,9 +54,17 @@ body p{
 /*-----     2-Buttons    --------*/
 button{
     padding: 5px 10px;
-    background-color: var(--second-color);
-    color: white;
+    background-color: var(--primary-color);
+    color: rgb(214, 197, 197);
     border: none;
+    cursor: pointer;
+    
+}
+button:hover{
+    background-color:var(--second-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 0.4px solid var(--primary-color);
 }
 .btn-art{
     padding: 10px;
