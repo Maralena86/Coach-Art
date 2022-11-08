@@ -4,7 +4,9 @@ CoachArt est un site internet qui propose des ateliers artistiques et therapeuti
 
 Projet en symfony
 En cours...
-
+<img width=25px src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" /> <a href="https://www.figma.com/file/wLKninePpzJFivIM4A6ICh/Coach-art?node-id=0%3A1">Lien vers la Maquette</a><br>
+<a href="https://lucid.app/lucidchart/25662ae1-33ba-46b4-961b-5e696d1a5737/edit?beaconFlowId=43E5F121AFD6FCA6&invitationId=inv_97166fef-7f61-4e52-b532-85e5bf37403a&page=HWEp-vi-RSFO#">Lins vers l'Uml Diagramme</a><br>
+<a href="https://trello.com/invite/b/1sY3VekL/dc2d8f661502e850b4822ff23de4716a/coachart">Lien ver le Plan de travail sur trello</a>
 
 <h4>Images:</h4> 
 <p>Installer: composer require vich/uploader-bundle</p>
@@ -63,6 +65,4 @@ Paginator bundle
 ------
 composer require knplabs/knp-paginator-bundle
 
-<a href="https://www.figma.com/file/wLKninePpzJFivIM4A6ICh/Coach-art?node-id=0%3A1">Maquette</a>
-<a href="https://lucid.app/lucidchart/25662ae1-33ba-46b4-961b-5e696d1a5737/edit?beaconFlowId=43E5F121AFD6FCA6&invitationId=inv_97166fef-7f61-4e52-b532-85e5bf37403a&page=HWEp-vi-RSFO#">Uml Diagramme</a>
-<a href="https://trello.com/b/1sY3VekL/coachart">Plan de travail sur trello</a>
+
