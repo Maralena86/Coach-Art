@@ -33,7 +33,7 @@ class SecurityController extends AbstractController
             $repository->add($user, true);
 
             $email = (new TemplatedEmail())
-                ->from('coachart@mail.com')
+                ->from('contact@coach-art-paris.fr')
                 ->to($user->getEmail())
                 ->subject('Bienvenue à coachArt '.$user->getName())
                 ->htmlTemplate('emails/security/registration.html.twig')

@@ -38,7 +38,7 @@ class PropositionController extends AbstractController
 
             $email = (new TemplatedEmail())
                 ->from($user->getEmail())
-                ->to('adminCoach-art@mail.com')
+                ->to('contact@coach-art-paris.fr')
                 ->subject('Ton évenement a été bien transmis!')
                 ->htmlTemplate('emails/proposition.html.twig')
                 ->context([

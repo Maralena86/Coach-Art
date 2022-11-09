@@ -66,7 +66,7 @@ class PaiementController extends AbstractController
       $userRepository->add($user, true);
       $repository->add($order, true);
       $email = (new TemplatedEmail())
-        ->from('coach-art@mail.com')
+        ->from('contact@coach-art-paris.fr')
         ->to($user->getEmail())
         ->subject('Tu es bien inscrit!')
         ->htmlTemplate('emails/paiement.html.twig')
