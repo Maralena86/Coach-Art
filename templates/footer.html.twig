@@ -4,25 +4,26 @@
                 <h4 class="footer-title">Coach-art</h4>
                 <a href="{{path('app_home_about')}}">À propos de nous</a>
                 <a href="{{path('app_email_contact')}}">Contact</a>
-                <a href="">Blog</a>
+            
             </div>
             <div>
                 <h4 class="footer-title">Découvrez</h4>
                 <a href="{{path('app_events_list')}}">Nos Ateliers</a>
+                {% if (is_granted('ROLE_THERAPIST')) %}
                 <a href="{{path('app_therapist_proposition')}}">Propositions</a>
-                <a href="">Presse</a>
+                {% endif %}
+                <a href="{{path('app_home_intervenants')}}">Nos intervenants</a>
             </div>
             <div>
-                <h4 class="footer-title">Contact</h4>
-                <a href="">Boite à questions</a>
-                <a href="">Centre d'aide</a>
+                <h4 class="footer-title">Confidencialité</h4>
+                <a href="">Mentions légales</a>
+                <a href="">Politique de confidencialité</a>
 
             </div>
     </div>
-    <div class="footer-info" id="legal"> 
-        <p>Politique de confidencialité</p>
-        <p>Mentions légales</p>
-        <p>Conditions légales</p>
-        <p>@{{'now'|date('Y')}} Coach-Art</p>
+    <div class="text-center">
+    <p >@{{'now'|date('Y')}} Coach-Art</p>  
+    <a href="https://maralena86.github.io/web_maria/">Développe par Helena Vasquez</a>
     </div>
+    
 </footer>

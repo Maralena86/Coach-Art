@@ -63,44 +63,47 @@
 </div>
 
 
-<div class="list-events">
 
-    <h2>ArtEvents</h2>
-    <p class="text-center pb-5">Des ateliers créatifs à Paris pour pouvoir profiter d'un moment unique!</p>
     
-    <div class="grid-container ">
+ <div class="list-events">
+    <h2><span class="color-2">Art</span>-Ateliers</h2>
+    <p class="text-center pb-5">Des ateliers créatifs à Paris pour pouvoir profiter d'un moment unique!</p>
+    <div class="grid-container">
         {% for event in events %}
-        <div class="grid-item ">
+        <div class="grid-item">
             <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
-            <div class="img-container-event">
-                <img class="image-event" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} >
-            </div>
-            <div class="product-info">
-                <div class="product-info1">
-                    <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
-                    <p><i class="fa-regular fa-calendar mr-1"></i>{{event.date|date}}</p>
-                    <p>{{event.createdAt|date}}</p>
+                <div class="img-container-event">
+                    {% if event.options == "remote"%}
+                    <p class="event-option">En distanciel</p>  
+                    {% endif %}  
+                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="art-thérapie évènement"> 
                         
-                    <p><i class="fa-solid fa-location-dot"></i> Paris 15</p>
                 </div>
-                <div class="product-info2 flex-around-col">
-                    <p>{{event.price}}€</p>     
-                        <div class="flex-around-col">
-                        {% if event.therapist %} 
-                        <div class="therapist-image">
-                            <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} >
-                        </div>
-                        <p class="therapist-name">{{event.therapist.name}}</p>
-                        {% endif %}   
-                    
-                        </div>
-                        {# <p>Créé {{event.createdAt|ago}}</p> #}
-                </div>
+                <div class="product-info">
+                    <div class="product-info1">
+                        <h4>{{event.name|u.truncate(20, '...', false)}}</h4>
+                        <p> <i class="fa-regular fa-calendar mr-1"></i>{{event.date|date}}</p>        
+                        <p><i class="fa-solid fa-location-dot mr-1"></i> Paris 15</p>
+                    </div>
+                    <div class="product-info2 flex-around-col">
+                        <p>{{event.price}}€</p>     
+                        <div class="flex-around-col">  
+                            {% if event.therapist %} 
+                            <div class="therapist-image">
+                                <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} >
+                            </div>
+                            <p class="therapist-name text-capitalize">{{event.therapist.name}}</p>
+                            {% endif %}
+                    </div>
+                </div>     
             </div>
+            <button class="btn-color1 reservation-button mb-2">
+                <a id="btn-a"href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
+            </button>
             </a>
         </div>   
         {% endfor %}
-    </div>  
+    </div>
 </div>
 {% include "footer.html.twig" %}
 {% endblock %}

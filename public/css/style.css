@@ -487,6 +487,39 @@ footer{
 .footer-title{
     margin-bottom: 20px;
 }
+.intervenants-container{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px;
+}
+.intervenant{
+    width: 300px;
+
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+.intervenant img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 3px 4px 15px gray;
+}
+
+.intervenant h2{
+    text-transform: capitalize;
+    font-size: 30px;
+    font-family: var(--second-font);
+    text-align: center;
+    color: var(--primary-color);
+}
+.intervenant p{
+    font-size: 18px;
+    font-weight: lighter;
+}
 
 @media screen and (max-width:  1700px){ 
 

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="about-us-title title-container">
+        <h1 class="title-page ">Nos <span class="color-2">Art</span>Intervenats </h1>      
+    </div>
+    <div class="intervenants-container">
+
+    {% for intervenant in intervenants %}
+    <div class="intervenant">
+    <div class="d-flex justify-content-center">
+        <img src="{{intervenant.image ? vich_uploader_asset(intervenant) : '../uploads/profil.jpeg'}}"/>
+    </div>
+    <h2 class="mt-3">{{intervenant.name}}</p>
+    <p>{{intervenant.description|u.truncate(30, '...', false)}}</p>
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+{% include "footer.html.twig" %}
+{% endblock %}

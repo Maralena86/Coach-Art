@@ -35,7 +35,7 @@ class SecurityController extends AbstractController
             $email = (new TemplatedEmail())
                 ->from('coachart@mail.com')
                 ->to($user->getEmail())
-                ->subject('Bienvenue à coachArt!')
+                ->subject('Bienvenue à coachArt '.$user->getName())
                 ->htmlTemplate('emails/security/registration.html.twig')
                 ->context([
                     'name'=>$user->getName()
