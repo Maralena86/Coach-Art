@@ -38,8 +38,8 @@ class ArtEventType extends AbstractType
         ->add('status', ChoiceType::class, [
             'label'=>"Status:",
             'choices' =>[
-                'Approuved'=>'Approved',
-                'Not Approuved'=>'Not approved'
+                'Valider'=>'Validated',
+                'Non valider'=>'Not approved'
             ],
             'required'=>true
         ])

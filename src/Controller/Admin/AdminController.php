@@ -25,7 +25,7 @@ class AdminController extends AbstractController
         $orders =  $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            12);
+            7);
         return $this->render('admin/order.html.twig', [
             'orders' =>$orders
         ]);

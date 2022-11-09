@@ -90,18 +90,30 @@ class AdminEventController extends AbstractController
         
 
     #[Route('/events/approuved', 'event_approuved')]
-    public function listApprouved(ArtEventRepository $repository):Response
+    public function listApprouved(ArtEventRepository $repository, PaginatorInterface $paginator, Request $request):Response
     {
+        $events =  $paginator->paginate(
+            $repository->findByStatus('Validated'),
+            $request->query->getInt('page', 1),
+            5
+        );
 
         return $this->render('admin/event/approved.html.twig', [
-            'events'=>$repository->findByStatus('Validated') ]);
+            'events'=> $events]);
     }
     
     #[Route('/events/notApprouved', 'event_notApprouved')]
-    public function listNotApprouved(ArtEventRepository $repository):Response
+    public function listNotApprouved(ArtEventRepository $repository, PaginatorInterface $paginator, Request $request):Response
     {
-        return $this->render('admin/event/notApproved.html.twig', [
-            'events'=>$repository->findByStatus('Not approved') ]);
+        
+            $events =  $paginator->paginate(
+                $repository->findByStatus('Not approved'),
+                $request->query->getInt('page', 1),
+                5
+            );
+    
+            return $this->render('admin/event/approved.html.twig', [
+                'events'=> $events]);
     }
 
     #[Route('/events/check/{id}', 'event_check')]
