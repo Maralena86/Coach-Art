@@ -1,3 +1,7 @@
+/*
+It's necessary to change  the margin bottom in the .profil-img-behind if there is more information (line.43 user.css)
+*/
+
 /*-----------basket------------*/
 .panier-title {
     background-image: url("../uploads/behind-description.jpeg");
@@ -43,7 +47,7 @@ thead{
 .profil-img-behind{
     background-image: url("../uploads/profil-behin2.jpg");
     color: white;
-    position: absolute;
+    margin-bottom: 500px;
     height: 400px;
     width: 100%; 
     box-shadow: 6px 4px 15px black;
@@ -54,12 +58,10 @@ thead{
     color: white;
     margin-bottom: 50px;
     margin-top:500px; 
-    font-family: var(--second-font);
-    width: 40%;
-    font-size: 40px; 
+    font-family: var(--second-font); 
 }
-.profil-description  p{
-    font-family: var(--primary-font);
+.profil-top{
+    display: flex;
 }
 .image-profil{
     width: 250px;
@@ -82,9 +84,8 @@ thead{
 .profil-description{
    display: flex;
    flex-direction: column;
-    width: 57%;
-    margin-left: auto;
-    margin-right: auto;
+
+    margin:0px 200px;
     padding: 20px;  
 }
 .profil-description>h4{
@@ -99,8 +100,78 @@ thead{
 .profil-name{
     margin-top: 60px;
     font-size: 30px;
+    font-family: var(--second-font);
 }
 
 .change-profil-container{
     padding-top: 100px;
 }
+.btn-modif-profil{
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+.btn-modif-profil:hover{
+    text-decoration: none;
+}
+.container-reset-password{
+    padding-top: 100px;
+}
+@media screen and (max-width:  1100px){
+    .profil-description {
+        margin: 0px 100px;
+    }
+
+}
+@media screen and (max-width:  800px){
+    .image-profil{
+        width: 200px;
+        height: 200px;
+        margin-right: 30px;
+    }
+    .profil-description {
+        margin: 0px 60px;
+    }
+    .profil-name{
+        font-style: 25px;
+    }
+    .profil-about{
+        font-style: 15px;
+        text-align: justify;
+    }
+
+}
+
+@media screen and (max-width: 546px){
+    .image-profil{
+        width: 170px;
+        height: 170px;
+        
+    }
+    .profil-description {
+        margin: 0px;
+    }
+    
+    .profil-top{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .profil-img-behind > h1{
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .profil-name{
+        margin-top: 0px;
+        margin-bottom: 10px
+    }
+
+}
+@media screen and (max-width:  400px){
+    .basket-image{
+        display: none;
+    }
+    .basket-quantity>div{
+        padding: 0px 4px;
+    }
+
+}
+

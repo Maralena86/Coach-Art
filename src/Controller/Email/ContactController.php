@@ -30,18 +30,16 @@ class ContactController extends AbstractController
             $email = (new TemplatedEmail()) 
                 ->from($contact->get('email')->getData())
                 ->to('contact@coach-art-paris.fr')
-                ->subject('Votre commande est en traitement')
+                ->subject('Un nouveau message a été envoyé')
                 ->text('Sending emails is fun again!')
-                ->htmlTemplate('emails/mailer/index.html.twig')
+                ->htmlTemplate('emails/mailer/contact.html.twig')
                 ->context([
                     'name' =>$contact->get('name')->getData(),
-                    
-                ]);
-                
+                    'mail' =>$contact->get('email')->getData(),
+                    'message' =>$contact->get('message')->getData(),     
+                ]);           
 
             $mailer->send($email);
-            // $contact = $form->getData();
-            // $repository->add($contact, true);
             return $this->redirectToRoute('app_email_contact');  
 
         }

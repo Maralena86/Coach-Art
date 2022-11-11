@@ -31,7 +31,7 @@ form{
 /*---------connexion----------------*/
 
 .connexion-container{
-    height: 100vh; 
+    min-height: 100vh; 
     font-family: var(--primary-font);
 }
 .connexion-fixed{
@@ -44,7 +44,6 @@ form{
 #img-connexion{
     background-image: url('../uploads/security/img-connexion.webp');
     width: 50%;
-    height: 100%;
     background-position: center;
     background-size: cover;
 }
@@ -74,11 +73,12 @@ form{
 }
 /*-------------------contact---------------------*/
 .contact-container{
-    min-height: 76vh;
+    min-height: 80vh;
     background-image: url('../uploads/profil-behin2.jpg');
     background-position: center;
     background-size: cover;
 }
+
 .contact-form{
  width: 700px;
  padding: 30px 10px;
@@ -114,17 +114,18 @@ form[name="search_event"], form[name="search_event_admin"]{
 
      
  form[name="search_event"]{
-    background-color: #073342;
+    background:linear-gradient(15deg,var(--primarylight-color), var(--primary-color));
  }
  #search_event_admin_send{
      margin-left: 25px;
  }
 select{
     appearance: none;
-    padding: 5px 10px;
-    width: 250px;
+    padding: 10px;
+    width: 180px;
     font-family: var(--primary-font);
-    color: var(--primary-color);
+    color: #155267;
+    background-color: rgb(230, 235, 236);
     font-weight: bold;  
     border-radius: 10px;
     cursor: pointer;
@@ -152,3 +153,28 @@ select:hover{
         width: 100%;
     }
 } 
+@media screen and (max-width:  800px){
+    .contact-form {
+        width: 90%;
+        }    
+    .box-connexion{
+        width: 100%;
+    }
+} 
+@media screen and (max-width:  350px){
+    #contact-message{
+        font-size: 13px;
+    }
+    select{
+        width: 130px;
+        padding: 10px 5px;  
+    }
+    form[name="search_event"]{
+        gap: 10px;
+    }
+    .title-page{
+        font-size: 25px;
+    }
+   
+}
+

@@ -32,23 +32,28 @@ class BasketController extends AbstractController
 
         $user =$this->getUser();
         $basket = $user->getBasket();
-      
-     if(count($basket->getArticles()) > 1){
-         foreach($basket->getArticles() as $article){          
-                $article->setQuantity($article->getQuantity($article)+1);
+
+        foreach($basket->getArticles() as $article){
+            if(($article->getEvent() === $event)){
+                $article->setQuantity($article->getQuantity($article)+1); 
+                $article->setBasket($basket);
+                $article->setEvent($event);  
+                $basket->addArticle($article);
+                $repository->add($basket, true);
+                return $this->redirectToRoute('app_basket_display');            
             }
-    }else{
-         $article = new Article();
-         $article->setQuantity(1);
-    }
-                     
+        }       
+                $article = new Article();
+                $article->setQuantity(1);
                 $article->setBasket($basket);
                 $article->setEvent($event);  
                 $basket->addArticle($article);
 
                 $repository->add($basket, true);
-                return $this->redirectToRoute('app_basket_display');   
-    }
+                return $this->redirectToRoute('app_basket_display'); 
+}
+                     
+                
 
 
     #[Route('basket/{id}/add/increase', 'app_basket_increase')]

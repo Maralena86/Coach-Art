@@ -8,7 +8,8 @@
 3-Event Détail
 4-About Us
 5-Paginator
-6-Footer
+6-intervenants
+7-Footer
 @media-queries
 */
 
@@ -24,14 +25,18 @@ h2{
 /*------------ 1-Header-  -------------------*/
 
 #logo{
-    font-family: fantasy;
-    font-size: 34px;  
-    margin-left: 40px;
+    font-family: 'Amatic SC', cursive;;
+
+    font-size: 40px;  
+    margin-left: 30px;
+    margin-right: 50px;
     display: block;
     color: var(--second-color);
     line-height: 1;
     padding-bottom: 0px;
-    font-weight: bold; 
+    font-weight: bold;
+    height: 100%;
+    padding-top: 13px; 
 }
 .nav-bg-div{
     height: 80px;
@@ -70,9 +75,22 @@ nav{
 .dropdown-menu{
     background-color: #000000;
 }
+.navbar{
+    padding: 0;
+}
 .show{
-  background-color: black;
+  background-color: var(--primary-color);
+}
 
+#user-nav{
+    
+    background-color: var(--primarylight-color);
+}
+#user-nav a{
+    color: white;
+}
+#user-nav a:hover{
+    background-color:var(--primary-color);
 }
 .social-icons{
     color: white;
@@ -87,6 +105,7 @@ nav{
     
     background-image: url('../uploads/coach-art-home-intro.webp');
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     min-height: 100vh;
     background-color: rgb(153, 75, 51);
@@ -108,7 +127,7 @@ nav{
  
 }
 #about-coachArt-container{
-    padding: 150px 40px;
+    padding: 100px 40px;
     font-family: 'Nanum Gothic', sans-serif;
     text-align: center;  
 }
@@ -133,6 +152,9 @@ nav{
 
 .info-container{
     background-image: url('../uploads/behind-description.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: white;
     padding: 70px 50px;
 }
@@ -266,8 +288,16 @@ nav{
 .reservation-button{
     width: 100%;
     margin-bottom: 20px;
+    background-color: var(--primarylight-color);
+    color: white;
+    text-align: center;
     padding: 10px 0px;
     box-shadow: 3px 3px 10px rgb(98, 98, 98);
+}
+.reservation-button:hover{
+    background-color: var(--second-color);
+    color: white;
+ 
 }
 
 /*-------- list events page ----*/
@@ -302,7 +332,6 @@ nav{
     text-align: justify;
 }
 
-
 /*--top--*/
 
 .top-detail{
@@ -333,6 +362,7 @@ nav{
 
 .bottom-detail{
     justify-content: space-between;
+    margin-top: 20px;
 }
 .therapist-container{
     width: 70%;
@@ -347,6 +377,12 @@ nav{
 #therapist-detail-title{
     color: var(--primary-color);
 }
+.therapist-detail img{
+    width: 150px;
+    height: 150px;
+    margin:  0px 10px;
+    border-radius: 5px;
+}
 #name-therapist-detail{
     font-family: var(--third-font);
     text-transform: capitalize;
@@ -360,6 +396,7 @@ nav{
 }
 #map > img{
     width: 100%;
+
 }
 
 /*--- Reservation bouton-container --*/
@@ -379,7 +416,6 @@ nav{
     margin: 0px;
 }
 
-
 /*------------------------------------ 4-About-us-   -------------------------------*/
 
 .about-us-title{
@@ -391,23 +427,23 @@ nav{
 
     text-align: center;  
 }
-.about-us-info{
+.about-us-container{
     padding: 60px 100px;
    
 }
-.about-us-info h2{
+.about-us-container h2{
     color: var(--primary-color);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: left;
     margin: 50px 0px;
     
 }
-.about-us-info img{
+.about-us-container img{
     height: 400px;
     margin-top: 40px;
     border-radius: 10px;
 }
-.about-us-info p{
+.about-us-container p{
     font-size: 22px;
     font-family: var(--primary-font);
     text-indent: 20px;
@@ -423,6 +459,10 @@ nav{
 .page{
     padding: 30px;
     background-color: aquamarine;
+}
+.about-us-info{
+    display: flex;
+    flex-wrap: wrap;
 }
 /*---------------- 5-Paginator- ------------*/
 .pagination{
@@ -453,40 +493,7 @@ nav{
     color: white;
 
 }
-
-/*--------- 6-Footer-   ------------*/
-
-footer{
-    background-color: #eceaea;
-}
-.footer-info{
-    display: flex; 
-    justify-content: space-around;
-}
-#legal{
-    justify-content: center;
-    gap: 30px;
-}
-
-.footer-info >div{
-    padding: 40px 0px 30px 0px ;
-    font-size: 25px;
-    display: flex;
-    flex-direction: column;
-
-}
-.footer-info a{
-    font-size: 15px;
-    color: rgb(185, 181, 181);
-    text-decoration: none;
-}
-.footer-info>p{
-    color: rgb(165, 163, 163);
-    font-size: 12px;
-}
-.footer-title{
-    margin-bottom: 20px;
-}
+/*--------------------- 6-intervenants- ---------------------*/
 .intervenants-container{
     display: flex;
     gap: 40px;
@@ -520,12 +527,52 @@ footer{
     font-size: 18px;
     font-weight: lighter;
 }
+/*--------- 7-Footer-   ------------*/
+
+footer{
+    background-color: #eceaea;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.footer-info{
+    display: flex; 
+    justify-content: space-around;
+}
+#legal{
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-info >div{
+    padding: 40px 0px 30px 0px ;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+}
+.footer-info a{
+    font-size: 15px;
+    color: rgb(180, 167, 167);
+    text-decoration: none;
+}
+.footer p{
+    color: rgb(170, 160, 160);
+    font-size: 12px;
+}
+.footer-title{
+    margin-bottom: 20px;
+}
+.footer-end{
+    color: rgb(185, 181, 181);
+    text-align: center;
+    font-size: 12px;
+}
+.footer-end a{
+    color: rgb(124, 124, 124);
+}
+
 
 @media screen and (max-width:  1700px){ 
-
-    .info-container p{
-        font-size: 35px;    
-    }
     .grid-container{
         width: 1100px;
         grid-template-columns: repeat(3, minmax(0, 0.4fr));
@@ -535,7 +582,7 @@ footer{
 @media screen and (max-width:  1200px){
     .info-container>div, .carousel-item >img{
         width: 100%;
-        height: 500px;
+        height: 450px;
     }
     .info-container{
       flex-direction: column-reverse; 
@@ -556,18 +603,24 @@ footer{
     .product-detail h3{
         font-size: 20px;
     }
+    .title-page{
+        font-size: 60px;
+    }
    
     .product-detail p{
         font-size: 14px;
     } 
     .image-event-detail{
-        height: 430px;
+        height: 400px;
     } 
     #name-therapist-detail{
         font-size: 18px;
     }
 }
 @media screen and (max-width:  1000px){
+    #about-coachArt-container h1{
+        
+    }
     .bottom-detail{
         flex-direction: column;
     }
@@ -576,20 +629,39 @@ footer{
     }
 }
 @media screen and (max-width:  870px){
-    .titleDescription{
-        font-weight: 1rem;  
+
+
+    #logo{
+        font-size: 30px;
+        margin-left: 10px;
     }
+    .titleDescription{
+        font-size: 1.5rem;
+        margin: 300px 20px;
+        width: 90%;  
+    }
+    .info-container p{
+        font-size: 35px;    
+    }
+    .title-page{
+        font-size: 55px;
+    }
+
+
     .grid-item{
         width: 100%;
     }
     .grid-container{
-        width: 480px;
+        width: 80%;
         grid-template-columns: none;
         padding: 20px;
     }
+    .product-detail-container{
+        width: 90%;
+    }
     .top-detail{
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     .image-event-detail{
         display: flex;
@@ -600,8 +672,12 @@ footer{
         padding: 10px;
     }
     .image-event-detail > img{
-        width: 60%;
+        width: 100%;
     }
+    .img-container-event{
+        height: 340px;
+    }
+    
     .info-event-detail{
         width: 100%;
         margin-bottom: 20px;
@@ -616,6 +692,52 @@ footer{
         width: 50%;
         align-self: center;
     }
+    .about-us-container{
+        padding: 60px;
+    }
  
 
+}
+@media screen and (max-width:  540px){
+    .footer-info h4{
+        font-size: 14px;
+    }
+    .title-page{
+        font-size: 45px;
+    }
+    .grid-container{
+        width: 95%;
+    }
+    .img-container-event{
+        height: 250px;
+    }
+    .about-us-container{
+        padding: 30px;
+    }
+    .contact-form{
+    width: 400px;
+    }
+}
+@media screen and (max-width:  330px){
+        .about-us-container{
+            padding: 15px;
+        }
+        #logo{
+            font-size: 20px;
+        }
+        .about-us-container img{
+            height: 300px;
+            
+        }
+        
+        .about-us-container h2{
+            font-size: 25px;
+            
+        }
+        .footer-info h4{
+            font-size: 12px;
+        }
+        .footer-info a{
+            font-size: 10px;
+        }
 } 

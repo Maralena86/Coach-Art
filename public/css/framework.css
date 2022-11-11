@@ -29,7 +29,7 @@ body p{
 {
     --primary-color:#002133;
     --second-color: #CD6C5C; 
-    --primarylight-color: #3e1d5a;
+    --primarylight-color: #145267;
     --primary-font:'Nanum Gothic', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
 }
@@ -52,23 +52,23 @@ body p{
     color: var(--second-color);
 }
 /*-----     2-Buttons    --------*/
-button{
+/* button{
     padding: 5px 10px;
     background-color: var(--primary-color);
     color: rgb(214, 197, 197);
     border: none;
     cursor: pointer;   
-}
+} */
 button a{
     color: white;
     text-decoration: none;
 }
-button:hover{
+/* button:hover{
     background-color:var(--second-color);
     color: var(--primary-color);
     font-weight: bold;
     border: 0.4px solid var(--primary-color);
-}
+} */
 .btn-container{
     display: flex;
     justify-content: center;
@@ -94,12 +94,19 @@ button:hover{
 a:hover{
     text-decoration: none;
 }
-.btn-color1{
-    
+.btn-color1,  #registration_send, #search_event_admin_send, #search_event_send{  
     /* background: linear-gradient(var(--second-color), rgb(149, 59, 37)); */
     background-color: var(--primary-color);
     border: none;  
-    color: rgb(218, 192, 192);   
+    color: white; 
+    cursor: pointer;
+    padding: 10px;
+      
+}
+#search_event_admin_send:hover, #search_event_send:hover{
+    background-color: var(--second-color);
+    color: white;
+    
 }
 .btn-color1>a{
     color:  rgb(235, 214, 214);
@@ -107,25 +114,25 @@ a:hover{
     
 
 }
-.btn-color1:hover{
-    background-color: var(--second-color);
-    color: var(--primary-color); 
+.btn-color1:hover, #registration_send:hover{
+    background-color: var(--primarylight-color);
+    color: white; 
 }
 .btn-color1 a:hover{
-   color: var(--primary-color);
     text-decoration: none;
+
 }
-
-
-.btn-color2{
+.btn-color2, #contact_send {
     color: var(--primary-color); 
     background-color: var(--second-color);
- border: 0.2px solid rgb(58, 36, 36);
+    border: 0.2px solid rgb(58, 36, 36);
+    cursor: pointer;
+    padding: 10px;
 }
 
-.btn-color2:hover{
-    background-color: var(--primary-color);
-    color: var(--second-color);
+.btn-color2:hover, #contact_send:hover{
+    background-color: var(--primarylight-color);
+    color: white;
     text-decoration: none;
 }
 
@@ -189,4 +196,26 @@ thead{
     .btn-art{
         font-size: 12px;
     }
+}
+@media screen and (max-width:  500px){
+    .btn-art, form[action="/checkout"]{
+        font-size: 10px;
+        width: 150px;
+    }
+    
+    td p, td, th, .basket-totalPrice{
+        font-size: 9px;
+    } 
+
+}
+@media screen and (max-width:  340px){
+    .btn-art, form[action="/checkout"]{
+
+        width: 100px;
+    }
+    
+    td, th {
+        padding: 3px;
+    } 
+
 }

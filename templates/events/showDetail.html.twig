@@ -19,14 +19,14 @@
                     <p>{{event.description}}</p>
                 </div>
             </div>
-            <div class="bottom-detail mt-5 d-flex">
+            <div class="bottom-detail d-flex">
             
                 <div class="therapist-container">
                     <h3 id="therapist-detail-title">L'Intervenant</h3>
                     <div class="therapist-detail d-flex w-100">             
                         {% if  event.therapist %}
-                        <div class="col-3 ">
-                            <img class="w-100"src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} height="140" >
+                        <div>
+                            <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}}  >
                             <p id="name-therapist-detail">{{event.therapist.name}}</p>
                         </div>
                         <p>{{event.therapist.description}}</p>
