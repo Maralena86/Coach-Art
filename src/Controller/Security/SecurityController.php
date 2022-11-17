@@ -75,8 +75,14 @@ class SecurityController extends AbstractController
     #[Route(path: '/profil/show', name: 'app_security_showProfil')]
         public function showProfile(): Response
         {
+            /** @var User $user */
+
+            $user =$this->getUser();
            
-           return $this->render('security/show_profil.html.twig');
+           return $this->render('security/show_profil.html.twig', [
+           
+            'user' =>$user
+           ]);
         }
 
         #[Route('/profil/change', 'app_security_changeProfil')]
@@ -92,7 +98,8 @@ class SecurityController extends AbstractController
                return $this->redirectToRoute('app_security_showProfil');
             }
                 return $this->render('security/change_profil.html.twig', [
-                    'form' =>$form->createView()
+                    'form' =>$form->createView(),
+                    'user' =>$user
                 ]);
             
         }

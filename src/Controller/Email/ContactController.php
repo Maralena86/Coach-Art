@@ -5,8 +5,7 @@ namespace App\Controller\Email;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
-
-use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Address;
 use App\Repository\ContactRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,8 +27,8 @@ class ContactController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             
             $email = (new TemplatedEmail()) 
-                ->from($contact->get('email')->getData())
-                ->to('contact@coach-art-paris.fr')
+                ->from(new Address($contact->get('email')->getData()))
+                ->to(new Address('contact@coach-art-paris.fr', 'admin'))
                 ->subject('Un nouveau message a été envoyé')
                 ->text('Sending emails is fun again!')
                 ->htmlTemplate('emails/mailer/contact.html.twig')

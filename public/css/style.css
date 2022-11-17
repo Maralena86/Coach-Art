@@ -126,6 +126,10 @@ nav{
     font-weight: 100;
  
 }
+#paris-img{
+    display: block;
+    margin: auto;
+}
 #about-coachArt-container{
     padding: 100px 40px;
     font-family: 'Nanum Gothic', sans-serif;
@@ -168,6 +172,9 @@ nav{
 }
 .info-container>div{
    width: 50%; 
+}
+.info-1{
+    padding: 60px 30px 0px 30px;
 }
 .carousel-item >img{
     width: 100%;   
@@ -371,8 +378,7 @@ nav{
 }
 .therapist-detail{
     background-color: white;
-    padding-top: 20px;
-    padding-right: 10px;  
+    padding: 20px 10px; 
 }
 #therapist-detail-title{
     color: var(--primary-color);
@@ -428,7 +434,7 @@ nav{
     text-align: center;  
 }
 .about-us-container{
-    padding: 60px 100px;
+    padding: 30px 100px;
    
 }
 .about-us-container h2{
@@ -440,8 +446,15 @@ nav{
 }
 .about-us-container img{
     height: 400px;
-    margin-top: 40px;
     border-radius: 10px;
+    margin: 0px 25px 5px 0px;
+}
+#img-Emilie{
+    float: left;
+}
+#img-art-therapie-about{
+    float: right;
+    margin: 0px 20px;
 }
 .about-us-container p{
     font-size: 22px;
@@ -461,8 +474,8 @@ nav{
     background-color: aquamarine;
 }
 .about-us-info{
-    display: flex;
-    flex-wrap: wrap;
+
+    gap: 30px;
 }
 /*---------------- 5-Paginator- ------------*/
 .pagination{
@@ -701,6 +714,13 @@ footer{
 
 }
 @media screen and (max-width:  540px){
+    .therapist-detail{
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-event-detail{
+        height: 300px;
+    }
     .footer-info h4{
         font-size: 14px;
     }
@@ -723,7 +743,12 @@ footer{
     width: 400px;
     }
     .info-container>div, .carousel-item >img {
-        height: 400px;
+        height: 330px;
+    }
+    .footer-info a {
+        font-size: 12px;
+        color: rgb(180, 167, 167);
+        text-decoration: none;
     }
 }
 @media screen and (max-width:  330px){
