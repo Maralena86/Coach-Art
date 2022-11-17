@@ -12,7 +12,6 @@
         {{form_end(form)}}
     </div>
 <div class="list-events">
-    
     <div class="grid-container">
         {% for event in events %}
         <div class="grid-item">
@@ -21,7 +20,7 @@
                     {% if event.options == "remote"%}
                     <p class="event-option">En distanciel</p>  
                     {% endif %}  
-                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="art-thérapie évènement"> 
+                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="{{event.name}}"> 
                         
                 </div>
                 <div class="product-info">
@@ -35,17 +34,15 @@
                         <div class="flex-around-col">  
                             {% if event.therapist %} 
                             <div class="therapist-image">
-                                <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} >
+                                <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} alt="face">
                             </div>
                             <p class="therapist-name text-capitalize">{{event.therapist.name}}</p>
                             {% endif %}
                     </div>
                 </div>     
             </div>
-            
-                <a class="reservation-button mb-2"href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
-            </button>
             </a>
+            <a class="btn-color1 reservation-button mb-2" href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
         </div>   
         {% endfor %}
     </div>

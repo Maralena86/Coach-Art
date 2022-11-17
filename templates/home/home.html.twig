@@ -6,21 +6,21 @@
 </div>
 
 <div id="about-coachArt-container" >
-<h1 class="mb-3 ">Coach-art offre des ateliers créatifs à Paris <img id="paris-img"src="https://s3-eu-west-1.amazonaws.com/sqily/production/workspaces/2204/attachments/Tour-eiffel.gif" alt="paris" width= "80"/></h1>
+<h1 class="mb-3 ">Coach-art offre des ateliers créatifs à Paris <img id="paris-img" src="https://s3-eu-west-1.amazonaws.com/sqily/production/workspaces/2204/attachments/Tour-eiffel.gif" alt="paris" width= "80"></h1>
     <p class="mb-5">Tu pourrait profiter de: </p>
     <div class=" d-flex justify-content-around flex-wrap">
     <div class="about-coachArt">
-    <img class="mb-3"src="uploads/pencil.png" alt="entraide"/>
+    <img class="mb-3" src="uploads/pencil.png" alt="entraide">
     <p>Nos intervenants consacrés a créer un moment unique où tu pourras te ressourcer</p>
     </div>
     <div class="about-coachArt">
-        <img class="mb-3"src="uploads/hands.png" alt="solidarité"/>
+        <img class="mb-3" src="uploads/hands.png" alt="solidarité">
         <p>Un endroit pour partager avec une communaute solidaire et ouverte</p>
     </div>
     
     
     <div class=" about-coachArt">
-        <img class="mb-3"src="uploads/creativity.png" alt="creativité"/>
+        <img class="mb-3" src="uploads/creativity.png" alt="creativité">
         <p>Un endroit pour liberer ta creativité</p>
 
     </div>
@@ -32,7 +32,7 @@
         <div class=" align-self-center">
             <p class="">Des activités pour se retrouver, pour partager et découvrir....</p>
             <div class="btn-container">
-                    <a class="btn-color2 about-us-btn" id="btn-a"href="{{path('app_home_about')}}"> À PROPOS DE NOUS</a>
+                    <a class="btn-color2 about-us-btn" href="{{path('app_home_about')}}"> À PROPOS DE NOUS</a>
               
             </div>
         </div>
@@ -41,13 +41,13 @@
         <div id="carouselControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://www.neonmag.fr/imgre/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Fneo.2F2021.2F11.2F25.2F4910d72f-9615-4e20-9e1d-e68e2b32840e.2Ejpeg/1170x658/background-color/ffffff/quality/90/picture.jpg" alt="First slide">
+                    <img class="d-block w-100" src="https://www.neonmag.fr/imgre/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Fneo.2F2021.2F11.2F25.2F4910d72f-9615-4e20-9e1d-e68e2b32840e.2Ejpeg/1170x658/background-color/ffffff/quality/90/picture.jpg" alt="Peinture">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://www.impactreadaptation.com/wp-content/uploads/2019/04/shutterstock_462773617-e1555619912487.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="https://www.impactreadaptation.com/wp-content/uploads/2019/04/shutterstock_462773617-e1555619912487.jpg" alt="Peinture">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="uploads/happy-reunion.webp" alt="Third slide">
+                    <img class="d-block w-100" src="uploads/happy-reunion.webp" alt="Partager">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
@@ -76,7 +76,7 @@
                     {% if event.options == "remote"%}
                     <p class="event-option">En distanciel</p>  
                     {% endif %}  
-                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="art-thérapie évènement"> 
+                    <img class="image-event" src={{(event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg'))| imagine_filter('my_thumb_filter') }} alt="{{event.name}}"> 
                         
                 </div>
                 <div class="product-info">
@@ -90,17 +90,15 @@
                         <div class="flex-around-col">  
                             {% if event.therapist %} 
                             <div class="therapist-image">
-                                <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} >
+                                <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}} alt="face">
                             </div>
                             <p class="therapist-name text-capitalize">{{event.therapist.name}}</p>
                             {% endif %}
                     </div>
                 </div>     
             </div>
-            <button class="btn-color1 reservation-button mb-2">
-                <a id="btn-a"href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
-            </button>
             </a>
+            <a class="btn-color1 reservation-button mb-2" href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
         </div>   
         {% endfor %}
     </div>

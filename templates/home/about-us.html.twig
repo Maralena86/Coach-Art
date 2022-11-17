@@ -2,7 +2,7 @@
 {% block body %}
 
     <div class="about-us-title title-container">
-        <h1 class="title-page ">À propos de Coach-<span class="color-2">Art</span> </h1>      
+        <h1 class="title-page">À propos de Coach-<span class="color-2">Art</span> </h1>      
     </div>
     <div class="about-us-container">
         <div>
@@ -12,41 +12,35 @@
         </div>
    
         <div class="btn-container">
-            <button class="btn-color1 about-us-btn">
-                <a id="btn-a"href="{{path('app_events_list')}}">DÉCOUVRIR NOS ATELIERS</a>
-            </button>
+                <a id="btn-a" class="btn-color1 about-us-btn" href="{{path('app_events_list')}}">DÉCOUVRIR NOS ATELIERS</a>
         </div>
         <div>
             <div class="about-us-info">
-                <img class="img-about-us" id="img-Emilie"src="./uploads/emilie.webp"/>
+                <img class="img-about-us" id="img-Emilie" src="./uploads/emilie.webp" alt="art-terapeute, artiste">
                 <div class="">
                     <h2>Emilie Bénard, créatrice de coach-art (Coach personnel, artiste et art-therapteute)</h2>
                     <p>Emilie est une coach personnelle et artiste thérapeute de grande trajectoire, elle a réalisé différents ateliers dans différentes parties du monde, dans lesquels elle a pu observer les apports que les techniques de développement personnel ont.</p>
                     <p>Tout au long de sa carrière, Emilie a vu la transformation de nombreuses personnes. Elle a également constaté que le stress est une source de nombreux problèmes tels que la démotivation, l'anxiété, la fatigue, entre autres.  C'est ainsi qu'est né Coach art, qui vise à offrir des moments permettant aux participants de changer d'environnement, de se détendre, de créer, de découvrir de nouvelles choses et de sortir du quotidien. </p> 
-                    <p>Pour connaitre plus sur Emilie: <a class="link-to"href="https://www.emiliebenard-coach.com/">Lien vers sa page</a></p>  
+                    <p>Pour connaitre plus sur Emilie: <a class="link-to" href="https://www.emiliebenard-coach.com/">Lien vers sa page</a></p>  
                 </div>  
             </div>
             <div class="about-us-info">
-                <div >
-                <img id="img-art-therapie-about" src="./uploads/art-therapy.jpeg" >
-                    <div><h2>C'est quoi l'art-thérapie?</h2>
-                    <p class="">L'art-thérapie est une forme de psychothérapie qui utilise la création artistique (dessin, peinture, collage, sculpture, etc.) pour prendre contact avec sa vie intérieure (sentiments, rêves, inconscient, etc.), l'exprimer et se transformer.</p>
-                    <p>Le geste créateur fait appel au corps qui se met en mouvement pour créer une oeuvre concrète. Dans le même élan, il sollicite l'imagination, l'intuition, la pensée et les émotions. Les images ou les formes ainsi créées, en plus de dévoiler certains aspects de soi, peuvent générer une vision et des comportements nouveaux qui contribueront à des guérisons physiques, émotives ou spirituelles.</p>
-                    </div>
-                    
-                </div>
+                <div>
+                    <img id="img-art-therapie-about" src="./uploads/art-therapy.jpeg" alt="art-therapie">
+                    <div>
+                        <h2>C'est quoi l'art-thérapie?</h2>
+                        <p class="">L'art-thérapie est une forme de psychothérapie qui utilise la création artistique (dessin, peinture, collage, sculpture, etc.) pour prendre contact avec sa vie intérieure (sentiments, rêves, inconscient, etc.), l'exprimer et se transformer.</p>
+                        <p>Le geste créateur fait appel au corps qui se met en mouvement pour créer une oeuvre concrète. Dans le même élan, il sollicite l'imagination, l'intuition, la pensée et les émotions. Les images ou les formes ainsi créées, en plus de dévoiler certains aspects de soi, peuvent générer une vision et des comportements nouveaux qui contribueront à des guérisons physiques, émotives ou spirituelles.</p>
+                        <h2>Comment coach-art implement la therapie et le développement personnel dans les ateliers?</h2>
+                        <p>Le principe de nos artistes therapteutes est de créer des evenements où les participants puissent approcher l'art d'une façon interactive, n'importe le niveau, car le but est d'utiliser l'art comme moyen de liberation du stress, une opportunité pour lacher prise...</p>
                 
-            </div>
-                <h2>Comment coach-art implement la therapie et le développement personnel dans les ateliers?</h2>
-                <p>Le principe de nos artistes therapteutes est de créer des evenements où les participants puissent approcher l'art d'une façon interactive, n'importe le niveau, car le but est d'utiliser l'art comme moyen de liberation du stress, une opportunité pour lacher prise...</p>
-                
+                    </div>        
+                </div>              
             </div>
         </div>
     </div>
     <div class="btn-container">
-            <button class="btn-color1 about-us-btn">
-                <a id="btn-a"href="{{path('app_home_intervenants')}}">DÉCOUVRIR NOS COACHS</a>
-            </button>
-        </div>
+        <a class="btn-color1 about-us-btn" href="{{path('app_home_intervenants')}}">DÉCOUVRIR NOS COACHS</a>
+    </div>
 {% include "footer.html.twig" %}
 {% endblock %}

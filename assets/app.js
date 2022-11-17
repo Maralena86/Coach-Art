@@ -12,7 +12,6 @@ import './styles/app.scss';
 
 
 import Swal from "sweetalert2";
-console.log("pepe");
 
 window.onload = () => {
     
@@ -43,7 +42,7 @@ function changeBg(){
     
   }
   window.addEventListener('scroll', changeBg);
- console.log('hi')
+ 
 let dels =document.querySelectorAll('.btn-del');
   dels.forEach(del=> {
     del.addEventListener('click', function(e){   
