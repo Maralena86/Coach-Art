@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modiffier mot de passe{% endblock %}
+{% block title %}Modifier mot de passe{% endblock %}
 
 {% block body %}
 <div class="nav-bg-div connexion-fixed">
 </div>
+<div class="p-5 reset_password container-padding-top">
     <h1>Modifier mot de passe</h1>
 
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         <button class="btn btn-primary">Modifier</button>
     {{ form_end(resetForm) }}
+    </div>
 {% endblock %}

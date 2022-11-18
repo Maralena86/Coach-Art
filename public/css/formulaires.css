@@ -141,9 +141,6 @@ select:hover{
     
 }
 /*--------reset password--------*/
-.reset_password{
-    padding-top:80px;
-}
 
 @media screen and (max-width:  1150px){
     #img-connexion{

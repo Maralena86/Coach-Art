@@ -51,6 +51,11 @@ body p{
 .color-2{
     color: var(--second-color);
 }
+/* Quand on utilise background dans le menu ajuster le pading-top*/
+.container-padding-top{
+    padding-top: 100px;
+}
+
 /*-----     2-Buttons    --------*/
 /* button{
     padding: 5px 10px;
@@ -180,6 +185,27 @@ thead{
     padding: 4px;
     background-color: white;
 }
+/* Errors */
+.container-404{
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: blanchedalmond;
+    font-family: var(--second-font);
+}
+.container-404>h1{
+    color: var(--second-color);
+}
+.container-404>p{
+    margin-bottom: 40px;
+    color: rgb(155, 156, 184);
+}
+
+
 @media screen and (max-width:  1100px){
     .table-container{
         width: 95%;
@@ -195,6 +221,9 @@ thead{
     }
     .btn-art{
         font-size: 12px;
+    }
+    .container-404>img{
+        width: 100%;
     }
 }
 @media screen and (max-width:  500px){
@@ -212,6 +241,13 @@ thead{
     .btn-art, form[action="/checkout"]{
 
         width: 100px;
+    }
+    .container-404>h2{
+        font-size: 20px;
+    }
+    .container-404>p{
+        font-size: 13px;
+        text-align: center;
     }
     
     td, th {

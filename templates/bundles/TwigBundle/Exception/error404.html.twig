@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
+<div class="container-padding-top container-404">
+<h1>Oups...</h1>
+<h2>La page que vous recherchez n'a pas été retrouvée.</h2>
+<p >Peut-être que l'URL est mal saisie ou la page n'existe plus.</p>
+<img class="gif" src="https://maralena86.github.io/web_maria/images/coach-art.gif" alt="404">
+<a class="btn-color2 about-us-btn mt-3" href="{{path('app_home_display')}}"> RETOUR À L'ACCUEIL</a>
+</div>
+{% endblock %}

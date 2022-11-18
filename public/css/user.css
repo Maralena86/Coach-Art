@@ -103,9 +103,7 @@ thead{
     font-family: var(--second-font);
 }
 
-.change-profil-container{
-    padding-top: 100px;
-}
+
 .btn-modif-profil{
     padding: 10px 25px;
     border-radius: 5px;
@@ -113,9 +111,7 @@ thead{
 .btn-modif-profil:hover{
     text-decoration: none;
 }
-.container-reset-password{
-    padding-top: 100px;
-}
+
 @media screen and (max-width:  1100px){
     .profil-description {
         margin: 0px 100px;
