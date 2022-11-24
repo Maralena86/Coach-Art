@@ -16,6 +16,10 @@ use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+use function PHPUnit\Framework\assertIsNotInt;
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
+
 class SecurityController extends AbstractController
     {
         
@@ -24,32 +28,39 @@ class SecurityController extends AbstractController
     public function registration(Request $request, UserRepository $repository, MailerInterface $mailer, UserPasswordHasherInterface $hasher)
     {
         $form = $this->createForm(RegistrationType::class);
-        $form->handleRequest($request);
+        $userInfo = $form->handleRequest($request);
         
         if($form->isSubmitted()&& $form->isValid()){
-            $user = $form->getData();
-            $cryptedPassword = $hasher->hashPassword($user, $user->getPassword());
-            $user->setPassword($cryptedPassword);
-            $repository->add($user, true);
+            $userTest= $repository->findByEmail($userInfo->get('email')->getData());
+            if(empty($userTest) == true ){         
+                $user = $form->getData();
+                $cryptedPassword = $hasher->hashPassword($user, $user->getPassword());
+                $user->setPassword($cryptedPassword);
+                $repository->add($user, true);
 
-            $email = (new TemplatedEmail())
-                ->from('contact@coach-art-paris.fr')
-                ->to($user->getEmail())
-                ->subject('Bienvenue à coachArt '.$user->getName())
-                ->htmlTemplate('emails/security/registration.html.twig')
-                ->context([
-                    'name'=>$user->getName()
-                ]);
-                $mailer->send($email);
-            return $this->redirectToRoute('app_home_display');
+                $email = (new TemplatedEmail())
+                    ->from('contact@coach-art-paris.fr')
+                    ->to($user->getEmail())
+                    ->subject('Bienvenue à coachArt '.$user->getName())
+                    ->htmlTemplate('emails/security/registration.html.twig')
+                    ->context([
+                        'name'=>$user->getName()
+                    ]);
+                    $mailer->send($email);
+                return $this->redirectToRoute('app_login');
+            }
+            return $this->redirectToRoute('app_security_mailNotApprouved');
         }
-
         return $this->render('security/registration.html.twig',[
             'form' => $form->createView(),
         ]);
     }
-    
-   
+
+    #[Route(path: '/registration/echec', name: 'app_security_mailNotApprouved')]
+    public function testMailNotApprouved(): Response
+    {
+        return $this->render('security/emailNotNew.html.twig');
+    }
    
 
     #[Route(path: '/login', name: 'app_login')]
@@ -74,16 +85,15 @@ class SecurityController extends AbstractController
     }
     #[Route(path: '/profil/show', name: 'app_security_showProfil')]
         public function showProfile(): Response
-        {
-            /** @var User $user */
+    {
+        /** @var User $user */
 
-            $user =$this->getUser();
+        $user =$this->getUser();
            
-           return $this->render('security/show_profil.html.twig', [
-           
-            'user' =>$user
-           ]);
-        }
+        return $this->render('security/show_profil.html.twig', [   
+        'user' =>$user
+        ]);
+    }
 
         #[Route('/profil/change', 'app_security_changeProfil')]
         public function changeProfil(Request $request, UserRepository $repository):Response

@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationType extends AbstractType
 {
@@ -43,8 +44,12 @@ class RegistrationType extends AbstractType
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'required' => true,
+                'constraints' =>[
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-]).{8,}$/', "Il faut un mot de pase de 8 caractères avec 1 majuscule, 1 miniscule et 1 caractère spécial (!*#)")                    
+                    ],
                 'first_options' => [
                     'label' => false,
+
                     'attr' => array(
                         'placeholder' => 'Votre mot de passe'
                     ),

@@ -29,8 +29,7 @@ function changeBg(){
     
    
     let scrollValue = window.scrollY;
-   
-    console.log(scrollValue);
+  
     if(scrollValue < 80){
         header.classList.remove('bgColor')
        

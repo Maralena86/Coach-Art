@@ -61,7 +61,11 @@ form{
 }
 
 /*--------------inscription----------------*/
-
+#registration li {
+    list-style: none; 
+    color: rgb(133, 79, 58); 
+    font-weight: bolder; 
+}
 #registration{
     width: 100%;
 }

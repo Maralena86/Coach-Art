@@ -103,7 +103,6 @@ thead{
     font-family: var(--second-font);
 }
 
-
 .btn-modif-profil{
     padding: 10px 25px;
     border-radius: 5px;
@@ -111,10 +110,19 @@ thead{
 .btn-modif-profil:hover{
     text-decoration: none;
 }
+.mailError-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+}
 @media screen and (max-width:  1100px){
     .profil-description {
         margin: 0px 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
 }

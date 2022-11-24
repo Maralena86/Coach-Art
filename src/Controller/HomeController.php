@@ -16,9 +16,7 @@ class HomeController extends AbstractController
 
     #[Route('/', 'app_home_display')]
     function displayHome(ArtEventRepository $repo):Response{
-        $events = $repo->findAll();
-        
-        return $this->render('home/home.html.twig', ['events'=> $events]);
+        return $this->render('home/home.html.twig', ['events'=> $repo->findAll()]);
     }
     #[Route('/about', 'app_home_about')]
     function aboutCoachArt():Response{
@@ -32,6 +30,10 @@ class HomeController extends AbstractController
         $intervenants = $repository->findTherapist();
         return $this->render('home/intervenants.html.twig', ['intervenants'=>$intervenants]);
         
+    }
+    #[Route('/legal', 'app_home_legal')]
+    function legalMentios():Response{
+        return $this->render('home/mentions-legales.html.twig', );
     }
 
     

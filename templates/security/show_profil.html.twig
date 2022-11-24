@@ -8,17 +8,16 @@
     
     <div class="profil-description">
         <div class="profil-top">
-            <img class="image-profil" src={{user.image ? vich_uploader_asset(user) : asset('uploads/profil.jpeg')}}/>
-            <p class="profil-name text-capitalize">{{user.name}} {{user.lastname}}</p>
+            <img class="image-profil" src={{app.user.image ? vich_uploader_asset(app.user) : asset('uploads/profil.jpeg')}}>
+            <img class="image-profil" src={{app.user.image ? vich_uploader_asset(app.user) : asset('uploads/profil.jpeg')}} alt="face">
+            <p class="profil-name text-capitalize">{{app.user.name}} {{app.user.lastname}}</p>
         </div>
         <div class="">
             <h4 class="text-dark mb-3">A propos de moi..</h4>
-            <p class="profil-about">{{user.description}}</p>
+            <p class="profil-about">{{app.user.description}}</p>
             <a class="btn-color1 btn-modif-profil"href="{{path('app_security_changeProfil')}}">Modifier</a>
         </div>
     </div>
 </div>
-
-
 {% include "footer.html.twig" %}
 {% endblock %}

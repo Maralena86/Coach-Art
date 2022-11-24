@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Désolée le mail existe!{% endblock %}
+
+{% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
+<div class="pt-5 mailError-container">
+    <p class="p-5">Ce mail existe déjà, essaie de te connecter, si tu as oublié ton mot de passe tu peux aller vers ce lien <a href="{{path('app_forgot_password_request')}}">Mot de passe oublié?</a> </p>
+
+{% include "footer.html.twig" %}
+</div>
+
+{% endblock %}

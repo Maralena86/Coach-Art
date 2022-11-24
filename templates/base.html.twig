@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Coach-art: Ateliers créatifs à Paris">
+        <meta name="description" content="{% block meta %}Coach-art: Ateliers créatifs à Paris{% endblock %}">
         <meta property="og:type" content="article">
         <meta property="og:title" content="Coach-art: Ateliers créatifs à Paris">
         <meta property="og:description" content="Grâce à nos évènements profitez de l'art pour développer votre créativité dans une ambiance détendue et conviviale..">
         <meta property="og:url" content="https://www.coachArt.com">
         <meta property="og:image" content="1200x630.jpg">
         <title>{% block title %}coach-art: Ateliers créatifs à Paris!{% endblock %}</title>
-        <link rel="icon" type="image/png" href="favicon.png">
+        <link rel="icon" type="image/png" href="images/favicon.png">
         
         
        
@@ -48,7 +48,10 @@
                         <li class="nav-item">  
                             <a class="nav-link text-light pl-2" href="{{path('app_therapist_events')}}">Mes ateliers </a>
                         </li>
-                        {% endif %}                       
+                        {% endif %} 
+                        <li class="nav-item">  
+                            <a class="nav-link text-light pl-2" href="{{path('app_email_contact')}}">Contact</a>
+                        </li>                      
                         <li class="nav-item active ">
                             <a class="nav-link text-light pl-2" href="{{path('app_home_about')}}">A propos de nous<span class="sr-only">(current)</span></a>
                         </li>                                  
@@ -78,15 +81,15 @@
         
         
       {# <div class="container-body"> #}
-        {% for type, messages in app.flashes %}
+        
+        {% block body %}{% endblock %}
+       {% for type, messages in app.flashes %}
             {% for message in messages %}
-            <div class="alert alert-success">
+            <div class=".alert alert-success">
                 {{ message }}
             </div>
             {% endfor %}
         {% endfor %}
-        {% block body %}{% endblock %}
-       
         {# </div> #}
         {% block javascripts %}
         {{encore_entry_script_tags('app')}}

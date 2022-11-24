@@ -91,4 +91,17 @@ public function findTherapist(): ?array
         ;
 
  }
+ public function findByEmail( $email): ?array
+
+ {
+     return $this->createQueryBuilder('u')
+       
+     ->andWhere('u.email = :val')
+     ->setParameter('val', $email)
+       
+        ->getQuery()
+        ->getResult()
+        ;
+ }
 }
+
