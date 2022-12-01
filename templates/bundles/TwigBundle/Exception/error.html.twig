@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
+<div class="container-padding-top container-404">
+<h1>Oups...</h1>
+<h2>La page que vous recherchez n'a pas été retrouvée.</h2>
+<p>Code de l'erreur: {{status_code}}</p>
+<p>Vous pouvez ne contacter pour plus d'information</p>
+
+<a class="btn-color2 about-us-btn mt-3" href="{{path('app_home_display')}}"> RETOUR À L'ACCUEIL</a>
+</div>
+{% endblock %}

@@ -12,13 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-use function PHPUnit\Framework\assertIsNotInt;
-use function PHPUnit\Framework\isEmpty;
-use function PHPUnit\Framework\isNull;
+
 
 class SecurityController extends AbstractController
     {

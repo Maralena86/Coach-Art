@@ -33,15 +33,15 @@ class PaiementController extends AbstractController
               'price_data' => [
                 'currency' => 'EUR',
                 'product_data' => [
-                  'name' => 'Other',
+                  'name' => 'Prix total',
                 ],
                 'unit_amount' => $price*100,
               ],
               'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => 'https://127.0.0.1:8000/success',
-            'cancel_url' => 'https://127.0.0.1:8000/cancel',
+            'success_url' => 'https://coach-art-paris.fr/success',
+            'cancel_url' => 'https://coach-art-paris.fr/basket',
           ]);
         
           return $this->redirect($session->url, 303); 

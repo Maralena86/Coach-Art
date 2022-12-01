@@ -49,7 +49,6 @@ form{
 }
 .form-container-connexion{
     margin-top: 80px;
-    height: 600px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;
@@ -78,11 +77,10 @@ form{
 /*-------------------contact---------------------*/
 .contact-container{
     min-height: 80vh;
-    background-image: url('../uploads/profil-behin2.jpg');
-    background-position: center;
-    background-size: cover;
+    background-image: url('../uploads/art-behind.webp');
+    background-position: initial;
+    background-size: cover;  
 }
-
 .contact-form{
  width: 700px;
  padding: 30px 10px;
@@ -91,7 +89,6 @@ form{
  background-color: rgba(180, 162, 162, 0.2);
  border-radius: 10px; 
 }
-
 #contact{
     width: 100%;
 }
