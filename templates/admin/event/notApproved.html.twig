@@ -21,7 +21,7 @@
                 <td>
                 <a class="detail-link" href="{{path( 'app_event_showDetail', {id:event.id})}}">
                     <div class="d-flex" >
-                    <img class="basket-image"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} width="120" height="100"> 
+                    <img class="basket-image admin-event-image"src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}} width="120" height="100"> 
                     <div class="pl-2">  
                         <p>{{event.name|u.truncate(20, '...', false)}}</p>
                         <p>{{event.date|date}}</p>
@@ -35,7 +35,7 @@
                    
                 </td>
                 <td class="text-center"> 
-                    <div>
+                    <div class="buttons-admin-container">
                         <a class="btn-admin btn-up"href="{{path('admin_event_update', {id:event.id})}}">Modifier <i class="fa-solid fa-pencil"></i></a>
                         <a class="btn-admin btn-del"href="{{path('admin_event_delete', {id:event.id})}}">Supprimer  <i class="fa-solid fa-trash-can"></i></a>
                         <a href="{{path( 'admin_event_check', {id:event.id})}}"class="btn-validate btn-admin" >Valider <i class="fa-solid fa-check "></i></a>

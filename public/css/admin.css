@@ -27,14 +27,14 @@
     margin: 13px 0px 30px 0px;
 }
 .admin-nav{
-    width: 220px;
+  
     background-color: rgb(243, 238, 243);
     min-height: 100vh;
     position: fixed;
     padding-top: 100px;
 }
 .admin-action{
-   padding-left: 200px;
+   padding-left: 140px;
    padding-top: 80px;
    width: 100%;
     align-items: center;
@@ -44,6 +44,8 @@
     color: var(--primary-color);
     padding: 10px;
     font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 .admin-links a:hover{
     background-color: var(--primary-color);
@@ -116,5 +118,57 @@ form[name="search_event_admin"]{
 input[type="file"]{
     background-color: white;
 }
+@media screen and (max-width:  870px){
+    .admin-links a p, .welcome-admin{
+        display: none;
+    }
+    .admin-action{
+        padding-left: 2.5rem;
+    }
+    
+    .admin-event-image{
+        display: none;
+    }
+    .btn-admin{
+        font-size: 9px;
+    }
+    .btn-admin i{
+        display: none;
+    }
+    #search_event_admin{
+        font-size: 9px;
+        gap: 2px;
+    }
+    .buttons-admin-container{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-admin{
+        padding: 3px;     
+        width: 55px;
+    }
+    
+}
+@media screen and (max-width:  500px){
+    #search_event_admin {
+        gap: 6px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #search_event_admin>div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .user-admin-img{
+        display: none;
+    }
+    
+    
+    
+}
+    
 
 

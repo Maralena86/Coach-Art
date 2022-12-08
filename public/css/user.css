@@ -30,9 +30,7 @@ It's necessary to change  the margin bottom in the .profil-img-behind if there i
 table{
     width: 100%;
 }
-td, th{
-    padding: 10px;
-}
+
 tr{
     border-bottom: 1Px solid rgb(219, 215, 215);
 }

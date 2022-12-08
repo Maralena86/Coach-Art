@@ -51,6 +51,9 @@ body p{
 .color-2{
     color: var(--second-color);
 }
+td, th{
+    padding: 10px;
+}
 /* Quand on utilise background dans le menu ajuster le pading-top*/
 .container-padding-top{
     padding-top: 100px;
@@ -99,16 +102,15 @@ button a{
 a:hover{
     text-decoration: none;
 }
-.btn-color1,  #registration_send, #search_event_admin_send, #search_event_send{  
-    /* background: linear-gradient(var(--second-color), rgb(149, 59, 37)); */
+.btn-color1,  #registration_send, #search_event_admin_send, #search_event_send, #art_event_submit{  
     background-color: var(--primary-color);
     border: none;  
     color: white; 
     cursor: pointer;
     padding: 10px;
-      
+   
 }
-#search_event_admin_send:hover, #search_event_send:hover{
+#search_event_admin_send:hover, #search_event_send:hover,  #art_event_submit:hover{
     background-color: var(--second-color);
     color: white;
     
@@ -123,7 +125,7 @@ a:hover{
     background-color: var(--primarylight-color);
     color: white; 
 }
-.btn-color1 a:hover{
+.btn-color1 a:hover, #art_event_submit:hover{
     text-decoration: none;
 
 }
@@ -216,6 +218,9 @@ thead{
         font-family: var(--primary-font);
         font-size: 12px;
     } 
+    td,th{
+        padding:3px;
+    }
     .btn-color1{
         font-size: 15px;
     }

@@ -77,17 +77,17 @@ form{
 /*-------------------contact---------------------*/
 .contact-container{
     min-height: 80vh;
-    background-image: url('../uploads/art-behind.webp');
+    background: linear-gradient(45deg, black,var(--primary-color));
     background-position: initial;
     background-size: cover;  
 }
 .contact-form{
  width: 700px;
  padding: 30px 10px;
- margin: 100px 0px 30px 0px;
- color: white;
- background-color: rgba(180, 162, 162, 0.2);
- border-radius: 10px; 
+
+ color: rgb(205, 215, 218);
+ background-color: rgba(67, 74, 75, 0.2);
+
 }
 #contact{
     width: 100%;
@@ -101,6 +101,11 @@ form{
 }
 .title-proposition{
     background-color: black;
+}
+#contact_send{
+   
+    width: 5rem;
+    margin: 2rem auto;
 }
 /*-----------search-----------------*/
 form[name="search_event"], form[name="search_event_admin"]{
@@ -122,13 +127,13 @@ form[name="search_event"], form[name="search_event_admin"]{
  }
 select{
     appearance: none;
-    padding: 10px;
-    width: 180px;
+    padding: 4px;
+
     font-family: var(--primary-font);
     color: #155267;
     background-color: rgb(230, 235, 236);
     font-weight: bold;  
-    border-radius: 10px;
+    border-radius: 4px;
     cursor: pointer;
     text-align: center;
     border:none;
@@ -157,6 +162,15 @@ select:hover{
         }    
     .box-connexion{
         width: 100%;
+    }
+    #search_event_admin_send{
+        padding: 4px;
+        font-size: 9px;
+        margin-left: 5px;
+    }
+    #search_event_admin_name{
+        padding: 4px;
+        height: auto;
     }
 } 
 @media screen and (max-width:  350px){

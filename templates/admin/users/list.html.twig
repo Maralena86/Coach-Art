@@ -23,7 +23,7 @@
   <tbody>
   {% for user in users %}
     <tr>
-      <th scope="row"><img  src="{{user.image ? vich_uploader_asset(user) : '../uploads/profil.jpeg'}}" width="45px" height="50px"/></th>
+      <th scope="row"><img class="user-admin-img" src="{{user.image ? vich_uploader_asset(user) : '../uploads/profil.jpeg'}}" width="45px" height="50px"/></th>
       <td>{{user.name}} {{user.lastname}}</td>
       <td> 
         {% for role in user.roles %}

@@ -61,7 +61,7 @@ header{
 nav{    
     justify-content: space-between;  
     align-items: center;
-    height: 80px;
+ 
     width: 100%;
     padding: none;
     
@@ -662,7 +662,6 @@ footer{
 }
 @media screen and (max-width:  870px){
 
-
     #logo{
         font-size: 30px;
         margin-left: 10px;
@@ -797,8 +796,7 @@ footer{
         }
         
         .about-us-container h2{
-            font-size: 25px;
-            
+            font-size: 25px;     
         }
         
         .footer-info h4{

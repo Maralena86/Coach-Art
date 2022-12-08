@@ -112,7 +112,7 @@ class AdminEventController extends AbstractController
                 5
             );
     
-            return $this->render('admin/event/approved.html.twig', [
+            return $this->render('admin/event/notApproved.html.twig', [
                 'events'=> $events]);
     }
 
