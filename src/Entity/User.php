@@ -12,10 +12,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity
  * @Vich\Uploadable
+ * @UniqueEntity(
+ * fields = {"email"},
+ * message = "L'email indiqué existe déjà")
  */
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -34,6 +39,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
 
     /**
      * @var string The hashed password
+     * 
+     * 
      */
     #[ORM\Column(type: 'string')]
     private $password;

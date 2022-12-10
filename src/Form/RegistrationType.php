@@ -49,7 +49,6 @@ class RegistrationType extends AbstractType
                     ],
                 'first_options' => [
                     'label' => false,
-
                     'attr' => array(
                         'placeholder' => 'Votre mot de passe'
                     ),

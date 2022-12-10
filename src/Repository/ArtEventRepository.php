@@ -72,16 +72,16 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
        
        $query = $this
             ->createQueryBuilder('a') 
+            ->andWhere('a.status LIKE :stat')
+            ->setParameter('stat', "Validated")
             ->orderBy('a.date', 'ASC'); 
-            
-            // ->setMaxResults(8)
-            // ->setFirstResult((1 - 1) * 8);
             if(!empty($search->options)){
                
                 if($search->options == 'Tous'){
                 }else
                 $query = $query
                 ->andWhere('a.options LIKE :val')
+                
                 ->setParameter('val', "%$search->options%"); 
             }
             return $query->getQuery()->getResult();

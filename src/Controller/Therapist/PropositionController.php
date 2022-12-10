@@ -24,9 +24,7 @@ class PropositionController extends AbstractController
     public function index(Request $request, ArtEventRepository $repository, MailerInterface $mailer, ): Response
     {
         /** @var User $user */
-
         $user =$this->getUser();
-
         $form = $this->createForm(PropositionType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() &&$form->isValid()){
@@ -35,7 +33,6 @@ class PropositionController extends AbstractController
             $proposition->setStatus('Not approved');
             $proposition->setTherapist($user);
             $repository->add($proposition, true);
-
             $email = (new TemplatedEmail())
                 ->from($user->getEmail())
                 ->to('contact@coach-art-paris.fr')
@@ -45,14 +42,13 @@ class PropositionController extends AbstractController
                   'user'=>$user
                 ]); 
                 $mailer->send($email); 
-
             $this->addFlash('success', "La proposition a été bien envoyé");
         }
-
         return $this->render('therapist/proposition.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
     #[Route('/my_events', 'app_therapist_events')]
     function listEventsTherapist(ArtEventRepository $repo, Request $request):Response{
         
