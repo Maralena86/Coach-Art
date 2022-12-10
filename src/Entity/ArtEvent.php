@@ -43,7 +43,7 @@ class ArtEvent
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
-
+    
      /**
      * @Vich\UploadableField(mapping="events_images", fileNameProperty="image")
      * @var File
@@ -58,11 +58,9 @@ class ArtEvent
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $updatedAt;
 
-
     #[ORM\Column(length: 255)]
     private ?string $options = null;
     
-
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Article::class, cascade:["persist"])]
     private Collection $articles;
 
