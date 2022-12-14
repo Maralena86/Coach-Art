@@ -2,7 +2,9 @@
 {% block body %}
 <div class="nav-bg-div connexion-fixed">
 </div>
+{% include "/user/count-info.html.twig" %}
 <div class="change-profil-container flex-center-col">
+<h2>Modifier profil</h2>
  {{form(form)}}
  </div>
  {% endblock %}

@@ -11,9 +11,12 @@
              {{form_row(form.options)}} 
         {{form_end(form)}}
     </div>
+    
 <div class="list-events">
     <div class="grid-container">
         {% for event in events %}
+    
+        
         <div class="grid-item">
             <a href="{{path( 'app_event_showDetail', {id:event.id})}}">
                 <div class="img-container-event">
@@ -44,6 +47,7 @@
             </a>
             <a class="btn-color1 reservation-button mb-2" href="{{path( 'app_basket_add', {id:event.id})}}">RÉSERVER</a>
         </div>   
+
         {% endfor %}
     </div>
 </div>

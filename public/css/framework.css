@@ -27,9 +27,9 @@ body p{
 }
 :root
 {
-    --primary-color:#002133;
-    --second-color: #CD6C5C; 
-    --primarylight-color: #145267;
+    --primary-color:#092D33;
+    --second-color: #F5696A; 
+    --primarylight-color: #3A6F78;
     --primary-font:'Nanum Gothic', sans-serif;
     --second-font: 'Signika Negative', sans-serif;
 }
@@ -58,7 +58,14 @@ td, th{
 .container-padding-top{
     padding-top: 100px;
 }
+.top-100{
+    padding-top: 100px;
+}
 
+img{
+    object-fit: cover;
+    max-width: 100%;
+}
 /*-----     2-Buttons    --------*/
 /* button{
     padding: 5px 10px;
@@ -102,13 +109,16 @@ button a{
 a:hover{
     text-decoration: none;
 }
-.btn-color1,  #registration_send, #search_event_admin_send, #search_event_send, #art_event_submit{  
+.btn-color1,  #registration_send, #search_event_admin_send, #search_event_send, #art_event_submit, #profil_submit, button{  
     background-color: var(--primary-color);
     border: none;  
     color: white; 
     cursor: pointer;
     padding: 10px;
-   
+}
+
+#searche_event_send{
+    padding: 5px 10px;
 }
 #search_event_admin_send:hover, #search_event_send:hover,  #art_event_submit:hover{
     background-color: var(--second-color);
@@ -121,7 +131,7 @@ a:hover{
     
 
 }
-.btn-color1:hover, #registration_send:hover{
+.btn-color1:hover, #registration_send:hover, #profil_submit:hover{
     background-color: var(--primarylight-color);
     color: white; 
 }

@@ -12,8 +12,8 @@ class SearchEventCriteria
 
     public ?string $options = '';
 
-    // /**
-    //  * @var \DateTime
+    
+    // /* @var \DateTime
     //  */
     // public $date ;
 
@@ -82,6 +82,7 @@ class SearchEventCriteria
 
         return $this;
     }
+
 
   
 }

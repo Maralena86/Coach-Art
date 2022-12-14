@@ -1,0 +1,27 @@
+{% if (is_granted('ROLE_USER'))%}
+
+<div class="nav-bg-div connexion-fixed">
+</div>
+<div class="top-100 my-space">
+    <h1 class="text-center">Mon espace</h1>
+    <p class="text-center">Bienvenue {{app.user.name}}!</p>
+    <div class="count-container">
+   
+        <a href="{{path('app_security_showProfil', {id:app.user.id})}}"> Mon Profil</a>    
+
+        <a href="{{path('app_security_changeProfil')}}">Modifier mon profil</a>  
+
+        <a href="{{path('user_list_orders')}}">Mes commandes</a>  
+
+
+        {% if (is_granted('ROLE_THERAPIST'))%}
+
+        <a href="{{path('app_therapist_proposition')}}">Proposer atelier</a> 
+
+   
+        <a href="{{path('app_therapist_events')}}">Mes ateliers</a>
+
+        </div>
+        {% endif %} 
+</div>
+{% endif %} 

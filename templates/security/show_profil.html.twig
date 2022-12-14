@@ -2,22 +2,19 @@
 {% block body %}
 
 {# !It's necessary to change  the margin bottom in the .profil-img-behind if there is more information (line.43 user.css) #}
-<div class="profil-img-behind flex-center-col">
-    <h1> mes informations:</h1>
-
-    
+{% include "/user/count-info.html.twig" %}
+<div class="profil-img-behind">
     <div class="profil-description">
         <div class="profil-top">
-            <img class="image-profil" src={{app.user.image ? vich_uploader_asset(app.user) : asset('uploads/profil.jpeg')}}>
-            <img class="image-profil" src={{app.user.image ? vich_uploader_asset(app.user) : asset('uploads/profil.jpeg')}} alt="face">
+            <img class="image-profil" src={{app.user.image ? vich_uploader_asset(app.user) : asset('uploads/profil.jpeg')}}>           
             <p class="profil-name text-capitalize">{{app.user.name}} {{app.user.lastname}}</p>
-        </div>
-        <div class="">
-            <h4 class="text-dark mb-3">A propos de moi..</h4>
-            <p class="profil-about">{{app.user.description}}</p>
-            <a class="btn-color1 btn-modif-profil"href="{{path('app_security_changeProfil')}}">Modifier</a>
-        </div>
+        </div>      
     </div>
 </div>
+    <div class="profil-description profil-description-2">
+            <h4 class="text-dark mb-3">A propos de moi..</h4>
+            <p class="mb-5">{{app.user.description}}</p>
+            <a class="btn-color1 btn-modif-profil"href="{{path('app_security_changeProfil')}}">Modifier</a>
+        </div>
 {% include "footer.html.twig" %}
 {% endblock %}

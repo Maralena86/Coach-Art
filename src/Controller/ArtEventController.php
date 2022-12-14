@@ -21,9 +21,7 @@ class ArtEventController extends AbstractController
         $search = new SearchEventCriteria();
         $form = $this->createForm(SearchEventType::class, $search);
         $form->handleRequest($request);
-
         $events = $repo->findByCriteriaAscEvent($search); 
-       
         return $this->render('events/list.html.twig', [
             'events' => $events,
             'form' => $form->createView()

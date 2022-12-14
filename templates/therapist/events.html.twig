@@ -3,8 +3,8 @@
 {% block body %}
 
 <div class="nav-bg-div connexion-fixed"></div>
-<div class="d-flex flex-column admin-action">
-{{form(form)}}
+{% include "/user/count-info.html.twig" %}
+<div class="flex-center-col top-100">
     <h2>Mes ateliers</h2>
 <div class="flex-center-col table-container">
 <table>
@@ -44,6 +44,6 @@
         {% endfor %}
    
 </div>
-
+</div>
 
 {% endblock %}

@@ -73,7 +73,7 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
        $query = $this
             ->createQueryBuilder('a') 
             ->andWhere('a.status LIKE :stat')
-            ->setParameter('stat', "Validated")
+            ->setParameter('stat', "Validated")      
             ->orderBy('a.date', 'ASC'); 
             if(!empty($search->options)){
                
@@ -84,6 +84,14 @@ public function findByCriteriaAscEvent(SearchEventCriteria $search): array
                 
                 ->setParameter('val', "%$search->options%"); 
             }
+            // if(!empty($search->date)){
+               
+                
+            //     $query = $query
+            //     ->andWhere('a.date LIKE :val')
+                
+            //     ->setParameter('val', "%$search->date%"); 
+            // }
             return $query->getQuery()->getResult();
        ;
    }

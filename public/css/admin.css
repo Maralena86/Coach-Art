@@ -105,7 +105,7 @@
 /*--------------Search--------------*/
 form[name="search_event_admin"]{
     color: white;
-    background-color: var(--primarylight-color);   
+   background-color: #10525d;;   
 }
 #search_event_admin{
     display: flex;
@@ -117,6 +117,7 @@ form[name="search_event_admin"]{
 }
 input[type="file"]{
     background-color: white;
+    height: 2.7rem;
 }
 @media screen and (max-width:  870px){
     .admin-links a p, .welcome-admin{

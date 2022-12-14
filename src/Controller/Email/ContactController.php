@@ -3,10 +3,10 @@
 namespace App\Controller\Email;
 
 
-use App\Entity\Contact;
+
 use App\Form\ContactType;
 use Symfony\Component\Mime\Address;
-use App\Repository\ContactRepository;
+
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -17,11 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_email_contact')]
-    public function index( MailerInterface $mailer, Request $request, ContactRepository $repository): Response
+    public function index( MailerInterface $mailer, Request $request, ): Response
     {
-        $contact = new Contact();
+        
 
-        $form = $this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class);
         $contact = $form->handleRequest($request);
        
         if($form->isSubmitted() && $form->isValid()){

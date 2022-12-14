@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="nav-bg-div connexion-fixed">
+</div>
+{% include "/user/count-info.html.twig" %}
+<div class="order-container flex-center-col">
+    <h2>Mes commandes</h2>
+    <div class="table-container ">
+        <table>
+            <thead>
+                <tr>
+                    <th>ArtEvent(s)</th>
+                    <th>Intervenant(s)</th>
+                    <th>Date de commande</th>
+                    <th>PrixTotal</th>
+                </tr>
+            </thead> 
+            <tbody>
+                {% for order in orders %}  
+                <tr>
+                    <td class="d-flex flex-column">
+                        {% for article in order.articles %}                
+                        <p>{{article.event.name}} ({{article.quantity}})</p>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for article in order.articles %}
+                        <p>{{article.event.therapist.name|capitalize}}</p>
+                        {% endfor %}
+                    </td>
+                    <td>{{order.createdAt|date }}</td>
+                    <td>{{order.totalPrice}}€</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
