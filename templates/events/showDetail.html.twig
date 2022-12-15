@@ -25,7 +25,7 @@
                     <h3 id="therapist-detail-title">L'Intervenant</h3>
                     <div class="therapist-detail d-flex w-100">             
                         {% if  event.therapist %}
-                        <div>
+                        <div class="mr-3">
                             <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}}  >
                             <p id="name-therapist-detail">{{event.therapist.name}}</p>
                         </div>

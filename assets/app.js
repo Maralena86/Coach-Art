@@ -11,7 +11,32 @@ import './styles/app.scss';
 // start the Stimulus application
 
 
+
 import Swal from "sweetalert2";
+
+"use strict"
+
+
+const navbar = document.querySelector('.nav-fixed');
+const btn = document.querySelector('.menu_burger')
+const menu = document.querySelector('.menu_resp');
+const span = document.querySelectorAll('.line');
+
+window.onscroll = () => {
+    if (window.scrollY > 200) {
+        navbar.classList.add('active');
+    } else {
+        navbar.classList.remove('active');
+    }
+};
+
+
+btn.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  // span.classList.toggle('active');
+    btn.classList.toggle('active');
+
+})
 
 window.onload = () => {
     
@@ -24,23 +49,16 @@ window.onload = () => {
     });
 }
 
-function changeBg(){
-    let header = document.querySelector(".navbar");
-    
-   
-    let scrollValue = window.scrollY;
-  
-    if(scrollValue < 80){
-        header.classList.remove('bgColor')
-       
+// function changeBg(){
+//     let header = document.querySelector(".nav-menu");  
+//     if(window.scrollY < 80){
+//         header.classList.remove('bgColor')
+//     }else{
+//         header.classList.add('bgColor')
+//     }   
+//   }
 
-    }else{
-        header.classList.add('bgColor');
-   
-    }
-    
-  }
-  window.addEventListener('scroll', changeBg);
+//   window.addEventListener('scroll', changeBg);
  
 let dels =document.querySelectorAll('.btn-del');
   dels.forEach(del=> {
