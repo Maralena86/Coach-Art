@@ -26,10 +26,9 @@ h2{
 
 #logo{
     font-family: 'Amatic SC', cursive;;
-
+    margin-right: 1.5rem;
     font-size: 40px;  
-    margin-left: 30px;
-    margin-right: 50px;
+  
     display: block;
     color: var(--second-color);
     line-height: 1;
@@ -38,11 +37,7 @@ h2{
     height: 100%;
 
 }
-.nav-bg-div{
-    height: 80px;
-    width: 100%;
-    background-color: var(--primary-color);
-}
+
 nav a{
     text-decoration: none;
     color: white;
@@ -51,30 +46,42 @@ nav a{
     font-weight: 400;
 }
 
-header{
-  justify-content: space-between;
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-  
-}
-nav{    
+
+.navigation-menu, nav ul{    
     justify-content: space-between;  
     align-items: center;
- 
-    width: 100%;
+    margin: 0;
     padding: none;
-    
+    display: flex;  
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+nav li>a:hover{
+    text-decoration: none;
+    color: var(--second-color);
+}
+li{
+    list-style: none;
 }
 .bgColor{
     color: white;
     background-color: var(--primary-color);
-
     transition: all 1s;
 }
-.dropdown-menu{
-    background-color: #000000;
+.bar{
+    width: 36px;
+    height: 3px;
+    margin: 9px auto;
+    border-radius: 10px;
+    background-color: white;
+    display: block;
 }
+.hamburger-menu{
+    display: none;
+    cursor: pointer;
+}
+
 .navbar{
     padding: 0;
 }
@@ -156,7 +163,7 @@ nav{
     height: 150px;
 }
 .about-coachArt p{
-    font-size: 23px;
+    font-size: 1rem;
     color: var(--primarylight-color);
    
 }
@@ -236,11 +243,17 @@ nav{
     overflow: hidden; 
     position: relative; 
 }
-.image-event{
+.image-event, .image-zoom{
     height: 100%; 
     width: 100%; 
    background-position: center;
     transition: 1.3s;
+}
+.image-event:hover{
+    transform: scale(1.1);
+}
+.image-zoom:hover{
+    transform: scale(1.05);
 }
 .event-option{
     color: rgb(219, 192, 192);
@@ -269,9 +282,7 @@ nav{
     margin-bottom: 3px;
     
 }
-.image-event:hover{
-    transform: scale(1.1);
-}
+
 .product-info{
     display: flex;
     justify-content: space-between;
@@ -338,13 +349,12 @@ nav{
 }
 .detail-title{
     text-transform: uppercase;
-    color: var(--second-color);
-}
-.product-detail h3{
-    
-    font-family: var(--third-font);
+    color: var(--primarylight-color);
+    font-size: 1.7rem;
+    font-size: 1.7rem;
     
 }
+
 .product-detail p{
     font-family: var(--primary-font);
     text-align: justify;
@@ -375,44 +385,66 @@ nav{
     width: 45%;
     padding-top: 20px;
 }
-
+.bottom-detail, .top-detail{
+    background-color: white;
+    padding: 1rem;
+}
 /*--bottom---*/
 
 .bottom-detail{
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 20px;   
+}
+.bottom-detail h2, .bottom-detail h3{
+    margin-bottom: 1rem;
 }
 .therapist-container{
     width: 70%;
     margin-left: 5px;
     margin-bottom: 30px; 
+    transition-duration: 2s;
+}
+.therapist-container:hover{
+    scale: 1.04;
 }
 .therapist-detail{
-    background-color: white;
-    padding: 20px 10px; 
+    align-items: center;
+    padding: 1rem; 
+    background-color: #102d33;
+    box-shadow:  3px 3px 15px #615959;
+    color: white;
 }
 #therapist-detail-title{
-    color: var(--primary-color);
+    color: var(--primarylight-color);
+    font-size: 1.5rem;
+    text-transform: uppercase;
 }
 .therapist-detail img{
     width: 300px;
-   
-    
-    border-radius: 5px;
+
+    border-radius: 50%;
 }
 #name-therapist-detail{
     font-family: var(--third-font);
+    color: var(--second-color);
     text-transform: capitalize;
     font-weight: bold;   
     width: 100%;
-    font-size: 25px;
+    font-size: 1.4rem;
     text-align: center;
 }
 #map{   
-    width: 20%; 
+    width: 20%;
+    height: 100%; 
+}
+#map h3{
+     font-size:  1.4rem;
+     text-transform: uppercase;
+     color: var(--primarylight-color);
 }
 #map > img{
-    width: 100%;
+
+    height: 180px
 
 }
 
@@ -431,6 +463,9 @@ nav{
     color: white;
     font-size: 30px;
     margin: 0px;
+}
+.detail-event-price:hover{
+    color: var(--second-color);
 }
 
 /*------------------------------------ 4-About-us-   -------------------------------*/
@@ -554,7 +589,7 @@ nav{
 /*--------- 7-Footer-   ------------*/
 
 footer{
-    background-color: #eceaea;
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
@@ -569,6 +604,8 @@ footer{
 .footer{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
 }
 .footer-info >div{
     padding: 40px 0px 30px 0px ;
@@ -625,6 +662,42 @@ footer{
 }
 
 @media screen and (max-width:  1200px){
+    .hamburger-menu{
+        display: block;
+		margin-right: 20px;
+    }
+    .hamburger-menu.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(1){
+        transform: translateY(12px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(3){
+        transform: translateY(-12px) rotate(-45deg);
+    }
+    .navigation-menu ul, .navigation-menu{
+        flex-direction: column;
+        background-color: var(--primary-color);
+        width: 100%;
+    }
+    #logo{
+        display: none;
+    }
+    .navigation-menu{
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        gap: 0;
+        flex-direction: column;
+
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+		padding: 0;
+    }
+    .navigation-menu.active{
+        left: 0;
+    }
     .info-container>div, .carousel-item >img{
         width: 100%;
    

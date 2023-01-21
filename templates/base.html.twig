@@ -28,49 +28,69 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     </head>
     <body>  
-        <header class="d-flex flex-column ">  
-            <nav class="navbar px-0 navbar-dark navbar-expand-lg navbar-light">
-                <a class="nav-link text-center" id="logo" href="{{path('app_home_display')}}">COACH-ART </a>
-                <button class="navbar-toggler mr-4" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
+        <header class="bgColor">  
+            <nav class="navigation-menu ">
+                
+                
+                    <ul class="menu-left">
+                        <li>
+                            <a class="text-center" id="logo" href="{{path('app_home_display')}}">COACH-ART </a>
+                        </li>
                         {% if is_granted('ROLE_ADMIN') %}
-                        <li class="nav-item">  
-                            <a class="nav-link text-light pl-2" href="{{path('admin_event_list')}}">Admin</a>
+                        <li class="">  
+                            <a class="" href="{{path('admin_event_list')}}">Admin</a>
                         </li>
                         {% endif %}
-                        
-                                            
-                        <li class="nav-item active ">
-                            <a class="nav-link text-light pl-2" href="{{path('app_home_about')}}">A propos de nous<span class="sr-only">(current)</span></a>
+                                             
+                        <li class="">
+                            <a class="" href="{{path('app_home_about')}}">A propos de nous</a>
                         </li>                                  
-                        <li class="nav-item">
-                            <a class="nav-link text-light  pl-2 " href="{{path('app_events_list')}}">ArtEvents</a>
+                        <li class="">
+                            <a class="" href="{{path('app_events_list')}}">ArtEvents</a>
                         </li>
-                        <li class="nav-item">  
-                            <a class="nav-link text-light pl-2" href="{{path('app_email_contact')}}">Contact</a>
+                        <li class="">  
+                            <a class="" href="{{path('app_email_contact')}}">Contact</a>
                         </li>  
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle pl-2" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i>
-                            </a>
-                            <div class="dropdown-menu" id="user-nav" aria-labelledby="navbarDropdownMenuLink">
+                    </ul>
+                    <ul class="menu-right">
+                        
+                        
                             {% if app.user %}
-                                {% if is_granted('ROLE_USER')%}                                       
-                                    <a class="dropdown-item " href="{{path('app_basket_display')}}"><i class="fa-solid fa-basket-shopping mr-2 nav-icon"></i> Mon panier</a>  
-                                    <a class="dropdown-item" href="{{path('user_count')}}"><i class="fa-solid fa-palette mr-3 nav-icon"></i>Mon espace</a>         
+                                {% if is_granted('ROLE_USER')%}  
+                                <li class="">                                     
+                                    <a class="" href="{{path('app_basket_display')}}"><i class="fa-solid fa-basket-shopping mr-2 nav-icon"></i> Mon panier</a>
+                                </li>  
+                                    <a class="" href="{{path('user_count')}}"><i class="fa-solid fa-palette mr-3 nav-icon"></i>Mon espace</a>  
+                                </li>       
                                 {% endif %}              
-                                <a class="dropdown-item" href="{{path('app_logout')}}"><i class="fa-solid fa-right-from-bracket mr-3 nav-icon"></i>Se déconnecter</a>
+                                <a class="" href="{{path('app_logout')}}">
+                                    {# <i class="fa-solid fa-right-from-bracket mr-3 nav-icon"></i> #}
+                                    Se déconnecter</a>
                                 {% else %}
-                                <a class="dropdown-item " href="{{path('app_login')}}"><i class="fa-regular fa-user mr-3 nav-icon"></i>Se connecter</a>
-                                <a class="dropdown-item" href="{{path('app_registration')}}"><i class="fa-solid fa-id-card mr-3 nav-icon"></i>Inscription</a>
+                                <li>
+                                <a class=" " href="{{path('app_login')}}">
+                                {# <i class="fa-regular fa-user mr-3 nav-icon"></i> #}
+                                Se connecter</a>
+                                </li>
+                                <li>
+                                <a class="" href="{{path('app_registration')}}">
+                                {# <i class="fa-solid fa-id-card mr-3 nav-icon"></i> #}
+                                Inscription</a>
+                                </li>
                             {% endif %}
-                            </div>
+                           
                         </li>
                     </ul>
-                </div>
+                  
+
+              
             </nav>
+             <div class="hamburger-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+             
         </header>
         
         

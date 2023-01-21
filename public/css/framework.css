@@ -115,6 +115,7 @@ a:hover{
     color: white; 
     cursor: pointer;
     padding: 10px;
+    transition-duration: 1.5s;
 }
 
 #searche_event_send{

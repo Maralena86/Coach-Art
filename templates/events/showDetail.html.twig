@@ -6,11 +6,11 @@
     <div class="product-detail-container mt-4">
         <div class="product-detail ">
             <div class="top-detail">  
-                <div class="image-event-detail">        
-                    <img src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
+                <div class="image-event-detail img-container-event">        
+                    <img class="image-zoom" src={{event.image ? vich_uploader_asset(event) : asset('images/placeholder.jpg')}}  >
                 </div>
                 <div class="info-event-detail">
-                    <h3 class="mb-3 detail-title">{{event.name}}</h3>
+                    <h1 class="mb-3 detail-title">{{event.name}}</h1>
                     <div class="mb-2">
                         <p class=""><i class="fa-solid fa-location-dot mr-2"></i>Paris,11</p>
                         <p><i class="fa-regular fa-calendar mr-2"></i>{{event.date|date}}</p>
@@ -22,10 +22,11 @@
             <div class="bottom-detail d-flex">
             
                 <div class="therapist-container">
-                    <h3 id="therapist-detail-title">L'Intervenant</h3>
+                    <h2 class="text-left" id="therapist-detail-title">Intervenant</h2>
                     <div class="therapist-detail d-flex w-100">             
                         {% if  event.therapist %}
                         <div class="mr-3">
+                        
                             <img src={{event.therapist.image ? vich_uploader_asset(event.therapist) : asset('uploads/profil.jpeg')}}  >
                             <p id="name-therapist-detail">{{event.therapist.name}}</p>
                         </div>
@@ -34,8 +35,11 @@
                     </div>
                 </div>
                 <div id="map">
-                    <p>L'addresse: </p>
-                    <img  src="../uploads/map.png">
+                
+                    <h3>addresse: </h3>
+                    
+                    <img class="image-zoom" src="../uploads/map.png">
+                    
                 </div>
             </div> 
         </div> 

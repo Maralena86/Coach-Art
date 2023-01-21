@@ -14,29 +14,25 @@ import './styles/app.scss';
 
 import Swal from "sweetalert2";
 
-"use strict"
 
 
-const navbar = document.querySelector('.nav-fixed');
-const btn = document.querySelector('.menu_burger')
-const menu = document.querySelector('.menu_resp');
-const span = document.querySelectorAll('.line');
 
-window.onscroll = () => {
-    if (window.scrollY > 200) {
-        navbar.classList.add('active');
-    } else {
-        navbar.classList.remove('active');
-    }
-};
+console.log('JS funcionando')
 
-
-btn.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  // span.classList.toggle('active');
-    btn.classList.toggle('active');
-
+// window.onscroll = () => {
+//     if (window.scrollY > 200) {
+//         navbar.classList.add('active');
+//     } else {
+//         navbar.classList.remove('active');
+//     }
+// };
+const hamburger =document.querySelector(".hamburger-menu");
+const navMenu = document.querySelector(".navigation-menu");
+hamburger.addEventListener('click', ()=>{
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
 })
+
 
 window.onload = () => {
     
