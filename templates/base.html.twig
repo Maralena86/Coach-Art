@@ -32,10 +32,10 @@
             <nav class="navigation-menu ">
                 
                 
-                    <ul class="menu-left">
                         <li>
                             <a class="text-center" id="logo" href="{{path('app_home_display')}}">COACH-ART </a>
                         </li>
+                    <ul class="menu-left">
                         {% if is_granted('ROLE_ADMIN') %}
                         <li class="">  
                             <a class="" href="{{path('admin_event_list')}}">Admin</a>
